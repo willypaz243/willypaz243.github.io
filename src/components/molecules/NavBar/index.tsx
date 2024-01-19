@@ -1,17 +1,10 @@
-import { GitHub, LinkedIn, Twitter } from "@mui/icons-material";
 import AdbIcon from "@mui/icons-material/Adb";
 import AppBar from "@mui/material/AppBar";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
 
 const pages = [
   {
@@ -27,25 +20,8 @@ const pages = [
     href: "#projects",
   },
 ];
-const settings = [
-  { name: "Github", icon: <GitHub /> },
-  { name: "LinkedIn", icon: <LinkedIn /> },
-  { name: "Twitter", icon: <Twitter /> },
-];
 
 export function ResponsiveNavBar() {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
-
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <AppBar
       position="static"

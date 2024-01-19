@@ -14,7 +14,7 @@ export function LabelBottomNavigation() {
 
   return (
     <Container
-      maxWidth="lg"
+      // maxWidth="lg"
       sx={{
         display: {
           xs: "fixed",

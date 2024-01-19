@@ -13,7 +13,20 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
-const pages = ["Home", "About", "Contact"];
+const pages = [
+  {
+    name: "Home",
+    href: "#",
+  },
+  {
+    name: "About me",
+    href: "#aboutme",
+  },
+  {
+    name: "Projects",
+    href: "#projects",
+  },
+];
 const settings = [
   { name: "Github", icon: <GitHub /> },
   { name: "LinkedIn", icon: <LinkedIn /> },
@@ -34,7 +47,10 @@ export function ResponsiveNavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{ position: { xs: "fixed", md: "relative" } }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -42,7 +58,7 @@ export function ResponsiveNavBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="#"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -54,7 +70,7 @@ export function ResponsiveNavBar() {
               textDecoration: "none",
             }}
           >
-            Willy
+            WSPC
           </Typography>
 
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -74,52 +90,18 @@ export function ResponsiveNavBar() {
               textDecoration: "none",
             }}
           >
-            Willy
+            WSPC
           </Typography>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.name}
+                href={page.href}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Social media">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{
-                mt: "45px",
-                display: "flex",
-                flexDirection: "column", // Display menu items horizontally
-                alignItems: "center", // Center align menu items horizontally
-              }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "center",
-                horizontal: "center",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "center",
-                horizontal: "center",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map(({ name, icon }) => (
-                <MenuItem key={name} onClick={handleCloseUserMenu}>
-                  {icon}
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

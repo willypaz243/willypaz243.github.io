@@ -13,7 +13,15 @@ export function AboutMeSection() {
       >
         About me
       </Typography>
-      <Typography align="center" color="text.secondary" fontSize={20} paragraph>
+      <Typography
+        align="left"
+        color="text.secondary"
+        fontSize={20}
+        sx={{
+          textWrap: "balance",
+        }}
+        paragraph
+      >
         Hello, I'm Willy - 🚀 Back-End Developer with a bit of knowledge in
         Front-End development and much experience programming. My interest is to
         enhance my skills to create large-scale and high-performance computing

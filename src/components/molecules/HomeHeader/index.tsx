@@ -1,9 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 
 export function HomeHeader() {
+  const theme = useTheme();
   return (
     <Box
       sx={{
+        background: `radial-gradient(circle at top, #222222, ${theme.palette.background.paper})`,
         bgcolor: "background.paper",
         pt: { lg: 25, md: 20, xs: 0 },
         pb: { lg: 20, md: 10, xs: 0 },

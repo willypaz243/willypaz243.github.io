@@ -32,15 +32,22 @@ export function LabelBottomNavigation() {
         value={value}
         onChange={handleChange}
       >
-        <BottomNavigationAction label="Home" value="home" icon={<Home />} />
         <BottomNavigationAction
+          href="#"
+          label="Home"
+          value="home"
+          icon={<Home />}
+        />
+        <BottomNavigationAction
+          href="#aboutme"
           label="About me"
-          value="about"
+          value="aboutme"
           icon={<Info />}
         />
         <BottomNavigationAction
-          label="Contact me"
-          value="contact"
+          href="#projects"
+          label="Projects"
+          value="projects"
           icon={<ContactMail />}
         />
       </BottomNavigation>

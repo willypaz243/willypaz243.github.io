@@ -8,8 +8,20 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import React from "react";
+import { GitHubService, GitProject } from "../../../services/GitHubService";
 
 export function ProjectsSection() {
+  const [p, setP] = React.useState<GitProject[]>([]);
+
+  React.useEffect(() => {
+    GitHubService.getMyDeployedRepos().then(setP).catch(console.error);
+  }, []);
+
+  React.useEffect(() => {
+    console.log(p);
+  }, [p]);
+
   const projects = [
     {
       name: "E-commerce API",

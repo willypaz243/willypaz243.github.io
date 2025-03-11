@@ -1,0 +1,38 @@
+---
+const softSkills = [
+  "Teamwork", "Self-taught", "Adaptability", "Problem-solving", "Analytical thinking",
+  "Attention to detail", "Autonomy and proactivity", "Ability to learn", "Basic English (B1)"
+];
+
+const technicalSkills = [
+  "Python", "Javascript", "Typescript", "Nodejs", "Nestjs", "ExpressJS", "FastAPI", "Flask", 
+  "ReactJS", "React Native", "Django", "Tensorflow", "Pytorch", "Langchain", "SQL databases", 
+  "MongoDB", "Git", "Github", "Docker", "Linux", "AWS Lambda"
+];
+---
+
+<section>
+  <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent-blue-light to-accent-purple-light dark:from-accent-blue-dark dark:to-accent-purple-dark text-transparent bg-clip-text">Skills</h2>
+  
+  <div class="mb-12">
+    <h3 class="text-2xl font-semibold mb-6 text-accent-blue-light dark:text-accent-blue-dark">Soft Skills</h3>
+    <div class="flex flex-wrap gap-3">
+      {softSkills.map(skill => (
+        <span class="px-4 py-2 bg-white dark:bg-gray-800 text-accent-purple-light dark:text-accent-purple-dark rounded-lg shadow-skill hover:shadow-md transition-all transform hover:-translate-y-1">
+          {skill}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-2xl font-semibold mb-6 text-accent-blue-light dark:text-accent-blue-dark">Technical Skills</h3>
+    <div class="flex flex-wrap gap-3">
+      {technicalSkills.map(skill => (
+        <span class="px-4 py-2 bg-white dark:bg-gray-800 text-accent-green-light dark:text-accent-green-dark rounded-lg shadow-skill hover:shadow-md transition-all transform hover:-translate-y-1">
+          {skill}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

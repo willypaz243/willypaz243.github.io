@@ -1,50 +1,70 @@
 ---
 const experiences = [
   {
+    company: "Freelancer",
+    role: "Backend, AI & Chatbots Developer",
+    period: "sep 2020–present",
+    achievements: [
+      "Developed an advanced conversational AI system with LLM integration (OpenAI) and vector database (MongoDB Atlas), utilizing LangChain to implement retrieval-augmented generation (RAG) capabilities for complex contexts.",
+      "Built a modular chatbot service with FastAPI supporting multiple platforms (Telegram, WhatsApp, Web) with persistent conversation context management, integrating LangChain for semantic context handling.",
+      "Implemented context engineering strategies to reduce openai service costs.",
+      "Integrated semantic context management and vector storage tools to improve response accuracy and relevance, using LangChain to orchestrate components.",
+      "Developed an AI-powered content moderation service based on image recognition, filtering inappropriate content.",
+      "Construction of simple question-and-answer chatbots for informational purposes.",
+    ],
+  },
+  {
     company: "Hospy",
-    role: "Full Stack Developer",
+    role: "Full Stack Developer (Computer Vision & OCR)",
     period: "nov 2024–feb 2025",
     achievements: [
-      "Designed and developed an OCR (Optical Character Recognition) web service capable of verifying and extracting information from documents using computer vision.",
-      "Implemented the integration of the Hospy project with another platform, expanding its reach and meeting the needs of new clients."
-    ]
+      "Designed an OCR RESTful API with Google Cloud Vision to extract text from official documents (DNI, passports, etc.).",
+      "Implemented spatial text analysis that detects document type and country of origin.",
+      "Improved accuracy of key fields (names, IDs, dates) through advanced regular expressions.",
+      "Automated the creation of templates for structural document recognition, facilitating the integration of new formats.",
+      "Built unit tests using real dataset samples, ensuring robustness in multiple scenarios.",
+      "Integrated external platforms with Hospy, contributing to increased customer acquisition.",
+    ],
   },
   {
     company: "Canned Head",
     role: "Full Stack Developer",
     period: "nov 2021–nov 2023",
     achievements: [
-      "Designed and developed a web service to automate the recording of Typeform responses, enabling metric and statistical calculations, displaying them in a dashboard, and generating PDF reports.",
-      "Optimized the performance of a web platform, reducing load times by over 70%.",
-      "Implemented unit tests to ensure code quality and efficiency in the company's projects.",
-      "Designed and implemented automated scripts for the periodic collection and management of employee data, facilitating metric and statistical calculations."
-    ]
+      "Delivered an automated web service that records Typeform responses and generates dashboards and PDF reports.",
+      "Reduced platform loading times by 70% through performance optimization (caching, lazy-loading, efficient SQL queries).",
+      "Implemented unit tests that improved code quality and reliability.",
+      "Automated employee data pipelines for performance metrics and evaluations, accelerating report generation processes.",
+    ],
   },
-  {
-    company: "Freelancer",
-    role: "Python Developer",
-    period: "sep 2020–oct 2021",
-    achievements: [
-      "Designed and developed a web service for content moderation using artificial intelligence models for image recognition and analysis.",
-      "Built basic chatbots for customer support on messaging platforms such as WhatsApp, Telegram, and Facebook Messenger."
-    ]
-  }
 ];
 ---
 
 <section class="mb-16">
-  <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent-blue-light to-accent-purple-light dark:from-accent-blue-dark dark:to-accent-purple-dark text-transparent bg-clip-text">Professional Experience</h2>
+  <h2
+    class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent-blue-light to-accent-purple-light dark:from-accent-blue-dark dark:to-accent-purple-dark text-transparent bg-clip-text"
+  >
+    Professional Experience
+  </h2>
   <div class="space-y-12">
-    {experiences.map(exp => (
-      <div class="border-l-2 border-accent-blue-light dark:border-accent-blue-dark pl-6 hover:border-accent-purple-light dark:hover:border-accent-purple-dark transition-colors">
-        <h3 class="text-2xl font-semibold text-accent-blue-light dark:text-accent-blue-dark">{exp.company}</h3>
-        <p class="text-lg text-accent-purple-light dark:text-accent-purple-dark mb-2">{exp.role} · {exp.period}</p>
-        <ul class="list-disc list-inside space-y-3 text-secondary-light dark:text-secondary-dark">
-          {exp.achievements.map(achievement => (
-            <li class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">{achievement}</li>
-          ))}
-        </ul>
-      </div>
-    ))}
+    {
+      experiences.map((exp) => (
+        <div class="border-l-2 border-accent-blue-light dark:border-accent-blue-dark pl-6 hover:border-accent-purple-light dark:hover:border-accent-purple-dark transition-colors">
+          <h3 class="text-2xl font-semibold text-accent-blue-light dark:text-accent-blue-dark">
+            {exp.company}
+          </h3>
+          <p class="text-lg text-accent-purple-light dark:text-accent-purple-dark mb-2">
+            {exp.role} · {exp.period}
+          </p>
+          <ul class="list-disc list-inside space-y-3 text-secondary-light dark:text-secondary-dark">
+            {exp.achievements.map((achievement) => (
+              <li class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
   </div>
 </section>

@@ -49,11 +49,11 @@ const experiences = [
   <div class="space-y-12">
     {
       experiences.map((exp) => (
-        <div class="border-l-2 border-accent-blue-light dark:border-accent-blue-dark pl-6 hover:border-accent-purple-light dark:hover:border-accent-purple-dark transition-colors">
+        <div class="border-l-4 border-accent-blue-light dark:border-accent-blue-dark pl-6 py-2 hover:border-accent-purple-light dark:hover:border-accent-purple-dark transition-colors">
           <h3 class="text-2xl font-semibold text-accent-blue-light dark:text-accent-blue-dark">
             {exp.company}
           </h3>
-          <p class="text-lg text-accent-purple-light dark:text-accent-purple-dark mb-2">
+          <p class="text-lg text-accent-purple-light dark:text-accent-purple-dark mb-3">
             {exp.role} · {exp.period}
           </p>
           <ul class="list-disc list-inside space-y-3 text-secondary-light dark:text-secondary-dark">
@@ -68,3 +68,4 @@ const experiences = [
     }
   </div>
 </section>
+

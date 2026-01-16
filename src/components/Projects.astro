@@ -79,23 +79,23 @@ const projects = [
       projects
         .filter((p) => p.link !== "#")
         .map((project) => (
-          <article class="p-8 rounded-xl bg-white dark:bg-gray-800 shadow-card hover:shadow-lg transition-all transform hover:-translate-y-1">
+          <article class="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-card hover:shadow-lg transition-all transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
             <h3 class="text-2xl font-semibold mb-3 text-accent-blue-light dark:text-accent-blue-dark">
               {project.title}
             </h3>
-            <p class="text-secondary-light dark:text-secondary-dark mb-6">
+            <p class="text-secondary-light dark:text-secondary-dark mb-4">
               {project.description}
             </p>
             <div class="flex flex-wrap gap-2 mb-6">
               {project.technologies.map((tech) => (
-                <span class="px-3 py-1 text-sm rounded-full bg-accent-purple-light/10 dark:bg-accent-purple-dark/10 text-accent-purple-light dark:text-accent-purple-dark">
+                <span class="px-3 py-1 text-sm rounded-full bg-accent-purple-light/10 dark:bg-accent-purple-dark/10 text-accent-purple-light dark:text-accent-purple-dark border border-accent-purple-light/20 dark:border-accent-purple-dark/20">
                   {tech}
                 </span>
               ))}
             </div>
             <a
               href={project.link}
-              class="inline-flex items-center text-accent-blue-light dark:text-accent-blue-dark hover:text-accent-purple-light dark:hover:text-accent-purple-dark transition-colors"
+              class="inline-flex items-center text-accent-blue-light dark:text-accent-blue-dark hover:text-accent-purple-light dark:hover:text-accent-purple-dark transition-colors font-medium"
               target="_blank"
             >
               View Project
@@ -117,3 +117,4 @@ const projects = [
     }
   </div>
 </section>
+

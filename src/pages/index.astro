@@ -10,16 +10,16 @@ import Skills from '../components/Skills.astro';
 <Layout>
   <Navigation />
   <main class="max-w-4xl mx-auto px-4 py-12 space-y-24">
-    <div id="about" class="scroll-mt-16">
+    <div id="about" class="scroll-mt-16 animate-fade-in">
       <Hero />
     </div>
-    <div id="experience" class="scroll-mt-16">
+    <div id="experience" class="scroll-mt-16 animate-fade-in">
       <Experience />
     </div>
-    <div id="projects" class="scroll-mt-16">
+    <div id="projects" class="scroll-mt-16 animate-fade-in">
       <Projects />
     </div>
-    <div id="skills" class="scroll-mt-16">
+    <div id="skills" class="scroll-mt-16 animate-fade-in">
       <Skills />
     </div>
   </main>
@@ -28,5 +28,14 @@ import Skills from '../components/Skills.astro';
 <style>
   html {
     scroll-behavior: smooth;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 </style>

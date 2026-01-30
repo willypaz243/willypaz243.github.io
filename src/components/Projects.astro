@@ -1,110 +1,37 @@
 ---
-const projects = [
-  {
-    title: "ChekiBot",
-    description:
-      "A sophisticated conversational AI system built with Python, FastAPI, and LangChain Core, designed to provide intelligent chatbot capabilities using various language models including Nebius and OpenAI. This project was developed for chequeabolivia.bo.",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "LangChain",
-      "OpenAI API",
-      "Nebius",
-      "MongoDB Atlas",
-      "Docker",
-      "Nginx",
-    ],
-    link: "https://chekibot.chequeabolivia.bo/",
-  },
-  {
-    title: "Cappuchino AI",
-    description:
-      "Un chatbot con capacidades agenticas para la consulta de horarios y organización de horarios en la facultad de ciencia y tecnología de la Universidad Mayor se San Simón",
-    technologies: [
-      "React",
-      "Node.js",
-      "Python",
-      "FastAPI",
-      "LangChain",
-      "PostgreSQL",
-      "Docker",
-      "Nginx",
-      "MCP (Model context Protocol)",
-    ],
-    link: "#",
-  },
-  {
-    title: "OCR para documentos de identidad",
-    description:
-      "Un servicio de ocr para la extracción de datos de documentos de identidad.",
-    technologies: [
-      "React",
-      "Node.js",
-      "FastAPI",
-      "Python",
-      "PyTorch",
-      "Tesseract",
-      "Docker",
-      "Nginx",
-    ],
-    link: "#",
-  },
-  {
-    title: "Buscador semántico",
-    description:
-      "Un buscador semántico basado en embeddings para la búsqueda de productos y servicios",
-    technologies: [
-      "React",
-      "Node.js",
-      "Python",
-      "FastAPI",
-      "LangChain",
-      "PostgreSQL",
-      "Docker",
-      "Nginx",
-    ],
-    link: "#",
-  },
-];
+import profile from '../data/profile.json';
 ---
 
 <section class="mb-16">
   <h2
-    class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent-blue-light to-accent-purple-light dark:from-accent-blue-dark dark:to-accent-purple-dark text-transparent bg-clip-text"
+    class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
   >
     Featured Projects
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     {
-      projects
-        .filter((p) => p.link !== "#")
-        .map((project) => (
-          <article class="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-card hover:shadow-lg transition-all transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-            <h3 class="text-2xl font-semibold mb-3 text-accent-blue-light dark:text-accent-blue-dark">
+      profile.projects
+        .filter(p => p.link !== '#')
+        .map(project => (
+          <article class="p-6 rounded-miku bg-miku-surface dark:bg-miku-dark-surface shadow-miku-light hover:shadow-miku-dark transition-all transform hover:-translate-y-1 border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan">
+            <h3 class="text-2xl font-semibold mb-3 text-miku-teal-strong dark:text-miku-cyan">
               {project.title}
             </h3>
-            <p class="text-secondary-light dark:text-secondary-dark mb-4">
-              {project.description}
-            </p>
+            <p class="text-miku-text-dim dark:text-miku-dark-dim mb-4">{project.description}</p>
             <div class="flex flex-wrap gap-2 mb-6">
-              {project.technologies.map((tech) => (
-                <span class="px-3 py-1 text-sm rounded-full bg-accent-purple-light/10 dark:bg-accent-purple-dark/10 text-accent-purple-light dark:text-accent-purple-dark border border-accent-purple-light/20 dark:border-accent-purple-dark/20">
+              {project.technologies.map(tech => (
+                <span class="px-3 py-1 text-sm rounded-full bg-miku-cyan/10 dark:bg-miku-cyan/20 text-miku-cyan dark:text-miku-glow border border-miku-cyan/20 dark:border-miku-cyan/30">
                   {tech}
                 </span>
               ))}
             </div>
             <a
               href={project.link}
-              class="inline-flex items-center text-accent-blue-light dark:text-accent-blue-dark hover:text-accent-purple-light dark:hover:text-accent-purple-dark transition-colors font-medium"
+              class="inline-flex items-center text-miku-cyan dark:text-miku-glow hover:text-miku-teal-strong dark:hover:text-miku-magenta transition-colors font-medium"
               target="_blank"
             >
               View Project
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 ml-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                 <path
                   fill-rule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

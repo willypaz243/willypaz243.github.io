@@ -1,0 +1,35 @@
+---
+import profile from '../data/profile.json';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<!-- Desktop Navigation Bar -->
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-miku-surface/80 dark:bg-miku-dark-surface/80 backdrop-blur-md border-b border-miku-cyan/20 dark:border-miku-cyan/20"
+>
+  <div class="container mx-auto px-4 sm:px-8 lg:px-12">
+    <div class="flex justify-between items-center h-[70px]">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
+          &lt; WillyDev /&gt;
+        </span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ThemeToggle />
+      <div class="hidden sm:flex gap-8">
+        {
+          profile.navigation.map(section => (
+            <a
+              href={`#${section.id}`}
+              class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+            >
+              {section.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</nav>

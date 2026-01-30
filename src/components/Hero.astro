@@ -2,12 +2,39 @@
 import profile from '../data/profile.json';
 ---
 
-<section class="min-h-screen flex flex-col items-center justify-center pt-20 pb-8 animate-fade-in">
+<style>
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: #39c5bb;
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<section class="py-20 lg:py-32 flex flex-col items-center justify-center animate-fade-in">
   <!-- Terminal Window -->
-  <div class="w-full max-w-3xl mb-8">
-    <div class="rounded-xl overflow-hidden border-2 border-miku-cyan/30 dark:border-miku-cyan/30 shadow-2xl shadow-miku-cyan/10 dark:shadow-miku-cyan/20">
+  <div class="w-full max-w-3xl mb-10 sm:mb-12 min-h-[330px]">
+    <div
+      class="rounded-xl overflow-hidden border-2 border-miku-cyan/30 dark:border-miku-cyan/30 shadow-2xl shadow-miku-cyan/10 dark:shadow-miku-cyan/20"
+    >
       <!-- Terminal Header -->
-      <div class="bg-miku-surface dark:bg-miku-dark-surface px-4 py-3 flex items-center gap-2 border-b border-miku-cyan/20 dark:border-miku-cyan/20">
+      <div
+        class="bg-miku-surface dark:bg-miku-dark-surface px-4 py-3 flex items-center gap-2 border-b border-miku-cyan/20 dark:border-miku-cyan/20"
+      >
         <div class="w-3 h-3 rounded-full bg-red-500"></div>
         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
         <div class="w-3 h-3 rounded-full bg-green-500"></div>
@@ -15,22 +42,23 @@ import profile from '../data/profile.json';
 
       <!-- Terminal Content -->
       <div class="bg-miku-base dark:bg-miku-dark-base p-4 sm:p-6 font-mono text-xs sm:text-sm md:text-base">
-        <div id="terminal-code" class="text-miku-text-main dark:text-miku-dark-text whitespace-pre-wrap break-words"></div>
+        <div id="terminal-code" class="text-miku-text-main dark:text-miku-dark-text whitespace-pre-wrap break-words">
+        </div>
       </div>
     </div>
   </div>
 
   <!-- CTA Buttons -->
-  <div class="flex flex-wrap gap-4 justify-center">
+  <div class="flex flex-wrap gap-3 sm:gap-4 justify-center">
     <a
       href="#projects"
-      class="px-8 py-3 rounded-xl bg-miku-cyan dark:bg-miku-cyan text-miku-base dark:text-miku-dark-base font-semibold hover:bg-miku-glow dark:hover:bg-miku-glow hover:shadow-miku-neon dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
+      class="px-6 py-2.5 sm:px-8 sm:py-3 rounded-xl bg-miku-cyan dark:bg-miku-cyan text-miku-base dark:text-miku-dark-base font-semibold text-sm sm:text-base hover:bg-miku-glow dark:hover:bg-miku-glow hover:shadow-miku-neon dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
     >
       Ver Proyectos
     </a>
     <a
       href="#contact"
-      class="px-8 py-3 rounded-xl border-2 border-miku-cyan dark:border-miku-cyan text-miku-cyan dark:text-miku-cyan font-semibold hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/10 hover:shadow-miku-light dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
+      class="px-6 py-2.5 sm:px-8 sm:py-3 rounded-xl border-2 border-miku-cyan dark:border-miku-cyan text-miku-cyan dark:text-miku-cyan font-semibold text-sm sm:text-base hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/10 hover:shadow-miku-light dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
     >
       Contacto
     </a>
@@ -51,26 +79,26 @@ class Developer(BaseModel):
 
   // Syntax highlighting colors (Miku palette)
   const colors = {
-    keyword: "#FF0080",      // MAGENTA_POP for keywords
-    string: "#00E676",       // FUNC_SUCCESS for strings
-    number: "#48FFF4",       // MIKU_GLOW for numbers
-    comment: "#8B949E",      // TXT_DIM for comments
-    class_name: "#39C5BB",   // MIKU_CYAN for class names
-    function: "#7B61FF",     // TECH_VIOLET for functions
-    default: "#F0F6FC"       // TXT_MAIN for default
+    keyword: '#FF0080', // MAGENTA_POP for keywords
+    string: '#00E676', // FUNC_SUCCESS for strings
+    number: '#48FFF4', // MIKU_GLOW for numbers
+    comment: '#8B949E', // TXT_DIM for comments
+    class_name: '#39C5BB', // MIKU_CYAN for class names
+    function: '#7B61FF', // TECH_VIOLET for functions
+    default: '#F0F6FC', // TXT_MAIN for default
   };
 
   // Tokenize and highlight code
   function highlightCode(code) {
     // Escape HTML first
-    let result = code
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+    let result = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     // Token types with their patterns
     const tokens = [
       { type: 'string', pattern: /(".*?"|'.*?')/g },
-      { type: 'keyword', pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None)\b/g },
+      {
+        type: 'keyword',
+        pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None)\b/g,
+      },
       { type: 'class_name', pattern: /\b([A-Z][a-zA-Z0-9_]*)\b/g },
       { type: 'number', pattern: /\b(\d+)\b/g },
     ];
@@ -89,7 +117,7 @@ class Developer(BaseModel):
           type: token.type,
           start: match.index,
           end: match.index + match[0].length,
-          text: match[0]
+          text: match[0],
         });
       }
     });
@@ -138,7 +166,7 @@ class Developer(BaseModel):
 
   // Typing animation
   async function typeCode() {
-    const terminal = document.getElementById("terminal-code");
+    const terminal = document.getElementById('terminal-code');
     if (!terminal) return;
 
     const typingSpeed = 5; // ms per character
@@ -155,7 +183,7 @@ class Developer(BaseModel):
 
     // Remove cursor after typing completes
     setTimeout(() => {
-      const cursor = terminal.querySelector(".cursor");
+      const cursor = terminal.querySelector('.cursor');
       if (cursor) cursor.remove();
     }, 2000);
   }
@@ -163,21 +191,3 @@ class Developer(BaseModel):
   // Start animation when component loads
   typeCode();
 </script>
-
-<style>
-  .cursor {
-    display: inline-block;
-    width: 10px;
-    height: 1.2em;
-    background: #39C5BB;
-    animation: blink 1s infinite;
-    vertical-align: text-bottom;
-    margin-left: 2px;
-  }
-
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-</style>
-

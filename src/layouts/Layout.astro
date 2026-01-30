@@ -1,12 +1,13 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro';
+import DesktopNav from '../components/DesktopNav.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Willy Samuel Paz Colque - Portfolio</title>
@@ -16,15 +17,14 @@ import ThemeToggle from '../components/ThemeToggle.astro';
     />
   </head>
   <body
-    class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300"
+    class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
   >
     <div class="relative">
-      <ThemeToggle />
-      <div
-        class="inset-0 bg-gradient-to-br from-miku-cyan/5 to-miku-glow/5 dark:from-miku-cyan/10 dark:to-miku-glow/10 -z-10"
-      >
-      </div>
+      <!-- Desktop Navigation (only visible on desktop) -->
+      <DesktopNav />
       <slot />
+      <!-- Mobile Navigation (only visible on mobile) -->
+      <Navigation />
     </div>
   </body>
 </html>

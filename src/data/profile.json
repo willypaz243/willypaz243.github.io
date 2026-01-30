@@ -8,9 +8,10 @@
     "github": "https://github.com/willypaz243/"
   },
   "about": {
-    "experience": "4 years",
+    "title": "About me",
+    "experience": 4,
     "expertise": "nearly a decade of programming expertise",
-    "description": "Full Stack Web Developer with over 3 years of experience and nearly a decade of programming expertise. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
+    "description": "Full Stack Web Developer with over 4 years of experience and nearly a decade of programming expertise. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
   },
   "softSkills": [
     "Teamwork",
@@ -89,16 +90,7 @@
     {
       "title": "ChekiBot",
       "description": "A sophisticated conversational AI system built with Python, FastAPI, and LangChain Core, designed to provide intelligent chatbot capabilities using various language models including Nebius and OpenAI. This project was developed for chequeabolivia.bo.",
-      "technologies": [
-        "Python",
-        "FastAPI",
-        "LangChain",
-        "OpenAI API",
-        "Nebius",
-        "MongoDB Atlas",
-        "Docker",
-        "Nginx"
-      ],
+      "technologies": ["Python", "FastAPI", "LangChain", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
       "link": "https://chekibot.chequeabolivia.bo/"
     },
     {
@@ -120,31 +112,13 @@
     {
       "title": "OCR para documentos de identidad",
       "description": "Un servicio de ocr para la extracción de datos de documentos de identidad.",
-      "technologies": [
-        "React",
-        "Node.js",
-        "FastAPI",
-        "Python",
-        "PyTorch",
-        "Tesseract",
-        "Docker",
-        "Nginx"
-      ],
+      "technologies": ["React", "Node.js", "FastAPI", "Python", "PyTorch", "Tesseract", "Docker", "Nginx"],
       "link": "#"
     },
     {
       "title": "Buscador semántico",
       "description": "Un buscador semántico basado en embeddings para la búsqueda de productos y servicios",
-      "technologies": [
-        "React",
-        "Node.js",
-        "Python",
-        "FastAPI",
-        "LangChain",
-        "PostgreSQL",
-        "Docker",
-        "Nginx"
-      ],
+      "technologies": ["React", "Node.js", "Python", "FastAPI", "LangChain", "PostgreSQL", "Docker", "Nginx"],
       "link": "#"
     }
   ],

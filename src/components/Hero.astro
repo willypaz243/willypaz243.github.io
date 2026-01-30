@@ -2,75 +2,182 @@
 import profile from '../data/profile.json';
 ---
 
-<section class="mb-16 animate-fade-in">
-  <div class="mb-6">
-    <span
-      class="text-miku-teal-strong dark:text-miku-glow font-medium text-lg tracking-wide inline-block py-2 px-4 rounded-full bg-miku-cyan/10 dark:bg-miku-magenta/10 border border-miku-cyan/20 dark:border-miku-magenta/20 transition-all duration-300 hover:border-miku-cyan/50 dark:hover:border-miku-magenta/50 hover:shadow-miku-dark dark:hover:shadow-miku-neon"
-    >
-      {profile.personal.title}
-    </span>
+<section class="min-h-screen flex flex-col items-center justify-center pt-20 pb-8 animate-fade-in">
+  <!-- Terminal Window -->
+  <div class="w-full max-w-3xl mb-8">
+    <div class="rounded-xl overflow-hidden border-2 border-miku-cyan/30 dark:border-miku-cyan/30 shadow-2xl shadow-miku-cyan/10 dark:shadow-miku-cyan/20">
+      <!-- Terminal Header -->
+      <div class="bg-miku-surface dark:bg-miku-dark-surface px-4 py-3 flex items-center gap-2 border-b border-miku-cyan/20 dark:border-miku-cyan/20">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+
+      <!-- Terminal Content -->
+      <div class="bg-miku-base dark:bg-miku-dark-base p-4 sm:p-6 font-mono text-xs sm:text-sm md:text-base">
+        <div id="terminal-code" class="text-miku-text-main dark:text-miku-dark-text whitespace-pre-wrap break-words"></div>
+      </div>
+    </div>
   </div>
-  <h1
-    class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text leading-tight transition-all duration-300 hover:from-miku-teal-strong dark:hover:from-miku-cyan hover:to-miku-glow dark:hover:to-miku-magenta"
-  >
-    {profile.personal.name}
-  </h1>
-  <div class="text-miku-text-dim dark:text-miku-dark-dim mb-8 text-lg">
-    <p class="flex flex-wrap gap-2 items-center">
-      <span class="flex items-center">
-        <svg fill="currentColor" class="w-5 h-5 mr-1 text-miku-cyan dark:text-miku-glow" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 1 1 9.9 9.9L10 18.9l-4.95-4.95a7 7 0 0 1 0-9.9M10 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4" clip-rule="evenodd"/></svg>
-        {profile.personal.location}
-      </span>
-      <span class="text-miku-text-dim dark:text-miku-dark-dim">·</span>
-      <a
-        href={profile.personal.linkedin}
-        class="flex items-center text-miku-cyan dark:text-miku-glow hover:text-miku-teal-strong dark:hover:text-miku-magenta hover:underline transition-colors duration-300"
-      >
-        <svg class="w-5 h-5 mr-1 text-miku-cyan dark:text-miku-glow" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-          ></path>
-        </svg>
-        LinkedIn
-      </a>
-      <span class="text-miku-text-dim dark:text-miku-dark-dim">·</span>
-      <a
-        href={profile.personal.github}
-        class="flex items-center text-miku-cyan dark:text-miku-glow hover:text-miku-teal-strong dark:hover:text-miku-magenta hover:underline transition-colors duration-300"
-      >
-        <svg class="w-5 h-5 mr-1 text-miku-cyan dark:text-miku-glow" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.673-.217.673-.483 0-.237-.008-.867-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.905-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.657.341-1.088.61-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.987 1.028-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.026 2.747-1.026.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.687 0 3.841-2.339 4.687-4.566 4.934.359.309.678.92.678 1.855 0 1.337-.012 2.417-.012 2.744 0 .267.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-          ></path>
-        </svg>
-        GitHub
-      </a>
-      <span class="text-miku-text-dim dark:text-miku-dark-dim">·</span>
-      <a
-        href={`mailto:${profile.personal.email}`}
-        class="flex items-center text-miku-cyan dark:text-miku-glow hover:text-miku-teal-strong dark:hover:text-miku-magenta hover:underline transition-colors duration-300"
-      >
-        <svg class="w-5 h-5 mr-1 text-miku-cyan dark:text-miku-glow" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-        </svg>
-        Email
-      </a>
-    </p>
-  </div>
-  <div class="flex gap-4 mt-8">
+
+  <!-- CTA Buttons -->
+  <div class="flex flex-wrap gap-4 justify-center">
     <a
-      href={`mailto:${profile.personal.email}`}
-      class="px-8 py-3 rounded-miku bg-miku-cyan dark:bg-miku-cyan text-white dark:text-miku-text-main font-semibold hover:bg-miku-glow dark:hover:bg-miku-cyan hover:shadow-miku-neon dark:hover:shadow-miku-dark transition-all duration-300 transform hover:-translate-y-1"
+      href="#projects"
+      class="px-8 py-3 rounded-xl bg-miku-cyan dark:bg-miku-cyan text-miku-base dark:text-miku-dark-base font-semibold hover:bg-miku-glow dark:hover:bg-miku-glow hover:shadow-miku-neon dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
     >
-      Get in Touch
+      Ver Proyectos
     </a>
     <a
-      href="#experience"
-      class="px-8 py-3 rounded-miku border-2 border-miku-cyan dark:border-miku-magenta text-miku-cyan dark:text-miku-magenta font-semibold hover:bg-miku-cyan/10 dark:hover:bg-miku-magenta/10 hover:shadow-miku-light dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
+      href="#contact"
+      class="px-8 py-3 rounded-xl border-2 border-miku-cyan dark:border-miku-cyan text-miku-cyan dark:text-miku-cyan font-semibold hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/10 hover:shadow-miku-light dark:hover:shadow-miku-neon transition-all duration-300 transform hover:-translate-y-1"
     >
-      View Experience
+      Contacto
     </a>
   </div>
 </section>
+
+<script define:vars={{ profile }}>
+  // Python code to type out
+  const code = `from pydantic import BaseModel
+
+class Developer(BaseModel):
+    name: str = "${profile.personal.name}"
+    role: str = "${profile.personal.title}"
+    location: str = "${profile.personal.location}"
+    skills: list[str] = ["Python", "FastAPI", "LangChain", "Docker", "AWS Lambda"]
+    experience_years: int = 4
+    expertise: list[str] = ["Computer Vision", "OCR", "LLM", "Backend"]`;
+
+  // Syntax highlighting colors (Miku palette)
+  const colors = {
+    keyword: "#FF0080",      // MAGENTA_POP for keywords
+    string: "#00E676",       // FUNC_SUCCESS for strings
+    number: "#48FFF4",       // MIKU_GLOW for numbers
+    comment: "#8B949E",      // TXT_DIM for comments
+    class_name: "#39C5BB",   // MIKU_CYAN for class names
+    function: "#7B61FF",     // TECH_VIOLET for functions
+    default: "#F0F6FC"       // TXT_MAIN for default
+  };
+
+  // Tokenize and highlight code
+  function highlightCode(code) {
+    // Escape HTML first
+    let result = code
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    // Token types with their patterns
+    const tokens = [
+      { type: 'string', pattern: /(".*?"|'.*?')/g },
+      { type: 'keyword', pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None)\b/g },
+      { type: 'class_name', pattern: /\b([A-Z][a-zA-Z0-9_]*)\b/g },
+      { type: 'number', pattern: /\b(\d+)\b/g },
+    ];
+
+    // Track which positions are already highlighted
+    const highlighted = new Set();
+    const parts = [];
+
+    // Find all token matches
+    const matches = [];
+    tokens.forEach(token => {
+      let match;
+      const regex = new RegExp(token.pattern.source, token.pattern.flags);
+      while ((match = regex.exec(result)) !== null) {
+        matches.push({
+          type: token.type,
+          start: match.index,
+          end: match.index + match[0].length,
+          text: match[0]
+        });
+      }
+    });
+
+    // Sort matches by start position
+    matches.sort((a, b) => a.start - b.start);
+
+    // Build highlighted string
+    let lastEnd = 0;
+    matches.forEach(match => {
+      // Check if this match overlaps with already highlighted content
+      let overlaps = false;
+      for (let i = match.start; i < match.end; i++) {
+        if (highlighted.has(i)) {
+          overlaps = true;
+          break;
+        }
+      }
+
+      if (!overlaps) {
+        // Add non-highlighted text before this match
+        if (match.start > lastEnd) {
+          parts.push(result.substring(lastEnd, match.start));
+        }
+
+        // Add highlighted text
+        const color = colors[match.type] || colors.default;
+        parts.push(`<span style="color: ${color}">${match.text}</span>`);
+
+        // Mark positions as highlighted
+        for (let i = match.start; i < match.end; i++) {
+          highlighted.add(i);
+        }
+
+        lastEnd = match.end;
+      }
+    });
+
+    // Add remaining non-highlighted text
+    if (lastEnd < result.length) {
+      parts.push(result.substring(lastEnd));
+    }
+
+    return parts.join('');
+  }
+
+  // Typing animation
+  async function typeCode() {
+    const terminal = document.getElementById("terminal-code");
+    if (!terminal) return;
+
+    const typingSpeed = 5; // ms per character
+
+    for (let i = 1; i <= code.length; i++) {
+      const partialCode = code.substring(0, i);
+      const highlighted = highlightCode(partialCode);
+
+      // Add cursor
+      terminal.innerHTML = highlighted + '<span class="cursor">|</span>';
+
+      await new Promise(resolve => setTimeout(resolve, typingSpeed));
+    }
+
+    // Remove cursor after typing completes
+    setTimeout(() => {
+      const cursor = terminal.querySelector(".cursor");
+      if (cursor) cursor.remove();
+    }, 2000);
+  }
+
+  // Start animation when component loads
+  typeCode();
+</script>
+
+<style>
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: #39C5BB;
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+</style>
 

@@ -20,7 +20,9 @@ import Navigation from '../components/Navigation.astro';
     class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
   >
     <div class="relative">
+      <DesktopNav />
       <slot />
+      <Navigation />
     </div>
   </body>
 </html>

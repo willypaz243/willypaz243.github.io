@@ -1,6 +1,7 @@
 ---
 import DesktopNav from '../components/DesktopNav.astro';
 import Navigation from '../components/Navigation.astro';
+import profile from '../data/profile.json';
 ---
 
 <!doctype html>
@@ -11,10 +12,7 @@ import Navigation from '../components/Navigation.astro';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Willy Samuel Paz Colque - Portfolio</title>
-    <meta
-      name="description"
-      content="Full Stack Web Developer with over 3 years of experience and nearly a decade of programming expertise."
-    />
+    <meta name="description" content={profile.about.description} />
   </head>
   <body
     class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"

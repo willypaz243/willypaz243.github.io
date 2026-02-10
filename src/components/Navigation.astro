@@ -4,24 +4,38 @@ import profile from '../data/profile.json';
 
 <!-- Mobile Navigation Bar -->
 <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-  <ul class="flex gap-2 p-2 lg:gap-3 lg:p-3 bg-miku-surface dark:bg-miku-dark-surface rounded-full lg:rounded-xl shadow-miku-light">
-    {
-      profile.navigation.map(section => (
-        <li>
-          <a
-            href={`#${section.id}`}
-            class="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full lg:rounded-xl hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 text-miku-text-main dark:text-miku-dark-text transition-colors dark:hover:shadow-miku-dark group relative"
-            title={section.label}
-          >
-            {section.icon}
+    <ul class="flex gap-2 p-2 lg:gap-3 lg:p-3 bg-miku-surface dark:bg-miku-dark-surface rounded-full lg:rounded-xl shadow-miku-light">
+      {
+        profile.navigation.map(section => (
+          <li>
+            <a
+              href={`#${section.id}`}
+              class="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full lg:rounded-xl hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 text-miku-text-main dark:text-miku-dark-text transition-colors dark:hover:shadow-miku-dark group relative"
+              title={section.label}
+            >
+              {section.icon}
 
-            <!-- Tooltip (visible on hover) -->
-            <span class="absolute -top-12 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-miku-text-main dark:text-miku-dark-text bg-miku-surface dark:bg-miku-dark-surface border border-miku-cyan dark:border-miku-cyan rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-              {section.label}
-            </span>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+              <!-- Tooltip (visible on hover) -->
+              <span class="absolute -top-12 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-miku-text-main dark:text-miku-dark-text bg-miku-surface dark:bg-miku-dark-surface border border-miku-cyan dark:border-miku-cyan rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                {section.label}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="#footer"
+          class="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full lg:rounded-xl hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 text-miku-text-main dark:text-miku-dark-text transition-colors dark:hover:shadow-miku-dark group relative"
+          title="Contact"
+        >
+          📧
+
+          <!-- Tooltip -->
+          <span class="absolute -top-12 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-miku-text-main dark:text-miku-dark-text bg-miku-surface dark:bg-miku-dark-surface border border-miku-cyan dark:border-miku-cyan rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            Contact
+          </span>
+        </a>
+      </li>
+    </ul>
 </nav>

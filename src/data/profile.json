@@ -11,7 +11,13 @@
     "title": "About me",
     "experience": 4,
     "expertise": "nearly a decade of programming expertise",
-    "description": "Full Stack Web Developer with over 4 years of experience. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
+    "description": "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions."
+  },
+  "contact": {
+    "title": "Contact me",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/"
   },
   "skills": {
     "ai_ml_engineering": {

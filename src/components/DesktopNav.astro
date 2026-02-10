@@ -10,11 +10,13 @@ import ThemeToggle from './ThemeToggle.astro';
   <div class="container mx-auto px-4 sm:px-8 lg:px-12">
     <div class="flex justify-between items-center h-[70px]">
       <!-- Logo -->
+      <a href="#" aria-label="Ir al inicio">
       <div class="flex items-center">
         <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
           &lt; WillyDev /&gt;
         </span>
       </div>
+      </a>
 
       <!-- Navigation Links -->
       <div class="sm:flex gap-8">
@@ -29,6 +31,12 @@ import ThemeToggle from './ThemeToggle.astro';
               </a>
             ))
           }
+          <a
+            href="#footer"
+            class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+          >
+            📧 Contact
+          </a>
         </div>
         <ThemeToggle />
       </div>

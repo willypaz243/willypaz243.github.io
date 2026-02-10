@@ -11,42 +11,97 @@
     "title": "About me",
     "experience": 4,
     "expertise": "nearly a decade of programming expertise",
-    "description": "Full Stack Web Developer with over 4 years of experience and nearly a decade of programming expertise. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
+    "description": "Full Stack Web Developer with over 4 years of experience. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
   },
-  "softSkills": [
-    "Teamwork",
-    "Self-taught",
-    "Adaptability",
-    "Problem-solving",
-    "Analytical thinking",
-    "Attention to detail",
-    "Autonomy and proactivity",
-    "Ability to learn",
-    "Basic English (B1)"
-  ],
-  "technicalSkills": [
-    "Python",
-    "Javascript",
-    "Typescript",
-    "Nodejs",
-    "Nestjs",
-    "ExpressJS",
-    "FastAPI",
-    "Flask",
-    "ReactJS",
-    "React Native",
-    "Django",
-    "Tensorflow",
-    "Pytorch",
-    "Langchain",
-    "SQL databases",
-    "MongoDB",
-    "Git",
-    "Github",
-    "Docker",
-    "Linux",
-    "AWS Lambda"
-  ],
+  "skills": {
+    "ai_ml_engineering": {
+      "title": "AI & ML Engineering",
+      "expertise": "Chatbots, RAG systems, Computer Vision",
+      "expert_level": 4,
+      "proficient_tools": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "RAG systems",
+        "Embeddings",
+        "Vector databases"
+      ],
+      "familiar_tools": ["TensorFlow", "PyTorch", "Tesseract", "Computer Vision", "OCR"]
+    },
+    "full_stack_development": {
+      "title": "Full Stack Development",
+      "expertise": "React, Node.js, REST APIs",
+      "expert_level": 5,
+      "proficient_tools": [
+        "ReactJS",
+        "React Native",
+        "Node.js",
+        "ExpressJS",
+        "PostgreSQL",
+        "SQL databases",
+        "NestJS",
+        "RESTful APIs"
+      ],
+      "familiar_tools": ["Django", "HTML/CSS", "Frontend testing"]
+    },
+    "devops_infrastructure": {
+      "title": "DevOps & Cloud",
+      "expertise": "Containerization, deployment, cloud",
+      "expert_level": 3,
+      "proficient_tools": ["Docker", "Nginx", "AWS Lambda", "Linux", "Git", "CI/CD"],
+      "familiar_tools": ["Version Control", "Serverless"]
+    },
+    "soft_skills": [
+      {
+        "name": "Teamwork",
+        "importance": "very-high",
+        "experience": "Collaborative development across multiple teams and projects"
+      },
+      {
+        "name": "Self-taught",
+        "importance": "very-high",
+        "experience": "Continuous learning across AI, backend, and frontend technologies"
+      },
+      {
+        "name": "Adaptability",
+        "importance": "very-high",
+        "experience": "Quickly learning new tools for AI integration and production systems"
+      },
+      {
+        "name": "Problem-solving",
+        "importance": "very-high",
+        "experience": "Optimization, debugging, and system design challenges"
+      },
+      {
+        "name": "Analytical thinking",
+        "importance": "high",
+        "experience": "Data-driven decision making for AI and system improvements"
+      },
+      {
+        "name": "Attention to detail",
+        "importance": "very-high",
+        "experience": "Code quality, security, and API precision"
+      },
+      {
+        "name": "Autonomy and proactivity",
+        "importance": "very-high",
+        "experience": "Leading AI projects and independent full-stack development"
+      },
+      {
+        "name": "Ability to learn",
+        "importance": "very-very-high",
+        "experience": "Mastering new AI technologies, LLMs, and modern frameworks"
+      },
+      {
+        "name": "English (B1)",
+        "importance": "medium",
+        "experience": "Technical documentation and basic communication"
+      }
+    ]
+  },
   "experience": [
     {
       "company": "Freelancer",

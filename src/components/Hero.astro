@@ -20,7 +20,7 @@ import profile from '../data/profile.json';
   }
 </style>
 
-<section class="lg:py-32 flex flex-col items-center justify-center animate-fade-in">
+<section class="lg:pt-32 flex flex-col items-center justify-center animate-fade-in">
   <!-- Terminal Window -->
   <div class="w-full max-w-3xl mb-10 sm:mb-12 min-h-[330px]">
     <div
@@ -47,30 +47,32 @@ import profile from '../data/profile.json';
   <div class="flex gap-3 sm:gap-4 justify-center mt-5 mb-5 sm:mb-12">
     <a
       href="#projects"
-      class="btn-primary inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+      class="btn-primary inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base rounded-xl transition-all duration-300 transform hover:-translate-y-1"
     >
       Ver Proyectos
     </a>
     <a
       href="#contact"
-      class="btn-outline inline-block px-6 py-2.5 border border-gray-600 hover:border-miku-cyan hover:text-miku-cyan text-gray-300 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+      class="btn-outline inline-block px-6 py-2.5 border border-gray-600 hover:border-miku-cyan hover:text-miku-cyan text-gray-300 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
     >
       Contacto
     </a>
   </div>
 
   <!-- About Info -->
-  <h2 class="text-center text-3xl font-semibold text-miku-teal-strong dark:text-miku-cyan">
-    {profile.about.title}
-  </h2>
-  <div class="about-content">
-    <p class="text-miku-text-dim dark:text-miku-dark-dim text-center mt-10">
-      {profile.about.description}
-    </p>
+  <div class="w-full max-w-3xl mx-auto">
+    <h2 class="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text">
+      {profile.about.title}
+    </h2>
+    <div class="about-content">
+      <p class="text-miku-text-main dark:text-miku-dark-text text-center text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+        {profile.about.description}
+      </p>
+    </div>
   </div>
 </section>
 
-<script define:vars={{ profile }}>
+<script is:inline define:vars={{ profile }}>
   // Python code to type out
   const code = `from pydantic import BaseModel
 

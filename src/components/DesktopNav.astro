@@ -17,18 +17,20 @@ import ThemeToggle from './ThemeToggle.astro';
       </div>
 
       <!-- Navigation Links -->
-      <ThemeToggle />
-      <div class="hidden sm:flex gap-8">
-        {
-          profile.navigation.map(section => (
-            <a
-              href={`#${section.id}`}
-              class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
-            >
-              {section.label}
-            </a>
-          ))
-        }
+      <div class="sm:flex gap-8">
+        <div class="hidden sm:flex gap-8 items-center">
+          {
+            profile.navigation.map(section => (
+              <a
+                href={`#${section.id}`}
+                class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+              >
+                {section.label}
+              </a>
+            ))
+          }
+        </div>
+        <ThemeToggle />
       </div>
     </div>
   </div>

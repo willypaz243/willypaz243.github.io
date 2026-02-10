@@ -1,66 +1,26 @@
 ---
-const experiences = [
-  {
-    company: "Freelancer",
-    role: "Backend, AI & Chatbots Developer",
-    period: "sep 2020–present",
-    achievements: [
-      "Developed an advanced conversational AI system with LLM integration (OpenAI) and vector database (MongoDB Atlas), utilizing LangChain to implement retrieval-augmented generation (RAG) capabilities for complex contexts.",
-      "Built a modular chatbot service with FastAPI supporting multiple platforms (Telegram, WhatsApp, Web) with persistent conversation context management, integrating LangChain for semantic context handling.",
-      "Implemented context engineering strategies to reduce openai service costs.",
-      "Integrated semantic context management and vector storage tools to improve response accuracy and relevance, using LangChain to orchestrate components.",
-      "Developed an AI-powered content moderation service based on image recognition, filtering inappropriate content.",
-      "Construction of simple question-and-answer chatbots for informational purposes.",
-    ],
-  },
-  {
-    company: "Hospy",
-    role: "Full Stack Developer (Computer Vision & OCR)",
-    period: "nov 2024–feb 2025",
-    achievements: [
-      "Designed an OCR RESTful API with Google Cloud Vision to extract text from official documents (DNI, passports, etc.).",
-      "Implemented spatial text analysis that detects document type and country of origin.",
-      "Improved accuracy of key fields (names, IDs, dates) through advanced regular expressions.",
-      "Automated the creation of templates for structural document recognition, facilitating the integration of new formats.",
-      "Built unit tests using real dataset samples, ensuring robustness in multiple scenarios.",
-      "Integrated external platforms with Hospy, contributing to increased customer acquisition.",
-    ],
-  },
-  {
-    company: "Canned Head",
-    role: "Full Stack Developer",
-    period: "nov 2021–nov 2023",
-    achievements: [
-      "Delivered an automated web service that records Typeform responses and generates dashboards and PDF reports.",
-      "Reduced platform loading times by 70% through performance optimization (caching, lazy-loading, efficient SQL queries).",
-      "Implemented unit tests that improved code quality and reliability.",
-      "Automated employee data pipelines for performance metrics and evaluations, accelerating report generation processes.",
-    ],
-  },
-];
+import profile from '../data/profile.json';
 ---
 
-<section class="mb-16">
+<section class="w-full max-w-4xl mx-auto animate-fade-in">
   <h2
-    class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent-blue-light to-accent-purple-light dark:from-accent-blue-dark dark:to-accent-purple-dark text-transparent bg-clip-text"
+    class="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
   >
     Professional Experience
   </h2>
   <div class="space-y-12">
+    <div class="absolute left-0 top-0 h-full w-0.5 bg-miku-cyan/20 dark:bg-miku-cyan/10"></div>
     {
-      experiences.map((exp) => (
-        <div class="border-l-4 border-accent-blue-light dark:border-accent-blue-dark pl-6 py-2 hover:border-accent-purple-light dark:hover:border-accent-purple-dark transition-colors">
-          <h3 class="text-2xl font-semibold text-accent-blue-light dark:text-accent-blue-dark">
-            {exp.company}
-          </h3>
-          <p class="text-lg text-accent-purple-light dark:text-accent-purple-dark mb-3">
-            {exp.role} · {exp.period}
+      profile.experience.map(exp => (
+        <div class="border-l-4 border-miku-cyan dark:border-miku-glow pl-6 py-2 hover:border-miku-magenta dark:hover:border-miku-magenta transition-colors">
+          <h3 class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan">{exp.role}</h3>
+          <p class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim mb-2">{exp.company}</p>
+          <p class="text-xs font-mono text-miku-cyan mb-6 inline-block bg-miku-cyan/10 px-2 py-1 rounded">
+            {exp.period}
           </p>
-          <ul class="list-disc list-inside space-y-3 text-secondary-light dark:text-secondary-dark">
-            {exp.achievements.map((achievement) => (
-              <li class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">
-                {achievement}
-              </li>
+          <ul class="list-disc list-inside space-y-2 text-miku-text-dim dark:text-miku-dark-dim">
+            {exp.achievements.map(achievement => (
+              <li class="hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors">{achievement}</li>
             ))}
           </ul>
         </div>
@@ -68,4 +28,3 @@ const experiences = [
     }
   </div>
 </section>
-

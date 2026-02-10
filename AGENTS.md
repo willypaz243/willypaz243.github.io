@@ -1,165 +1,189 @@
-# Agent Coding Guidelines
+# AGENTS.md
 
-This document provides essential information for agentic coding agents working with this Astro-based portfolio website codebase.
+## Project Overview
 
-## Build/Lint/Test Commands
+Astro portfolio website with Miku OS design system and dark/light theme support. Built with Astro, Tailwind CSS, and TypeScript.
 
-### Development Commands
+## Project Structure
 
-```bash
-# Install dependencies
-npm install
+```sh
+src/
+├── components/           (Reusable UI components)
+│   ├── Hero.astro
+│   ├── Navigation.astro
+│   ├── DesktopNav.astro
+│   ├── Projects.astro
+│   ├── Skills.astro
+│   ├── Experience.astro
+│   └── ThemeToggle.astro
+├── layouts/            (Page layouts)
+│   └── Layout.astro   (Main layout with navigation)
+├── pages/              (Page routes)
+│   └── index.astro    (Home page)
+└── data/              (Static data files)
+    └── profile.json   (User information, projects, skills)
 
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally
-npm run preview
+public/              (Static files served directly)
+└── favicon.svg
+astro.config.mjs     (Astro configuration)
+tailwind.config.mjs  (Tailwind CSS configuration)
+tsconfig.json         (TypeScript configuration)
+package.json         (Dependencies and scripts)
+.prettierrc          (Prettier formatting configuration)
+.gitignore           (Git ignore rules)
+dist/               (Production build output - generated)
+node_modules/       (Dependencies - generated)
 ```
 
-### Astro CLI Commands
+## Build Commands
 
-```bash
-# Add new integration
-npm run astro add
-
-# Check for type errors
-npm run astro check
-
-# Get help with Astro CLI
-npm run astro -- --help
-```
-
-### Testing Individual Components
-
-Astro doesn't have built-in unit testing. For component testing, you would typically:
-
-1. Manually verify components in the browser during development (`npm run dev`)
-2. Use end-to-end testing tools like Playwright or Cypress for integration testing
-3. For unit testing individual functions, Jest or Vitest could be added to the project
+- `npm run dev` - Start local development server at localhost:4321
+- `npm run build` - Build production-ready site to ./dist/
+- `npm run preview` - Preview production build locally
+- `npm run astro check` - Run TypeScript type checking
+- `npm run format` - Format code with Prettier
+- `npm run astro -- --help` - Get Astro CLI help
 
 ## Code Style Guidelines
 
-### File Organization
-
-- `.astro` files for components and pages
-- `src/components/` for reusable UI components
-- `src/layouts/` for layout templates
-- `src/pages/` for routable pages
-- `public/` for static assets
-- `src/assets/` for assets that need processing
-
-### Imports
-
-- Use relative imports for local files
-- Import dependencies as needed without specific ordering
-- Prefer named imports over default imports when available
-- Use Astro's built-in components via `import { ComponentName } from 'astro/components'`
-
-### Formatting
-
-- Use 2-space indentation
-- No trailing commas in object/array literals
-- Leave blank line at end of file
-- Use double quotes for attributes and strings
-- Self-close void elements (`<img />`, `<input />`, etc.)
-
 ### Component Structure
 
-- Use Astro's component syntax with `---` delimiters for the script section
-- Declare variables in the script section at the top of the file
-- Use descriptive variable names in camelCase
-- Place imports above component logic
-- Separate concerns with clear whitespace
+- Components must start with frontmatter block using `---`
+- Use `<script>` tags for inline JavaScript with `type="module"`
+- Place `<style>` tags after script tags for proper loading order
+- Use TypeScript for type annotations in Astro variables
 
-### Types
+### File Organization
 
-- TypeScript is enabled with strict configuration
-- Leverage type inference when possible
-- Define explicit types for complex objects or props
-- Use Astro's built-in types when available
+- Source files in `src/components/`, `src/layouts/`, `src/pages/`
+- Component files: `<ComponentName>.astro`
+- Use descriptive names following PascalCase
 
-### Naming Conventions
+### Import Order
 
-- Component files: PascalCase (e.g., `Hero.astro`, `Navigation.astro`)
-- Variables and functions: camelCase
-- CSS classes: kebab-case with semantic naming
-- Constants: UPPER_SNAKE_CASE
+1. Frontmatter imports
+2. Page imports
+3. Component imports
+4. Style imports (if any)
+5. Inline script imports (if any)
 
-### Error Handling
+### HTML Structure
 
-- Handle potential undefined values gracefully
-- Use optional chaining (`?.`) when accessing nested properties
-- Provide fallback values for dynamic content
-- Validate external data before using it
+- Start with `<!doctype html>`
+- Always include `lang` attribute: use `lang="es"` for Spanish
+- Include viewport meta tag: `<meta name="viewport" ...>`
+- Add favicon reference: `<link rel="icon" ...>`
 
-## Framework-Specific Guidelines
+### CSS / Tailwind
 
-### Astro Components (.astro files)
+- Use Tailwind utility classes exclusively
+- Dark mode support: use `dark:` prefix on colors and classes
+- Responsive design: use `sm:`, `md:`, `lg:` breakpoints
+- Custom classes in `<style>` tags for complex animations
+- Glassmorphism effects with backdrop blur utilities
 
-1. Script section (between `---`):
-   - Component logic, imports, and data fetching
-   - Variable declarations using `const` or `let`
-   - Props destructuring with defaults
-   - Helper functions
+### JavaScript / Scripts
 
-2. Template section:
-   - HTML markup with Astro/JSX-like syntax
-   - Dynamic expressions using curly braces `{}`
-   - Conditional rendering with `{condition && <element />}` or ternary operators
-   - List rendering with `.map()`
+- Use `type="module"` for all JavaScript code
+- Avoid inline `<script>` in body for production code
+- Use `<script is:inline>` for dynamic client-side scripts
+- Define variables clearly in script tags with descriptive names
 
-3. Styling:
-   - Use Tailwind CSS utility classes
-   - Custom colors defined in `tailwind.config.mjs`
-   - Responsive design with responsive prefixes (`sm:`, `md:`, `lg:`, etc.)
+### TypeScript
 
-### Data Flow
+- Add type annotations to Astro frontmatter variables
+- Use proper interface definitions for data types
+- Leverage TypeScript IntelliSense for better autocomplete
 
-- Pass data down through component props
-- Use component state for interactive elements
-- Fetch data in the script section of components or pages
-- Share global data through layouts or context providers
+### Color Usage (Miku OS Design System)
 
-### Best Practices
+**Brand Colors:**
 
-1. Keep components small and focused
-2. Use fragments (`<>...</>`) for grouping elements without extra DOM nodes
-3. Optimize images with Astro's built-in Image component
-4. Use client-side directives sparingly (`client:load`, `client:idle`, etc.)
-5. Follow accessibility guidelines (semantic HTML, ARIA attributes)
-6. Use CSS animations/transitions for enhanced UX
-7. Maintain consistent spacing and typography
-8. Comment complex logic for maintainability
+- `miku-cyan` (Main signature color) - Active borders, primary buttons, icons
+- `miku-glow` (Electric cyan) - Glow effects, hover states, terminal cursor
+- `miky-magenta` (Complementary accent) - Critical notifications, errors, "Me encanta"
+- `tech-violet` (Tertiary accent) - Secondary gradients, magical elements
 
-## Project-Specific Information
+**Semantic Colors:**
 
-### Color Scheme
+- `miku-text-main` (Primary text) - Main content in both themes
+- `miku-text-dim` (Secondary text) - Auxiliary content and captions
+- `miku-surface` (Surface layer) - Cards, sidebars, and containers
+- `miku-base` (Background base) - Main page background
 
-The project uses a light/dark color scheme with accent colors:
+**Dark Mode Colors:**
 
-- Primary: Blue accents
-- Secondary: Purple and green accents
-- Light/Dark variants for all colors
+- `miku-dark-base` - Dark background (#0F1419, never use #000000)
+- `miku-dark-surface` - Dark surface layer (#161B22 for cards and sidebars)
+- `miku-dark-text` - Dark mode text variants
+- `miku-dark-border` - Dark mode borders
+
+**Light Mode Colors:**
+
+- Never use text Cyan on white background - use `miku-teal-strong` instead
+- `miku-light-surface` - Light surface layer for containers
+
+**Functional Colors (Semantic States):**
+
+- Success: `miku-success` (#00E676 dark mode) - Completed operations, stable systems
+- Warning: `miku-warning` (#FFD700 dark mode) - Warnings, low battery, high CPU
+- Error: `miku-error` (#FF2E63 dark mode) - Critical failures, disconnections
+- Info: `miku-info` (#29B6F6 dark mode) - Neutral information, available updates
+
+**Design Tokens:**
+
+- Border radius: `rounded-xl` (15px) for standard elements, `rounded-lg` (10px) for small elements
+- Active border: Use `border-miku-cyan` with opacity for subtle effects
+- Opacity values: Use percentages (e.g., `miku-cyan/30`)
+- Glassmorphism: Apply backdrop blur on surfaces with 80-90% opacity
 
 ### Responsive Design
 
-Mobile-first approach with breakpoints:
+- Mobile-first approach: base styles for mobile, add `md:`, `lg:` for larger screens
+- Use Tailwind spacing and typography scales
+- Ensure content scrolls horizontally on small screens when needed
 
-- Default: Mobile styles
-- `sm`: Small devices (640px)
-- `md`: Medium devices (768px)
-- `lg`: Large devices (1024px)
-- `xl`: Extra large devices (1280px)
-- `2xl`: 2X large devices (1536px)
+### Accessibility
 
-### Animations
+- Include descriptive `alt` text for all images
+- Use semantic HTML elements: `<section>`, `<article>`, `<header>`, `<footer>`
+- Ensure color contrast meets accessibility standards
+- Use semantic headings in proper hierarchy: `<h1>`, `<h2>`, `<h3>`
+- Add `aria-label` where appropriate for icon-only buttons
 
-- Use CSS animations for entrance effects (fade-in)
-- Hover effects for interactive elements
-- Smooth transitions for state changes
+### Naming Conventions
 
-This guide should help agentic coding agents effectively contribute to this Astro portfolio website project while maintaining consistency and quality.
+- Variables: camelCase (e.g., `profile`, `terminalCode`)
+- Functions: camelCase (e.g., `typeCode`, `highlightCode`)
+- Components: PascalCase (e.g., `Hero`, `Navigation`)
+- Classes: camelCase or dash-separated (Tailwind classes use dash-separated)
+- Constants: UPPER_Snake_CASE (e.g., `MIKU_CYAN`)
+
+### Error Handling
+
+- Always check for null/undefined before accessing data properties
+- Use optional chaining (`?.`) for safe property access
+- Provide fallback values when displaying dynamic content
+- Validate data types when using JSON imports
+
+### Comments
+
+- Add descriptive comments for complex logic
+- Comment on component purpose and usage
+- Document function parameters and return types
+- Use clear, concise language in comments
+
+## Testing
+
+- Run type checking: `npm run astro check`
+- Build to verify no compilation errors: `npm run build`
+- Preview build to verify runtime behavior: `npm run preview`
+
+## Development Workflow
+
+1. Make changes to Astro components, layouts, or pages
+2. Run `npm run astro check` for TypeScript validation
+3. Run `npm run dev` to see changes in browser
+4. Run `npm run format` to ensure code consistency
+5. Run `npm run build` to verify production build works
+6. Run `npm run preview` to test production build locally

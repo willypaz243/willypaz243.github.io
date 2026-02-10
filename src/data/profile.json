@@ -1,0 +1,202 @@
+{
+  "personal": {
+    "name": "Willy Samuel Paz Colque",
+    "title": "AI & Full Stack Developer",
+    "location": "Cochabamba, Bolivia",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/"
+  },
+  "about": {
+    "title": "About me",
+    "experience": 4,
+    "expertise": "nearly a decade of programming expertise",
+    "description": "Full Stack Web Developer with over 4 years of experience. I have contributed to software development and new feature implementations in various projects, optimizing performance and enhancing user experience. Passionate about creating efficient and innovative solutions."
+  },
+  "skills": {
+    "ai_ml_engineering": {
+      "title": "AI & ML Engineering",
+      "expertise": "Chatbots, RAG systems, Computer Vision",
+      "expert_level": 4,
+      "proficient_tools": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "RAG systems",
+        "Embeddings",
+        "Vector databases"
+      ],
+      "familiar_tools": ["TensorFlow", "PyTorch", "Tesseract", "Computer Vision", "OCR"]
+    },
+    "full_stack_development": {
+      "title": "Full Stack Development",
+      "expertise": "React, Node.js, REST APIs",
+      "expert_level": 5,
+      "proficient_tools": [
+        "ReactJS",
+        "React Native",
+        "Node.js",
+        "ExpressJS",
+        "PostgreSQL",
+        "SQL databases",
+        "NestJS",
+        "RESTful APIs"
+      ],
+      "familiar_tools": ["Django", "HTML/CSS", "Frontend testing"]
+    },
+    "devops_infrastructure": {
+      "title": "DevOps & Cloud",
+      "expertise": "Containerization, deployment, cloud",
+      "expert_level": 3,
+      "proficient_tools": ["Docker", "Nginx", "AWS Lambda", "Linux", "Git", "CI/CD"],
+      "familiar_tools": ["Version Control", "Serverless"]
+    },
+    "soft_skills": [
+      {
+        "name": "Teamwork",
+        "importance": "very-high",
+        "experience": "Collaborative development across multiple teams and projects"
+      },
+      {
+        "name": "Self-taught",
+        "importance": "very-high",
+        "experience": "Continuous learning across AI, backend, and frontend technologies"
+      },
+      {
+        "name": "Adaptability",
+        "importance": "very-high",
+        "experience": "Quickly learning new tools for AI integration and production systems"
+      },
+      {
+        "name": "Problem-solving",
+        "importance": "very-high",
+        "experience": "Optimization, debugging, and system design challenges"
+      },
+      {
+        "name": "Analytical thinking",
+        "importance": "high",
+        "experience": "Data-driven decision making for AI and system improvements"
+      },
+      {
+        "name": "Attention to detail",
+        "importance": "very-high",
+        "experience": "Code quality, security, and API precision"
+      },
+      {
+        "name": "Autonomy and proactivity",
+        "importance": "very-high",
+        "experience": "Leading AI projects and independent full-stack development"
+      },
+      {
+        "name": "Ability to learn",
+        "importance": "very-very-high",
+        "experience": "Mastering new AI technologies, LLMs, and modern frameworks"
+      },
+      {
+        "name": "English (B1)",
+        "importance": "medium",
+        "experience": "Technical documentation and basic communication"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Freelancer",
+      "role": "Backend, AI & Chatbots Developer",
+      "period": "sep 2020–present",
+      "achievements": [
+        "Developed an advanced conversational AI system with LLM integration (OpenAI) and vector database (MongoDB Atlas), utilizing LangChain to implement retrieval-augmented generation (RAG) capabilities for complex contexts.",
+        "Built a modular chatbot service with FastAPI supporting multiple platforms (Telegram, WhatsApp, Web) with persistent conversation context management, integrating LangChain for semantic context handling.",
+        "Implemented context engineering strategies to reduce openai service costs.",
+        "Integrated semantic context management and vector storage tools to improve response accuracy and relevance, using LangChain to orchestrate components.",
+        "Developed an AI-powered content moderation service based on image recognition, filtering inappropriate content.",
+        "Construction of simple question-and-answer chatbots for informational purposes."
+      ]
+    },
+    {
+      "company": "Hospy",
+      "role": "Full Stack Developer (Computer Vision & OCR)",
+      "period": "nov 2024–feb 2025",
+      "achievements": [
+        "Designed an OCR RESTful API with Google Cloud Vision to extract text from official documents (DNI, passports, etc.).",
+        "Implemented spatial text analysis that detects document type and country of origin.",
+        "Improved accuracy of key fields (names, IDs, dates) through advanced regular expressions.",
+        "Automated the creation of templates for structural document recognition, facilitating the integration of new formats.",
+        "Built unit tests using real dataset samples, ensuring robustness in multiple scenarios.",
+        "Integrated external platforms with Hospy, contributing to increased customer acquisition."
+      ]
+    },
+    {
+      "company": "Canned Head",
+      "role": "Full Stack Developer",
+      "period": "nov 2021–nov 2023",
+      "achievements": [
+        "Delivered an automated web service that records Typeform responses and generates dashboards and PDF reports.",
+        "Reduced platform loading times by 70% through performance optimization (caching, lazy-loading, efficient SQL queries).",
+        "Implemented unit tests that improved code quality and reliability.",
+        "Automated employee data pipelines for performance metrics and evaluations, accelerating report generation processes."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "ChekiBot",
+      "description": "A sophisticated conversational AI system built with Python, FastAPI, and LangChain Core, designed to provide intelligent chatbot capabilities using various language models including Nebius and OpenAI. This project was developed for chequeabolivia.bo.",
+      "technologies": ["Python", "FastAPI", "LangChain", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
+      "link": "https://chekibot.chequeabolivia.bo/"
+    },
+    {
+      "title": "Cappuchino AI",
+      "description": "Un chatbot con capacidades agenticas para la consulta de horarios y organización de horarios en la facultad de ciencia y tecnología de la Universidad Mayor se San Simón",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "PostgreSQL",
+        "Docker",
+        "Nginx",
+        "MCP (Model context Protocol)"
+      ],
+      "link": "#"
+    },
+    {
+      "title": "OCR para documentos de identidad",
+      "description": "Un servicio de ocr para la extracción de datos de documentos de identidad.",
+      "technologies": ["React", "Node.js", "FastAPI", "Python", "PyTorch", "Tesseract", "Docker", "Nginx"],
+      "link": "#"
+    },
+    {
+      "title": "Buscador semántico",
+      "description": "Un buscador semántico basado en embeddings para la búsqueda de productos y servicios",
+      "technologies": ["React", "Node.js", "Python", "FastAPI", "LangChain", "PostgreSQL", "Docker", "Nginx"],
+      "link": "#"
+    }
+  ],
+  "navigation": [
+    {
+      "id": "about",
+      "label": "About",
+      "icon": "👨‍💻"
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "icon": "💼"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "icon": "🚀"
+    },
+    {
+      "id": "skills",
+      "label": "Skills",
+      "icon": "🛠"
+    }
+  ]
+}

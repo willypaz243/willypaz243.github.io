@@ -4,7 +4,7 @@ import profile from '../data/profile.en.json';
 
 <!-- Mobile Navigation Bar -->
 <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-    <ul class="flex gap-2 p-2 lg:gap-3 lg:p-3 bg-miku-surface dark:bg-miku-dark-surface rounded-full lg:rounded-xl shadow-miku-light">
+    <ul class="flex items-center gap-1.5 p-2 lg:gap-2 lg:p-3 bg-miku-surface dark:bg-miku-dark-surface rounded-full lg:rounded-xl shadow-miku-light">
       {
         profile.navigation.map(section => (
           <li>
@@ -38,6 +38,11 @@ import profile from '../data/profile.en.json';
             Contact
           </span>
         </a>
+      </li>
+      <li>
+        <div class="flex items-center gap-1 px-2 py-1.5 rounded-full bg-miku-success/10 border border-miku-success/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-miku-success animate-pulse"></span>
+        </div>
       </li>
     </ul>
 </nav>

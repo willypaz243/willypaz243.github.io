@@ -126,7 +126,12 @@
         "Implemented spatial text analysis pipeline detecting document type and country of origin, enabling automated routing to specialized parsing templates.",
         "Built a template automation system for structural document recognition, significantly reducing onboarding time for new document formats.",
         "Integrated external platforms with Hospy's OCR infrastructure, supporting customer acquisition and platform expansion."
-      ]
+      ],
+      "company_info": {
+        "description": "AI-powered platform for short-term rentals and boutique hotels in Latin America. Named in Hot 25 Travel Startups for 2026 (PhocusWire). Partner of Cloudbeds PMS marketplace.",
+        "url": "https://hospy.ai",
+        "product": "Empleados de IA — contactless check-in, guest verification, operations automation"
+      }
     },
     {
       "company": "Canned Head",
@@ -137,33 +142,59 @@
         "Built an automated Typeform data pipeline generating real-time dashboards and PDF reports for internal team use.",
         "Automated HR data pipelines for performance metrics and evaluations, significantly accelerating report generation processes.",
         "Implemented unit test suites that improved code reliability and reduced production bugs across the platform."
-      ]
+      ],
+      "company_info": {
+        "description": "Tech consulting firm with offices in Bogotá & Montréal. +9 years in tech, +100 clients, +10 countries. Specializes in custom software, cloud infrastructure, and AI solutions.",
+        "url": "https://cannedhead.com",
+        "services": "Custom Software Development, Cloud Infrastructure & DevOps, Big Data Analytics & AI"
+      }
     }
   ],
   "projects": [
     {
       "title": "ChekiBot",
-      "description": "A sophisticated conversational AI system built with Python, FastAPI, and LangChain Core, designed to provide intelligent chatbot capabilities using various language models including Nebius and OpenAI. This project was developed for chequeabolivia.bo.",
-      "technologies": ["Python", "FastAPI", "LangChain", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
-      "link": "https://chekibot.chequeabolivia.bo/"
+      "description": "Production RAG chatbot system for chequeabolivia.bo that processes financial document queries using multimodal LLMs (Nebius, OpenAI). Delivers intelligent responses via Telegram, WhatsApp, and web interfaces with persistent semantic memory.",
+      "technologies": ["Python", "FastAPI", "LangChain Core", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
+      "link": "https://chekibot.chequeabolivia.bo/",
+      "metrics": {
+        "platforms": "Telegram, WhatsApp, Web",
+        "models": "Nebius, OpenAI API",
+        "type": "Production RAG System",
+        "memory": "MongoDB Atlas semantic persistence"
+      }
     },
     {
       "title": "Botcachino",
-      "description": "An agentic AI chatbot for academic schedule management at Universidad Mayor de San Simón. Built with LangGraph for multi-step reasoning, PostgreSQL for state persistence, and MCP protocol for tool integration. Handles course inquiries, timetable organization, and multi-turn scheduling conversations.",
+      "description": "Agentic chatbot for Universidad Mayor de San Simón that handles academic schedule queries, exam dates, and course management using natural language. Built with LangGraph for multi-step reasoning and PostgreSQL for state persistence across multi-turn conversations.",
       "technologies": ["Python", "LangGraph", "PostgreSQL", "Docker", "FastAPI", "uv"],
-      "link": "https://github.com/willypaz243/botcachino_monorepo"
+      "link": "https://github.com/willypaz243/botcachino_monorepo",
+      "metrics": {
+        "framework": "LangGraph agent orchestration",
+        "state": "PostgreSQL persistent context",
+        "protocol": "MCP tool integration"
+      }
     },
     {
       "title": "FaceMasker",
       "description": "Real-time face mask detection system using deep learning. Uses PyTorch with a pre-trained CNN model to classify whether individuals are wearing masks in images. Includes trained models, test suite, and Docker deployment.",
       "technologies": ["Python", "PyTorch", "OpenCV", "Docker", "FastAPI"],
-      "link": "https://github.com/willypaz243/face-masker"
+      "link": "https://github.com/willypaz243/face-masker",
+      "metrics": {
+        "model": "Pre-trained CNN (PyTorch)",
+        "deployment": "Docker containerized API",
+        "inference": "Real-time classification"
+      }
     },
     {
       "title": "Green Recovery (Pix2Pix)",
       "description": "Image-to-image translation model using Pix2Pix GANs for environmental recovery visualization. Trains a conditional GAN to transform satellite imagery, with custom dataset pipeline, training loop, and loss optimization. Demonstrates deep understanding of generative AI architectures.",
       "technologies": ["Python", "PyTorch", "Pix2Pix", "GANs", "NumPy", "Matplotlib"],
-      "link": "https://github.com/willypaz243/green_recovery_pix2pix_project"
+      "link": "https://github.com/willypaz243/green_recovery_pix2pix_project",
+      "metrics": {
+        "architecture": "Pix2Pix GAN (conditional)",
+        "input": "Satellite imagery",
+        "output": "Environmental recovery visualization"
+      }
     }
   ],
   "navigation": [

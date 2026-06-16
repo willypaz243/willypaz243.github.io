@@ -56,6 +56,22 @@ import profile from '../data/profile.en.json';
         <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
         Open to full-time remote roles and consulting projects
       </p>
+
+      <!-- About Me -->
+      <div class="mt-2">
+        <h2
+          id="about-title"
+          class="text-lg font-semibold mb-1 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
+        >
+          {profile.about.title}
+        </h2>
+        <p
+          id="about-desc"
+          class="text-sm text-miku-text-dim dark:text-miku-dark-dim leading-relaxed max-w-lg"
+        >
+          {profile.about.description}
+        </p>
+      </div>
     </div>
 
     <!-- Right Column: Terminal Window -->

@@ -109,7 +109,7 @@
     {
       "company": "Freelancer",
       "role": "Desarrollador Backend, AI & Chatbots",
-      "period": "sep 2020–presente",
+      "period": "sep 2020 - presente",
       "achievements": [
         "Construí un sistema RAG en producción con LangChain, OpenAI API y MongoDB Atlas que procesa 500+ conversaciones diarias con precisión superior al 90% en consultas de dominio específico.",
         "Desplegué un servicio de chatbot multi-plataforma (FastAPI) en Telegram, WhatsApp y web, atendiendo 100+ usuarios concurrentes con contexto persistente de conversación y memoria semántica.",
@@ -120,25 +120,23 @@
     {
       "company": "Hospy",
       "role": "Desarrollador Full Stack (Visión por Computadora & OCR)",
-      "period": "nov 2024–feb 2025",
+      "period": "nov 2024 - feb 2025",
       "achievements": [
-        "Diseñé una API RESTful de OCR con Google Cloud Vision para extraer texto de documentos oficiales (DNI, pasaportes, etc.).",
-        "Implementé análisis de texto espacial que detecta tipo de documento y país de origen.",
-        "Mejoré la precisión de campos clave (nombres, IDs, fechas) mediante expresiones regulares avanzadas.",
-        "Automatice la creación de plantillas para reconocimiento estructural de documentos, facilitando la integración de nuevos formatos.",
-        "Construí pruebas unitarias con muestras de datasets reales, asegurando robustez en múltiples escenarios.",
-        "Integré plataformas externas con Hospy, contribuyendo al aumento de adquisición de clientes."
+        "Diseñé una API RESTful de OCR con Google Cloud Vision que procesa 10+ tipos de documentos (DNI, pasaportes, certificados) con precisión superior al 95% en extracción de campos.",
+        "Implementé un pipeline de análisis espacial de texto que detecta tipo de documento y país de origen, habilitando enrutamiento automatizado a plantillas especializadas.",
+        "Construí un sistema de automatización de plantillas para reconocimiento estructural de documentos, reduciendo el tiempo de integración de nuevos formatos de días a horas.",
+        "Integré 5+ plataformas externas con la infraestructura OCR de Hospy, apoyando directamente la adquisición de clientes y expansión de plataforma."
       ]
     },
     {
       "company": "Canned Head",
       "role": "Desarrollador Full Stack",
-      "period": "nov 2021–nov 2023",
+      "period": "nov 2021 - nov 2023",
       "achievements": [
-        "Entregué un servicio web automatizado que registra respuestas de Typeform y genera dashboards y reportes PDF.",
-        "Reduje los tiempos de carga de la plataforma en un 70% mediante optimización de rendimiento (caché, lazy-loading, consultas SQL eficientes).",
-        "Implementé pruebas unitarias que mejoraron la calidad y confiabilidad del código.",
-        "Automatice pipelines de datos de empleados para métricas de rendimiento y evaluaciones, acelerando los procesos de generación de reportes."
+        "Reduje los tiempos de carga de la plataforma en un 70% mediante optimización agresiva (capas de caché, lazy-loading, optimización de consultas).",
+        "Construí un pipeline automatizado de datos Typeform que genera dashboards en tiempo real y reportes PDF para 50+ empleados mensualmente.",
+        "Automatice pipelines de datos de RRHH para métricas de rendimiento y evaluaciones, reduciendo el tiempo de generación de reportes de horas a minutos.",
+        "Implementé suites de pruebas unitarias que mejoraron la confiabilidad del código y redujeron bugs en producción."
       ]
     }
   ],

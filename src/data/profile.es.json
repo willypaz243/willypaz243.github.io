@@ -111,10 +111,10 @@
       "role": "Desarrollador Backend, AI & Chatbots",
       "period": "sep 2020 - presente",
       "achievements": [
-        "Construí un sistema RAG en producción con LangChain, OpenAI API y MongoDB Atlas que procesa 500+ conversaciones diarias con precisión superior al 90% en consultas de dominio específico.",
-        "Desplegué un servicio de chatbot multi-plataforma (FastAPI) en Telegram, WhatsApp y web, atendiendo 100+ usuarios concurrentes con contexto persistente de conversación y memoria semántica.",
-        "Implementé estrategias de optimización de prompts y caching que redujeron los costos de inferencia LLM en ~40% manteniendo la calidad de respuesta para flujos RAG complejos.",
-        "Desarrollé un servicio de moderación de contenido con modelos de reconocimiento de imágenes, logrando precisión superior al 85% en detección de contenido inapropiado con inferencia en tiempo real vía FastAPI."
+        "Construí un sistema RAG en producción con LangChain, OpenAI API y MongoDB Atlas para chequeabolivia.bo, habilitando consultas inteligentes de documentos con memoria semántica persistente.",
+        "Desplegué un servicio de chatbot multi-plataforma (FastAPI) en Telegram, WhatsApp y web con contexto persistente de conversación y gestión de memoria semántica.",
+        "Implementé estrategias de optimización de prompts y caching que redujeron los costos de inferencia LLM manteniendo la calidad de respuesta para flujos RAG complejos.",
+        "Desarrollé un servicio de moderación de contenido con modelos de reconocimiento de imágenes, desplegado vía FastAPI para detección en tiempo real."
       ]
     },
     {
@@ -122,10 +122,10 @@
       "role": "Desarrollador Full Stack (Visión por Computadora & OCR)",
       "period": "nov 2024 - feb 2025",
       "achievements": [
-        "Diseñé una API RESTful de OCR con Google Cloud Vision que procesa 10+ tipos de documentos (DNI, pasaportes, certificados) con precisión superior al 95% en extracción de campos.",
+        "Diseñé una API RESTful de OCR con Google Cloud Vision para extraer texto de documentos oficiales (DNI, pasaportes, certificados) con alta precisión en extracción de campos.",
         "Implementé un pipeline de análisis espacial de texto que detecta tipo de documento y país de origen, habilitando enrutamiento automatizado a plantillas especializadas.",
-        "Construí un sistema de automatización de plantillas para reconocimiento estructural de documentos, reduciendo el tiempo de integración de nuevos formatos de días a horas.",
-        "Integré 5+ plataformas externas con la infraestructura OCR de Hospy, apoyando directamente la adquisición de clientes y expansión de plataforma."
+        "Construí un sistema de automatización de plantillas para reconocimiento estructural de documentos, reduciendo significativamente el tiempo de integración de nuevos formatos.",
+        "Integré plataformas externas con la infraestructura OCR de Hospy, apoyando la adquisición de clientes y expansión de plataforma."
       ]
     },
     {
@@ -134,8 +134,8 @@
       "period": "nov 2021 - nov 2023",
       "achievements": [
         "Reduje los tiempos de carga de la plataforma en un 70% mediante optimización agresiva (capas de caché, lazy-loading, optimización de consultas).",
-        "Construí un pipeline automatizado de datos Typeform que genera dashboards en tiempo real y reportes PDF para 50+ empleados mensualmente.",
-        "Automatice pipelines de datos de RRHH para métricas de rendimiento y evaluaciones, reduciendo el tiempo de generación de reportes de horas a minutos.",
+        "Construí un pipeline automatizado de datos Typeform que genera dashboards en tiempo real y reportes PDF para uso del equipo interno.",
+        "Automatice pipelines de datos de RRHH para métricas de rendimiento y evaluaciones, acelerando significativamente los procesos de generación de reportes.",
         "Implementé suites de pruebas unitarias que mejoraron la confiabilidad del código y redujeron bugs en producción."
       ]
     }

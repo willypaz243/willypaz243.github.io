@@ -1,0 +1,195 @@
+{
+  "lang": "es",
+  "personal": {
+    "name": "Willy Samuel Paz Colque",
+    "title": "Desarrollador AI & Full Stack",
+    "location": "Cochabamba, Bolivia",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "experience": 4,
+    "description": "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras."
+  },
+  "contact": {
+    "title": "Contáctame",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/"
+  },
+  "skills": {
+    "ai_ml_engineering": {
+      "title": "Ingeniería AI & ML",
+      "expertise": "Chatbots, sistemas RAG, Visión por Computadora",
+      "proficient_tools": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "Sistemas RAG",
+        "Embeddings",
+        "Bases de datos vectoriales"
+      ],
+      "familiar_tools": ["TensorFlow", "PyTorch", "Tesseract", "Visión por Computadora", "OCR"]
+    },
+    "full_stack_development": {
+      "title": "Desarrollo Full Stack",
+      "expertise": "React, Node.js, APIs REST",
+      "proficient_tools": [
+        "ReactJS",
+        "React Native",
+        "Node.js",
+        "ExpressJS",
+        "PostgreSQL",
+        "Bases de datos SQL",
+        "NestJS",
+        "APIs RESTful"
+      ],
+      "familiar_tools": ["Django", "HTML/CSS", "Pruebas frontend"]
+    },
+    "devops_infrastructure": {
+      "title": "DevOps & Cloud",
+      "expertise": "Contenerización, despliegue, cloud",
+      "proficient_tools": ["Docker", "Nginx", "AWS Lambda", "Linux", "Git", "CI/CD"],
+      "familiar_tools": ["Control de Versiones", "Serverless"]
+    },
+    "soft_skills": [
+      {
+        "name": "Trabajo en equipo",
+        "importance": "very-high",
+        "experience": "Desarrollo colaborativo en múltiples equipos y proyectos"
+      },
+      {
+        "name": "Autodidacta",
+        "importance": "very-high",
+        "experience": "Aprendizaje continuo en AI, backend y frontend"
+      },
+      {
+        "name": "Adaptabilidad",
+        "importance": "very-high",
+        "experience": "Aprendizaje rápido de nuevas herramientas para integración AI y sistemas de producción"
+      },
+      {
+        "name": "Resolución de problemas",
+        "importance": "very-high",
+        "experience": "Optimización, debugging y diseño de sistemas"
+      },
+      {
+        "name": "Pensamiento analítico",
+        "importance": "high",
+        "experience": "Toma de decisiones basada en datos para mejoras AI y del sistema"
+      },
+      {
+        "name": "Atención al detalle",
+        "importance": "very-high",
+        "experience": "Calidad de código, seguridad y precisión de APIs"
+      },
+      {
+        "name": "Autonomía y proactividad",
+        "importance": "very-high",
+        "experience": "Liderando proyectos AI y desarrollo full-stack independiente"
+      },
+      {
+        "name": "Capacidad de aprendizaje",
+        "importance": "very-very-high",
+        "experience": "Dominio de nuevas tecnologías AI, LLMs y frameworks modernos"
+      },
+      {
+        "name": "Inglés (B1)",
+        "importance": "medium",
+        "experience": "Documentación técnica y comunicación básica"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Freelancer",
+      "role": "Desarrollador Backend, AI & Chatbots",
+      "period": "sep 2020–presente",
+      "achievements": [
+        "Desarrollé un sistema avanzado de IA conversacional con integración LLM (OpenAI) y base de datos vectorial (MongoDB Atlas), utilizando LangChain para implementar generación aumentada por recuperación (RAG) para contextos complejos.",
+        "Construí un servicio modular de chatbot con FastAPI soportando múltiples plataformas (Telegram, WhatsApp, Web) con gestión persistente del contexto de conversación, integrando LangChain para manejo contextual semántico.",
+        "Implementé estrategias de ingeniería de contexto para reducir costos de servicios openai.",
+        "Integré herramientas de gestión contextual semántica y almacenamiento vectorial para mejorar la precisión y relevancia de respuestas, usando LangChain para orquestar componentes.",
+        "Desarrollé un servicio de moderación de contenido basado en reconocimiento de imágenes, filtrando contenido inapropiado.",
+        "Construcción de chatbots simples de preguntas y respuestas con fines informativos."
+      ]
+    },
+    {
+      "company": "Hospy",
+      "role": "Desarrollador Full Stack (Visión por Computadora & OCR)",
+      "period": "nov 2024–feb 2025",
+      "achievements": [
+        "Diseñé una API RESTful de OCR con Google Cloud Vision para extraer texto de documentos oficiales (DNI, pasaportes, etc.).",
+        "Implementé análisis de texto espacial que detecta tipo de documento y país de origen.",
+        "Mejoré la precisión de campos clave (nombres, IDs, fechas) mediante expresiones regulares avanzadas.",
+        "Automatice la creación de plantillas para reconocimiento estructural de documentos, facilitando la integración de nuevos formatos.",
+        "Construí pruebas unitarias con muestras de datasets reales, asegurando robustez en múltiples escenarios.",
+        "Integré plataformas externas con Hospy, contribuyendo al aumento de adquisición de clientes."
+      ]
+    },
+    {
+      "company": "Canned Head",
+      "role": "Desarrollador Full Stack",
+      "period": "nov 2021–nov 2023",
+      "achievements": [
+        "Entregué un servicio web automatizado que registra respuestas de Typeform y genera dashboards y reportes PDF.",
+        "Reduje los tiempos de carga de la plataforma en un 70% mediante optimización de rendimiento (caché, lazy-loading, consultas SQL eficientes).",
+        "Implementé pruebas unitarias que mejoraron la calidad y confiabilidad del código.",
+        "Automatice pipelines de datos de empleados para métricas de rendimiento y evaluaciones, acelerando los procesos de generación de reportes."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "ChekiBot",
+      "description": "Un sofisticado sistema de IA conversacional construido con Python, FastAPI y LangChain Core, diseñado para proporcionar capacidades de chatbot inteligente usando varios modelos de lenguaje incluyendo Nebius y OpenAI. Este proyecto fue desarrollado para chequeabolivia.bo.",
+      "technologies": ["Python", "FastAPI", "LangChain", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
+      "link": "https://chekibot.chequeabolivia.bo/"
+    },
+    {
+      "title": "Botcachino",
+      "description": "Un chatbot de IA agéntica para gestión de horarios académicos en la Universidad Mayor de San Simón. Construido con LangGraph para razonamiento multi-paso, PostgreSQL para persistencia de estado y MCP para integración de herramientas.",
+      "technologies": ["Python", "LangGraph", "PostgreSQL", "Docker", "FastAPI", "uv"],
+      "link": "https://github.com/willypaz243/botcachino_monorepo"
+    },
+    {
+      "title": "FaceMasker",
+      "description": "Sistema de detección de mascarillas faciales en tiempo real usando deep learning. Utiliza PyTorch con un modelo CNN pre-entrenado para clasificar si las personas usan mascarillas en imágenes.",
+      "technologies": ["Python", "PyTorch", "OpenCV", "Docker", "FastAPI"],
+      "link": "https://github.com/willypaz243/face-masker"
+    },
+    {
+      "title": "Green Recovery (Pix2Pix)",
+      "description": "Modelo de traducción imagen-a-imagen usando Pix2Pix GANs para visualización de recuperación ambiental. Entrena un GAN condicional para transformar imágenes satelitales, con pipeline de dataset personalizado, loop de entrenamiento y optimización de pérdida.",
+      "technologies": ["Python", "PyTorch", "Pix2Pix", "GANs", "NumPy", "Matplotlib"],
+      "link": "https://github.com/willypaz243/green_recovery_pix2pix_project"
+    }
+  ],
+  "navigation": [
+    {
+      "id": "about",
+      "label": "Sobre mí",
+      "icon": "👨‍💻"
+    },
+    {
+      "id": "experience",
+      "label": "Experiencia",
+      "icon": "💼"
+    },
+    {
+      "id": "projects",
+      "label": "Proyectos",
+      "icon": "🚀"
+    },
+    {
+      "id": "skills",
+      "label": "Habilidades",
+      "icon": "🛠"
+    }
+  ]
+}

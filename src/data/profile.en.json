@@ -11,7 +11,6 @@
   "about": {
     "title": "About me",
     "experience": 4,
-    "expertise": "nearly a decade of programming expertise",
     "description": "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions."
   },
   "contact": {
@@ -24,7 +23,6 @@
     "ai_ml_engineering": {
       "title": "AI & ML Engineering",
       "expertise": "Chatbots, RAG systems, Computer Vision",
-      "expert_level": 4,
       "proficient_tools": [
         "Python",
         "FastAPI",
@@ -41,7 +39,6 @@
     "full_stack_development": {
       "title": "Full Stack Development",
       "expertise": "React, Node.js, REST APIs",
-      "expert_level": 5,
       "proficient_tools": [
         "ReactJS",
         "React Native",
@@ -57,7 +54,6 @@
     "devops_infrastructure": {
       "title": "DevOps & Cloud",
       "expertise": "Containerization, deployment, cloud",
-      "expert_level": 3,
       "proficient_tools": ["Docker", "Nginx", "AWS Lambda", "Linux", "Git", "CI/CD"],
       "familiar_tools": ["Version Control", "Serverless"]
     },
@@ -156,32 +152,22 @@
       "link": "https://chekibot.chequeabolivia.bo/"
     },
     {
-      "title": "Cappuchino AI",
-      "description": "Un chatbot con capacidades agenticas para la consulta de horarios y organización de horarios en la facultad de ciencia y tecnología de la Universidad Mayor se San Simón",
-      "technologies": [
-        "React",
-        "Node.js",
-        "Python",
-        "FastAPI",
-        "LangChain",
-        "PostgreSQL",
-        "Docker",
-        "Nginx",
-        "MCP (Model context Protocol)"
-      ],
-      "link": "#"
+      "title": "Botcachino",
+      "description": "An agentic AI chatbot for academic schedule management at Universidad Mayor de San Simón. Built with LangGraph for multi-step reasoning, PostgreSQL for state persistence, and MCP protocol for tool integration. Handles course inquiries, timetable organization, and multi-turn scheduling conversations.",
+      "technologies": ["Python", "LangGraph", "PostgreSQL", "Docker", "FastAPI", "uv"],
+      "link": "https://github.com/willypaz243/botcachino_monorepo"
     },
     {
-      "title": "OCR para documentos de identidad",
-      "description": "Un servicio de ocr para la extracción de datos de documentos de identidad.",
-      "technologies": ["React", "Node.js", "FastAPI", "Python", "PyTorch", "Tesseract", "Docker", "Nginx"],
-      "link": "#"
+      "title": "FaceMasker",
+      "description": "Real-time face mask detection system using deep learning. Uses PyTorch with a pre-trained CNN model to classify whether individuals are wearing masks in images. Includes trained models, test suite, and Docker deployment.",
+      "technologies": ["Python", "PyTorch", "OpenCV", "Docker", "FastAPI"],
+      "link": "https://github.com/willypaz243/face-masker"
     },
     {
-      "title": "Buscador semántico",
-      "description": "Un buscador semántico basado en embeddings para la búsqueda de productos y servicios",
-      "technologies": ["React", "Node.js", "Python", "FastAPI", "LangChain", "PostgreSQL", "Docker", "Nginx"],
-      "link": "#"
+      "title": "Green Recovery (Pix2Pix)",
+      "description": "Image-to-image translation model using Pix2Pix GANs for environmental recovery visualization. Trains a conditional GAN to transform satellite imagery, with custom dataset pipeline, training loop, and loss optimization. Demonstrates deep understanding of generative AI architectures.",
+      "technologies": ["Python", "PyTorch", "Pix2Pix", "GANs", "NumPy", "Matplotlib"],
+      "link": "https://github.com/willypaz243/green_recovery_pix2pix_project"
     }
   ],
   "navigation": [

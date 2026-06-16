@@ -1,7 +1,7 @@
 ---
 import DesktopNav from '../components/DesktopNav.astro';
 import Navigation from '../components/Navigation.astro';
-import profile from '../data/profile.json';
+import profile from '../data/profile.en.json';
 ---
 
 <!doctype html>
@@ -11,12 +11,52 @@ import profile from '../data/profile.json';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Willy Samuel Paz Colque - Portfolio</title>
+    <title>Willy Samuel Paz Colque - AI & Full Stack Developer</title>
     <meta name="description" content={profile.about.description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://willypaz.dev/" />
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://willypaz.dev/" />
+    <meta property="og:title" content="Willy Samuel Paz Colque - AI & Full Stack Developer" />
+    <meta property="og:description" content={profile.about.description} />
+    <meta property="og:image" content="https://willypaz.dev/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://willypaz.dev/" />
+    <meta name="twitter:title" content="Willy Samuel Paz Colque - AI & Full Stack Developer" />
+    <meta name="twitter:description" content={profile.about.description} />
+    <meta name="twitter:image" content="https://willypaz.dev/og-image.png" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   </head>
   <body
     class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
   >
+    <!-- Mobile language toggle (visible only on small screens) -->
+    <div class="fixed top-2 right-2 z-[60] md:hidden">
+      <button
+        id="language-toggle"
+        class="text-sm font-medium px-3 py-1.5 rounded-lg border border-miku-cyan/30 text-miku-cyan hover:bg-miku-cyan/10 transition-colors duration-300"
+        aria-label="Switch language"
+      >
+        <span id="lang-label">ES</span>
+      </button>
+    </div>
+    <!-- Restore language from localStorage -->
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('lang');
+        if (saved && saved !== 'en') {
+          document.documentElement.lang = saved;
+        }
+      })();
+    </script>
     <div class="relative">
       <DesktopNav />
       <slot />

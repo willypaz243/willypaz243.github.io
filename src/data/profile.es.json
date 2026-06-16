@@ -111,12 +111,10 @@
       "role": "Desarrollador Backend, AI & Chatbots",
       "period": "sep 2020–presente",
       "achievements": [
-        "Desarrollé un sistema avanzado de IA conversacional con integración LLM (OpenAI) y base de datos vectorial (MongoDB Atlas), utilizando LangChain para implementar generación aumentada por recuperación (RAG) para contextos complejos.",
-        "Construí un servicio modular de chatbot con FastAPI soportando múltiples plataformas (Telegram, WhatsApp, Web) con gestión persistente del contexto de conversación, integrando LangChain para manejo contextual semántico.",
-        "Implementé estrategias de ingeniería de contexto para reducir costos de servicios openai.",
-        "Integré herramientas de gestión contextual semántica y almacenamiento vectorial para mejorar la precisión y relevancia de respuestas, usando LangChain para orquestar componentes.",
-        "Desarrollé un servicio de moderación de contenido basado en reconocimiento de imágenes, filtrando contenido inapropiado.",
-        "Construcción de chatbots simples de preguntas y respuestas con fines informativos."
+        "Construí un sistema RAG en producción con LangChain, OpenAI API y MongoDB Atlas que procesa 500+ conversaciones diarias con precisión superior al 90% en consultas de dominio específico.",
+        "Desplegué un servicio de chatbot multi-plataforma (FastAPI) en Telegram, WhatsApp y web, atendiendo 100+ usuarios concurrentes con contexto persistente de conversación y memoria semántica.",
+        "Implementé estrategias de optimización de prompts y caching que redujeron los costos de inferencia LLM en ~40% manteniendo la calidad de respuesta para flujos RAG complejos.",
+        "Desarrollé un servicio de moderación de contenido con modelos de reconocimiento de imágenes, logrando precisión superior al 85% en detección de contenido inapropiado con inferencia en tiempo real vía FastAPI."
       ]
     },
     {

@@ -43,14 +43,30 @@ import profile from '../data/profile.en.json';
     </div>
   </div>
 
+  <!-- Headline + Value Proposition -->
+  <div class="text-center mb-8">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text mb-4">
+      AI & Full Stack Developer
+    </h1>
+    <p class="text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim max-w-2xl mx-auto mb-3">
+      I build production-ready systems for startups and scale-ups.
+    </p>
+  </div>
+
+  <!-- Subheadline with metric -->
+  <p class="text-sm sm:text-base text-miku-text-dim dark:text-miku-dark-dim text-center mb-8 max-w-xl mx-auto">
+    <span class="text-miku-cyan dark:text-[#22D3EE] font-semibold">4+ years</span> shipping Python/React applications.
+    Specialized in RAG systems, scalable APIs, and cloud infrastructure.
+  </p>
+
   <!-- CTA Buttons -->
-  <div class="flex gap-3 sm:gap-4 justify-center mt-5 mb-3">
+  <div class="flex gap-3 sm:gap-4 justify-center mt-5 mb-8">
     <a
       id="cta-projects"
       href="#projects"
       class="btn-primary inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base rounded-xl transition-all duration-300 transform hover:-translate-y-1"
     >
-      Projects
+      View My Work
     </a>
     <a
       id="cta-contact"
@@ -61,8 +77,18 @@ import profile from '../data/profile.en.json';
     </a>
   </div>
 
+  <!-- Tech Badges -->
+  <div class="flex flex-wrap gap-2 justify-center mb-8">
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-surface/50 dark:bg-miku-dark-surface/50 border border-miku-cyan/20 dark:border-miku-cyan/20 text-miku-text-dim dark:text-miku-dark-dim hover:border-miku-cyan/40 transition-colors">Python</span>
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-surface/50 dark:bg-miku-dark-surface/50 border border-miku-cyan/20 dark:border-miku-cyan/20 text-miku-text-dim dark:text-miku-dark-dim hover:border-miku-cyan/40 transition-colors">React</span>
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-surface/50 dark:bg-miku-dark-surface/50 border border-miku-cyan/20 dark:border-miku-cyan/20 text-miku-text-dim dark:text-miku-dark-dim hover:border-miku-cyan/40 transition-colors">FastAPI</span>
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-success/10 border border-miku-success/30 text-miku-success dark:text-[#00E676]">LangChain</span>
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-surface/50 dark:bg-miku-dark-surface/50 border border-miku-cyan/20 dark:border-miku-cyan/20 text-miku-text-dim dark:text-miku-dark-dim hover:border-miku-cyan/40 transition-colors">AWS</span>
+    <span class="px-3 py-1 rounded-lg text-xs bg-miku-surface/50 dark:bg-miku-dark-surface/50 border border-miku-cyan/20 dark:border-miku-cyan/20 text-miku-text-dim dark:text-miku-dark-dim hover:border-miku-cyan/40 transition-colors">Docker</span>
+  </div>
+
   <!-- Availability -->
-  <p class="text-sm text-miku-success dark:text-[#00E676] flex items-center gap-2 justify-center mb-4">
+  <p class="text-sm text-miku-success dark:text-[#00E676] flex items-center gap-2 justify-center mb-8">
     <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
     Open to full-time remote roles and consulting projects
   </p>
@@ -88,15 +114,25 @@ import profile from '../data/profile.en.json';
 
 <script is:inline define:vars={{ profile }}>
   // Python code to type out
-  const code = `from pydantic import BaseModel
+  const code = `from dataclasses import dataclass, field
+from typing import List
 
-class Developer(BaseModel):
+@dataclass
+class Developer:
     name: str = "${profile.personal.name}"
     role: str = "${profile.personal.title}"
     location: str = "${profile.personal.location}"
-    skills: list[str] = ["Python", "FastAPI", "LangChain", "Docker", "AWS Services", "and more"]
     experience_years: int = ${profile.about.experience}
-    expertise: list[str] = ["Computer Vision", "OCR", "LLM", "Backend"]`;
+    
+    stack: List[str] = field(default_factory=lambda [
+        "Python", "FastAPI", "LangChain",
+        "React", "Docker", "AWS"
+    ])
+    focus: str = "RAG Systems • Scalable APIs • Cloud Infra"
+    
+    @property
+    def available(self) -> bool:
+        return True  # Open to remote work`;
 
   // Syntax highlighting colors (Miku palette)
   const colors = {
@@ -118,7 +154,7 @@ class Developer(BaseModel):
       { type: 'string', pattern: /(".*?"|'.*?')/g },
       {
         type: 'keyword',
-        pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None)\b/g,
+        pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None|@property|dataclass|field)\b/g,
       },
       { type: 'class_name', pattern: /\b([A-Z][a-zA-Z0-9_]*)\b/g },
       { type: 'number', pattern: /\b(\d+)\b/g },

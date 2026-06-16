@@ -12,6 +12,7 @@ import profile from '../data/profile.en.json';
               href={`#${section.id}`}
               class="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full lg:rounded-xl hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 text-miku-text-main dark:text-miku-dark-text transition-colors dark:hover:shadow-miku-dark group relative"
               title={section.label}
+              data-lang-key={`nav-${section.id}`}
             >
               {section.icon}
 
@@ -28,6 +29,7 @@ import profile from '../data/profile.en.json';
           href="#footer"
           class="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full lg:rounded-xl hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 text-miku-text-main dark:text-miku-dark-text transition-colors dark:hover:shadow-miku-dark group relative"
           title="Contact"
+          data-lang-key="nav-contact"
         >
           📧
 

@@ -41,20 +41,98 @@ import profile from '../data/profile.en.json';
     <!-- Mobile language toggle (visible only on small screens) -->
     <div class="fixed top-2 right-2 z-[60] md:hidden">
       <button
-        id="language-toggle"
+        id="language-toggle-mobile"
         class="text-sm font-medium px-3 py-1.5 rounded-lg border border-miku-cyan/30 text-miku-cyan hover:bg-miku-cyan/10 transition-colors duration-300"
         aria-label="Switch language"
       >
-        <span id="lang-label">ES</span>
+        <span id="lang-label-mobile">ES</span>
       </button>
     </div>
-    <!-- Restore language from localStorage -->
+    <!-- Restore language from localStorage and apply -->
     <script is:inline>
       (function() {
-        const saved = localStorage.getItem('lang');
-        if (saved && saved !== 'en') {
-          document.documentElement.lang = saved;
+        var translations = {
+          nav: { about: "About", experience: "Experience", projects: "Projects", skills: "Skills" },
+          hero: { title: "AI & Full Stack Developer", about_title: "About me", about_desc: "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions.", cta_projects: "Projects", cta_contact: "Contact" },
+          about: { title: "About me", description: "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions." },
+          experience: { title: "Professional Experience" },
+          projects: { title: "Featured Projects", view: "View Project" },
+          skills: { title: "Skills", ai_title: "AI & ML Engineering", ai_desc: "Chatbots, RAG systems, Computer Vision", daily: "Proficient tools and technologies I use daily", familiar: "Tools and technologies I'm familiar with", fs_title: "Full Stack Development", fs_desc: "React, Node.js, REST APIs", devops_title: "DevOps & Cloud", devops_desc: "Containerization, deployment, cloud", soft_title: "Soft Skills", soft_desc: "Personal competencies and professional traits" },
+          contact: { title: "Contact me", subtitle: "Talk to me about projects or collaboration", email: "Email" }
+        };
+        var es = {
+          nav: { about: "Sobre mí", experience: "Experiencia", projects: "Proyectos", skills: "Habilidades" },
+          hero: { title: "Desarrollador AI & Full Stack", about_title: "Sobre mí", about_desc: "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras.", cta_projects: "Proyectos", cta_contact: "Contacto" },
+          about: { title: "Sobre mí", description: "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras." },
+          experience: { title: "Experiencia Profesional" },
+          projects: { title: "Proyectos Destacados", view: "Ver Proyecto" },
+          skills: { title: "Habilidades", ai_title: "Ingeniería AI & ML", ai_desc: "Chatbots, sistemas RAG, Visión por Computadora", daily: "Herramientas y tecnologías que uso a diario", familiar: "Herramientas y tecnologías que conozco", fs_title: "Desarrollo Full Stack", fs_desc: "React, Node.js, APIs REST", devops_title: "DevOps & Cloud", devops_desc: "Contenedores, despliegue, cloud", soft_title: "Habilidades Blandas", soft_desc: "Competencias personales y rasgos profesionales" },
+          contact: { title: "Contáctame", subtitle: "Hablemos sobre proyectos o colaboración", email: "Correo" }
+        };
+
+        function switchLang(lang) {
+          document.documentElement.lang = lang;
+          localStorage.setItem('lang', lang);
+          var t = lang === 'es' ? es : translations;
+          // Nav tooltips (data-tooltip attributes)
+          document.querySelectorAll('[data-lang-key="nav-about"]').forEach(function(el) { el.title = t.nav.about; });
+          document.querySelectorAll('[data-lang-key="nav-experience"]').forEach(function(el) { el.title = t.nav.experience; });
+          document.querySelectorAll('[data-lang-key="nav-projects"]').forEach(function(el) { el.title = t.nav.projects; });
+          document.querySelectorAll('[data-lang-key="nav-skills"]').forEach(function(el) { el.title = t.nav.skills; });
+          // Hero
+          var heroTitle = document.getElementById('hero-title'); if (heroTitle) heroTitle.textContent = t.hero.title;
+          var aboutTitle = document.getElementById('about-title'); if (aboutTitle) aboutTitle.textContent = t.about.title;
+          var aboutDesc = document.getElementById('about-desc'); if (aboutDesc) aboutDesc.textContent = t.about.description;
+          var ctaP = document.getElementById('cta-projects'); if (ctaP) ctaP.textContent = t.hero.cta_projects;
+          var ctc = document.getElementById('cta-contact'); if (ctc) ctc.textContent = t.hero.cta_contact;
+          // Experience
+          var expTitle = document.getElementById('exp-title'); if (expTitle) expTitle.textContent = t.experience.title;
+          // Projects
+          var projTitle = document.getElementById('proj-title'); if (projTitle) projTitle.textContent = t.projects.title;
+          document.querySelectorAll('[data-lang-key="view-project"]').forEach(function(el) { el.textContent = t.projects.view; });
+          // Skills
+          var skTitle = document.getElementById('sk-title'); if (skTitle) skTitle.textContent = t.skills.title;
+          // Dynamic category titles from Skills component
+          document.querySelectorAll('[id^="sk-"][id$="_title"]').forEach(function(el) {
+            var cat = el.id.replace('sk-', '').replace('_title', '');
+            var map = { ai_ml: 'ai_title', full_stack: 'fs_title', devops_cloud: 'devops_title' };
+            if (map[cat]) el.textContent = t.skills[map[cat]];
+          });
+          var sfTitle = document.getElementById('sf-title'); if (sfTitle) sfTitle.textContent = t.skills.soft_title;
+          var sfDesc = document.getElementById('sf-desc'); if (sfDesc) sfDesc.textContent = t.skills.soft_desc;
+          // Contact
+          var ctTitle = document.getElementById('ct-title'); if (ctTitle) ctTitle.textContent = t.contact.title;
+          var ctSub = document.getElementById('ct-sub'); if (ctSub) ctSub.textContent = t.contact.subtitle;
+          var emailLabel = document.getElementById('email-label'); if (emailLabel) emailLabel.textContent = t.contact.email;
+          // "daily" and "familiar" labels
+          document.querySelectorAll('[data-lang-key="daily-label"]').forEach(function(el) { el.textContent = t.skills.daily; });
+          document.querySelectorAll('[data-lang-key="familiar-label"]').forEach(function(el) { el.textContent = t.skills.familiar; });
+          // Update toggle button label
+          var label = lang === 'en' ? 'ES' : 'EN';
+          var lbl1 = document.getElementById('lang-label'); if (lbl1) lbl1.textContent = label;
+          var lbl2 = document.getElementById('lang-label-mobile'); if (lbl2) lbl2.textContent = label;
         }
+        window.switchLanguage = switchLang;
+        var saved = localStorage.getItem('lang');
+        // Mobile toggle button
+        var mobileBtn = document.getElementById('language-toggle-mobile');
+        if (mobileBtn) {
+          mobileBtn.addEventListener('click', function() {
+            var current = localStorage.getItem('lang') || 'en';
+            var next = current === 'en' ? 'es' : 'en';
+            switchLang(next);
+          });
+        }
+        // Desktop toggle button (from LanguageToggle component)
+        var desktopBtn = document.getElementById('language-toggle');
+        if (desktopBtn) {
+          desktopBtn.addEventListener('click', function() {
+            var current = localStorage.getItem('lang') || 'en';
+            var next = current === 'en' ? 'es' : 'en';
+            switchLang(next);
+          });
+        }
+        if (saved && saved !== 'en') switchLang(saved);
       })();
     </script>
     <div class="relative">

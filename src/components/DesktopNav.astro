@@ -27,6 +27,7 @@ import LanguageToggle from './LanguageToggle.astro';
               <a
                 href={`#${section.id}`}
                 class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+                data-lang-key={`nav-${section.id}`}
               >
                 {section.label}
               </a>
@@ -35,6 +36,7 @@ import LanguageToggle from './LanguageToggle.astro';
           <a
             href="#footer"
             class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+            data-lang-key="nav-contact"
           >
             📧 Contact
           </a>

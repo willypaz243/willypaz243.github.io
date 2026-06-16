@@ -32,7 +32,7 @@
     const next = current === 'en' ? 'es' : 'en';
     setLang(next);
     updateLabel();
-    window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: next } }));
+    if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
   });
 
   // Restore from localStorage

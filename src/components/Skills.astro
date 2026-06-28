@@ -2,7 +2,7 @@
 import profile from '../data/profile.en.json';
 ---
 
-<section class="mb-16">
+<section id="skills" class="max-w-4xl mx-auto py-8 animate-fade-in">
   <h2
     id="sk-title"
     class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
@@ -10,7 +10,7 @@ import profile from '../data/profile.en.json';
     Skills
   </h2>
 
-  <div class="space-y-8">
+  <div class="space-y-12 mt-12">
     {
       Object.entries(profile.skills).map(([category, skills]: [string, any]) => {
         if (typeof skills === 'string') return null;
@@ -21,33 +21,38 @@ import profile from '../data/profile.en.json';
         const workingTools = skills.familiar_tools || [];
 
         return (
-          <div class="skill-category">
-            <div class="flex items-center gap-3 mb-4">
-              <h3 id={`sk-${category}_title`} class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan">{categoryTitle}</h3>
-              {categoryExpertise && <span class="text-sm text-gray-500 dark:text-gray-400">· {categoryExpertise}</span>}
+          <div class="skill-category" data-animate>
+            <h3
+              id={`sk-${category}_title`}
+              class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan mb-4"
+            >
+              {categoryTitle}
+              {categoryExpertise && (
+                <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">— {categoryExpertise}</span>
+              )}
+            </h3>
+
+            <div class="mb-6">
+              <p data-lang-key="daily-label" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
+                Proficient tools and technologies I use daily
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {expertTools.map((tool: string) => (
+                  <span class="px-3 py-1.5 text-sm rounded-lg bg-miku-cyan/10 dark:bg-miku-cyan/15 text-miku-cyan dark:text-miku-glow border border-miku-cyan/30 dark:border-miku-cyan/25 font-medium hover:border-miku-cyan transition-all">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {expertTools.length > 0 && (
-              <div class="mb-4">
-                <p data-lang-key="daily-label" class="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                  Proficient tools and technologies I use daily
+            {workingTools.length > 0 && (
+              <div class="mb-2">
+                <p data-lang-key="familiar-label" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
+                  Tools and technologies I'm familiar with
                 </p>
                 <div class="flex flex-wrap gap-2">
-                  {expertTools.map((tool: string) => (
-                    <span class="px-3 py-2 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan-dark to-miku-glow dark:to-miku-purple text-white rounded-lg shadow-sm hover:shadow-md transition-all">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {workingTools.length > 0 && (
-              <div>
-                <p data-lang-key="familiar-label" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Tools and technologies I'm familiar with</p>
-                <div class="flex flex-wrap gap-2">
                   {workingTools.map((tool: string) => (
-                    <span class="px-3 py-2 bg-miku-surface dark:bg-miku-dark-surface text-miku-text-main dark:text-miku-dark-text rounded-lg border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-teal-strong dark:hover:border-miku-cyan transition-all">
+                    <span class="px-3 py-1.5 text-sm rounded-lg bg-miku-dark-surface/50 dark:bg-white/5 text-miku-text-main dark:text-miku-dark-text border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan transition-all">
                       {tool}
                     </span>
                   ))}
@@ -59,20 +64,21 @@ import profile from '../data/profile.en.json';
       })
     }
 
-    {
-      profile.skills.soft_skills && profile.skills.soft_skills.length > 0 && (
-        <div class="skill-category">
-          <h3 id="sf-title" class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan mb-1">Soft Skills</h3>
-          <p id="sf-desc" class="text-sm text-gray-600 dark:text-gray-400 mb-4 mt-1">Professional competencies applied in real projects</p>
-          <div class="flex flex-wrap gap-2">
-            {profile.skills.soft_skills.map(skill => (
-              <span class="px-3 py-2 bg-miku-surface dark:bg-miku-dark-surface text-miku-text-main dark:text-miku-dark-text rounded-lg border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan transition-all text-sm">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      )
-    }
+    <div class="skill-category border-t border-miku-border-dim dark:border-miku-dark-border pt-8" data-animate>
+      <h3
+        id="sf-title"
+        class="text-3xl font-bold bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text mb-6"
+      >
+        Soft Skills
+      </h3>
+      <ul class="space-y-4">
+        {profile.skills.soft_skills.map(skill => (
+          <li class="flex items-start gap-3 text-miku-text-main dark:text-miku-dark-text">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-miku-cyan flex-shrink-0"></span>
+            <span>{skill}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

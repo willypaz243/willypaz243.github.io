@@ -58,51 +58,12 @@
       "familiar_tools": ["Control de Versiones", "Serverless"]
     },
     "soft_skills": [
-      {
-        "name": "Trabajo en equipo",
-        "importance": "very-high",
-        "experience": "Desarrollo colaborativo en múltiples equipos y proyectos"
-      },
-      {
-        "name": "Autodidacta",
-        "importance": "very-high",
-        "experience": "Aprendizaje continuo en AI, backend y frontend"
-      },
-      {
-        "name": "Adaptabilidad",
-        "importance": "very-high",
-        "experience": "Aprendizaje rápido de nuevas herramientas para integración AI y sistemas de producción"
-      },
-      {
-        "name": "Resolución de problemas",
-        "importance": "very-high",
-        "experience": "Optimización, debugging y diseño de sistemas"
-      },
-      {
-        "name": "Pensamiento analítico",
-        "importance": "high",
-        "experience": "Toma de decisiones basada en datos para mejoras AI y del sistema"
-      },
-      {
-        "name": "Atención al detalle",
-        "importance": "very-high",
-        "experience": "Calidad de código, seguridad y precisión de APIs"
-      },
-      {
-        "name": "Autonomía y proactividad",
-        "importance": "very-high",
-        "experience": "Liderando proyectos AI y desarrollo full-stack independiente"
-      },
-      {
-        "name": "Capacidad de aprendizaje",
-        "importance": "very-very-high",
-        "experience": "Dominio de nuevas tecnologías AI, LLMs y frameworks modernos"
-      },
-      {
-        "name": "Inglés (B1)",
-        "importance": "medium",
-        "experience": "Documentación técnica y comunicación básica"
-      }
+      "Trabajo en equipo en equipos distribuidos y múltiples proyectos",
+      "Autonomía en el ownership de proyectos desde la concepción hasta la producción",
+      "Aprendizaje rápido de frameworks nuevos y tecnologías AI",
+      "Resolución de problemas cross-funcional y diseño de sistemas",
+      "Comunicación técnica con stakeholders no técnicos",
+      "Atención al detalle en calidad de código, seguridad y precisión de APIs"
     ]
   },
   "experience": [
@@ -154,7 +115,16 @@
     {
       "title": "ChekiBot",
       "description": "Sistema RAG en producción para chequeabolivia.bo que procesa consultas de documentos financieros usando LLMs multimodales (Nebius, OpenAI). Entrega respuestas inteligentes vía Telegram, WhatsApp e interfaces web con memoria semántica persistente.",
-      "technologies": ["Python", "FastAPI", "LangChain Core", "OpenAI API", "Nebius", "MongoDB Atlas", "Docker", "Nginx"],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangChain Core",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "Docker",
+        "Nginx"
+      ],
       "link": "https://chekibot.chequeabolivia.bo/",
       "metrics": {
         "platforms": "Telegram, WhatsApp, Web",

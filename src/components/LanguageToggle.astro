@@ -12,34 +12,36 @@
 </button>
 
 <script is:inline>
-(() => {
-  const profiles = {
-    en: { lang: "en", personal: { title: "AI & Full Stack Developer" }, about: { title: "About me", description: "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions." }, contact: { title: "Contact me" }, navigation: [{ id: "about", label: "About" }, { id: "experience", label: "Experience" }, { id: "projects", label: "Projects" }, { id: "skills", label: "Skills" }] },
-    es: { lang: "es", personal: { title: "Desarrollador AI & Full Stack" }, about: { title: "Sobre mí", description: "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras." }, contact: { title: "Contáctame" }, navigation: [{ id: "about", label: "Sobre mí" }, { id: "experience", label: "Experiencia" }, { id: "projects", label: "Proyectos" }, { id: "skills", label: "Habilidades" }] }
-  };
+  (() => {
+    function getLang() {
+      return localStorage.getItem('lang') || 'en';
+    }
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+    }
 
-  function getLang() { return localStorage.getItem('lang') || 'en'; }
-  function setLang(lang) { localStorage.setItem('lang', lang); document.documentElement.lang = lang; }
+    const btn = document.getElementById('language-toggle');
+    const label = document.getElementById('lang-label');
+    if (!btn || !label) return;
 
-  const btn = document.getElementById('language-toggle');
-  const label = document.getElementById('lang-label');
-  if (!btn || !label) return;
+    function updateLabel() {
+      label.textContent = getLang() === 'en' ? 'ES' : 'EN';
+    }
 
-  function updateLabel() { label.textContent = getLang() === 'en' ? 'ES' : 'EN'; }
+    btn.addEventListener('click', () => {
+      const current = getLang();
+      const next = current === 'en' ? 'es' : 'en';
+      setLang(next);
+      updateLabel();
+      if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
+    });
 
-  btn.addEventListener('click', () => {
-    const current = getLang();
-    const next = current === 'en' ? 'es' : 'en';
-    setLang(next);
+    // Restore from localStorage
+    const saved = getLang();
+    if (saved !== 'en') setLang(saved);
     updateLabel();
-    if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
-  });
-
-  // Restore from localStorage
-  const saved = getLang();
-  if (saved !== 'en') setLang(saved);
-  updateLabel();
-})();
+  })();
 </script>
 
 <style>

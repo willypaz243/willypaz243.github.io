@@ -52,7 +52,7 @@ import profile from '../data/profile.en.json';
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {workingTools.map((tool: string) => (
-                    <span class="px-3 py-1.5 text-sm rounded-lg bg-miku-dark-surface/50 dark:bg-white/5 text-miku-text-main dark:text-miku-dark-text border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan transition-all">
+                    <span class="px-3 py-1.5 text-sm rounded-lg bg-gray-100 dark:bg-white/5 text-miku-text-main dark:text-miku-dark-text border border-gray-500/40 dark:border-gray-600/40 hover:border-miku-cyan transition-all">
                       {tool}
                     </span>
                   ))}
@@ -64,7 +64,7 @@ import profile from '../data/profile.en.json';
       })
     }
 
-    <div class="skill-category border-t border-miku-border-dim dark:border-miku-dark-border pt-8" data-animate>
+    <div class="skill-category border-t border-gray-500/30 dark:border-miku-dark-border/30 pt-8" data-animate>
       <h3
         id="sf-title"
         class="text-3xl font-bold bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text mb-6"

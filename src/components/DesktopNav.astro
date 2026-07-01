@@ -12,39 +12,34 @@ import LanguageToggle from './LanguageToggle.astro';
     <div class="flex justify-between items-center h-[70px]">
       <!-- Logo -->
       <a href="#" aria-label="Go to home">
-      <div class="flex items-center">
-        <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
-          &lt; WillyDev /&gt;
-        </span>
-      </div>
+        <div class="flex items-center">
+          <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
+            &lt; WillyDev /&gt;
+          </span>
+        </div>
       </a>
 
       <!-- Navigation Links -->
-      <div class="sm:flex gap-8">
-        <div class="hidden sm:flex gap-8 items-center">
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex gap-6 items-center">
           {
             profile.navigation.map(section => (
               <a
                 href={`#${section.id}`}
-                class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+                class="text-sm font-medium text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan transition-colors duration-300"
                 data-lang-key={`nav-${section.id}`}
               >
                 {section.label}
               </a>
             ))
           }
-          <a
-            href="#footer"
-            class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
-            data-lang-key="nav-contact"
-          >
-            📧 Contact
-          </a>
         </div>
         <div class="flex items-center gap-2">
-          <span class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-miku-success/10 border border-miku-success/30">
-            <span class="w-1.5 h-1.5 rounded-full bg-miku-success animate-pulse"></span>
-            <span class="text-xs font-medium text-miku-success dark:text-[#00E676]">Open to Work</span>
+          <span
+            class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-green-600/10 border border-green-600/30 text-green-700 dark:bg-miku-success/10 dark:border-miku-success/30 dark:text-miku-success"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-miku-success animate-pulse"></span>
+            <span class="text-xs font-medium">Open to Work</span>
           </span>
           <LanguageToggle />
           <ThemeToggle />

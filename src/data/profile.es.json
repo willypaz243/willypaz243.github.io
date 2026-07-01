@@ -187,6 +187,11 @@
       "id": "skills",
       "label": "Habilidades",
       "icon": "🛠"
+    },
+    {
+      "id": "footer",
+      "label": "Contacto",
+      "icon": "📧"
     }
   ]
 }

@@ -25,11 +25,17 @@ import profile from '../data/profile.en.json';
     <!-- Left Column: Text Content -->
     <div class="order-2 lg:order-1 flex flex-col justify-center text-left lg:text-left" style="gap: 0.75rem;">
       <!-- Headline (hidden on mobile) -->
-      <h1 data-animate class="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text">
+      <h1
+        data-animate
+        class="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text"
+      >
         AI & Full Stack Developer
       </h1>
       <!-- Value Proposition (hidden on mobile) -->
-      <p data-animate class="hidden md:block text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim leading-relaxed">
+      <p
+        data-animate
+        class="hidden md:block text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim leading-relaxed"
+      >
         I build production-ready systems for startups and scale-ups.
       </p>
 
@@ -45,7 +51,7 @@ import profile from '../data/profile.en.json';
         <a
           id="cta-contact"
           href="#footer"
-          class="inline-block px-6 py-2.5 border border-gray-600 hover:border-miku-cyan hover:text-miku-cyan text-gray-300 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+          class="inline-block px-6 py-2.5 border border-miku-teal-strong/40 dark:border-miku-cyan/30 text-[#546E7A] dark:text-miku-dark-dim hover:text-miku-cyan hover:border-miku-cyan rounded-xl transition-all duration-300 transform hover:-translate-y-1 dark:hover:text-miku-cyan"
         >
           Contact
         </a>
@@ -65,10 +71,7 @@ import profile from '../data/profile.en.json';
         >
           {profile.about.title}
         </h2>
-        <p
-          id="about-desc"
-          class="text-sm text-miku-text-dim dark:text-miku-dark-dim leading-relaxed max-w-lg"
-        >
+        <p id="about-desc" class="text-sm text-miku-text-dim dark:text-miku-dark-dim leading-relaxed max-w-lg">
           {profile.about.description}
         </p>
       </div>
@@ -76,10 +79,12 @@ import profile from '../data/profile.en.json';
 
     <!-- Right Column: Terminal Window -->
     <div class="order-1 lg:order-2">
-      <div class="rounded-xl overflow-hidden border-2 border-miku-cyan/30 dark:border-miku-cyan/30 shadow-2xl shadow-miku-cyan/10 dark:shadow-miku-cyan/20">
+      <div
+        class="rounded-xl overflow-hidden border-2 border-miku-teal-strong/40 dark:border-miku-cyan/30 shadow-miku-light dark:shadow-miku-cyan/20"
+      >
         <!-- Terminal Header -->
         <div
-          class="bg-miku-surface dark:bg-miku-dark-surface px-4 py-3 flex items-center gap-2 border-b border-miku-cyan/20 dark:border-miku-cyan/20"
+          class="bg-white dark:bg-miku-dark-surface px-4 py-3 flex items-center gap-2 border-b border-miku-teal-strong/30 dark:border-miku-cyan/20"
         >
           <div class="w-3 h-3 rounded-full bg-red-500"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -88,7 +93,10 @@ import profile from '../data/profile.en.json';
 
         <!-- Terminal Content -->
         <div class="bg-miku-base dark:bg-miku-dark-base p-4 sm:p-6 font-mono text-xs sm:text-sm md:text-base">
-          <div id="terminal-code" class="text-miku-text-main dark:text-miku-dark-text whitespace-pre-wrap break-words min-h-[380px] lg:min-h-[490px]">
+          <div
+            id="terminal-code"
+            class="text-miku-text-main dark:text-miku-dark-text whitespace-pre-wrap break-words min-h-[380px] lg:min-h-[490px]"
+          >
           </div>
         </div>
       </div>
@@ -138,7 +146,8 @@ class Developer:
       { type: 'string', pattern: /(".*?"|'.*?')/g },
       {
         type: 'keyword',
-        pattern: /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None|@property|dataclass|field)\b/g,
+        pattern:
+          /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None|@property|dataclass|field)\b/g,
       },
       { type: 'class_name', pattern: /\b([A-Z][a-zA-Z0-9_]*)\b/g },
       { type: 'number', pattern: /\b(\d+)\b/g },

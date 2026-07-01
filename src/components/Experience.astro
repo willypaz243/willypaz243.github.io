@@ -5,6 +5,7 @@ import profile from '../data/profile.en.json';
 <section class="w-full max-w-4xl mx-auto animate-fade-in">
   <h2
     id="exp-title"
+    data-animate
     class="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
   >
     Professional Experience
@@ -13,7 +14,7 @@ import profile from '../data/profile.en.json';
     <div class="absolute left-0 top-0 h-full w-0.5 bg-miku-cyan/20 dark:bg-miku-cyan/10"></div>
     {
       profile.experience.map(exp => (
-        <div class="border-l-4 border-miku-cyan dark:border-miku-glow pl-6 py-2 hover:border-miku-magenta dark:hover:border-miku-magenta transition-colors">
+        <div data-animate class="border-l-4 border-miku-cyan dark:border-miku-glow pl-6 py-2 hover:border-miku-magenta dark:hover:border-miku-magenta transition-colors">
           <h3 class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan">{exp.role}</h3>
           <p class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim mb-2">{exp.company}</p>
           <p class="text-xs font-mono text-miku-cyan mb-6 inline-block bg-miku-cyan/10 px-2 py-1 rounded">

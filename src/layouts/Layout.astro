@@ -34,9 +34,14 @@ import profile from '../data/profile.en.json';
     <!-- Theme color -->
     <meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- Google Fonts: Inter (body) + JetBrains Mono (code/terminal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body
-    class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
+    class="font-sans bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
   >
     <!-- Mobile language toggle (visible only on small screens) -->
     <div class="fixed top-2 right-2 z-[60] md:hidden">
@@ -140,16 +145,23 @@ import profile from '../data/profile.en.json';
       <slot />
       <Navigation />
     </div>
+
+    <!-- Scroll-triggered animations -->
+    <script src="/scroll-animations.js" defer></script>
   </body>
 </html>
 
 <style>
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     scroll-padding-top: 2rem;
   }
   body {
     margin: 0;
     min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>

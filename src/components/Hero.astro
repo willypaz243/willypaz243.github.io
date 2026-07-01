@@ -25,27 +25,27 @@ import profile from '../data/profile.en.json';
     <!-- Left Column: Text Content -->
     <div class="order-2 lg:order-1 flex flex-col justify-center text-left lg:text-left" style="gap: 0.75rem;">
       <!-- Headline (hidden on mobile) -->
-      <h1 class="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text">
+      <h1 data-animate class="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text">
         AI & Full Stack Developer
       </h1>
       <!-- Value Proposition (hidden on mobile) -->
-      <p class="hidden md:block text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim leading-relaxed">
+      <p data-animate class="hidden md:block text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim leading-relaxed">
         I build production-ready systems for startups and scale-ups.
       </p>
 
       <!-- CTA Buttons -->
-      <div class="flex gap-3 sm:gap-4">
+      <div data-animate-stagger class="flex gap-3 sm:gap-4">
         <a
           id="cta-projects"
           href="#projects"
-          class="btn-primary inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+          class="inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base rounded-xl transition-all duration-300 transform hover:-translate-y-1"
         >
           View My Work
         </a>
         <a
           id="cta-contact"
           href="#footer"
-          class="btn-outline inline-block px-6 py-2.5 border border-gray-600 hover:border-miku-cyan hover:text-miku-cyan text-gray-300 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+          class="inline-block px-6 py-2.5 border border-gray-600 hover:border-miku-cyan hover:text-miku-cyan text-gray-300 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
         >
           Contact
         </a>
@@ -58,7 +58,7 @@ import profile from '../data/profile.en.json';
       </p>
 
       <!-- About Me -->
-      <div class="mt-2">
+      <div data-animate class="mt-2">
         <h2
           id="about-title"
           class="text-lg font-semibold mb-1 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"

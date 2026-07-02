@@ -27,9 +27,9 @@ import profile from '../data/profile.en.json';
               id={`sk-${category}_title`}
               class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan mb-4"
             >
-              {categoryTitle}
+              <span data-i18n={`skills.${category}.title`}>{categoryTitle}</span>
               {categoryExpertise && (
-                <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">— {categoryExpertise}</span>
+                <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">— <span data-i18n={`skills.${category}.expertise`}>{categoryExpertise}</span></span>
               )}
             </h3>
 
@@ -74,10 +74,10 @@ import profile from '../data/profile.en.json';
         {profile.sections.soft_skills}
       </h3>
       <ul class="space-y-4">
-        {profile.skills.soft_skills.map(skill => (
+        {profile.skills.soft_skills.map((skill, j) => (
           <li class="flex items-start gap-3 text-miku-text-main dark:text-miku-dark-text">
             <span class="mt-1.5 w-2 h-2 rounded-full bg-miku-cyan flex-shrink-0"></span>
-            <span>{skill}</span>
+            <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
           </li>
         ))}
       </ul>

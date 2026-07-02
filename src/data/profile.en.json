@@ -6,18 +6,43 @@
     "location": "Cochabamba, Bolivia",
     "email": "willypaz243@gmail.com",
     "linkedin": "https://linkedin.com/in/willypaz",
-    "github": "https://github.com/willypaz243/"
+    "github": "https://github.com/willypaz243/",
+    "tagline": "I build production-ready systems for startups and scale-ups.",
+    "availability": "Open to full-time remote roles and consulting projects",
+    "badge": "Open to Work"
   },
   "about": {
     "title": "About me",
     "experience": 4,
     "description": "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions."
   },
+  "hero": {
+    "cta_projects": "View My Work",
+    "cta_contact": "Contact"
+  },
   "contact": {
     "title": "Contact me",
     "email": "willypaz243@gmail.com",
     "linkedin": "https://linkedin.com/in/willypaz",
-    "github": "https://github.com/willypaz243/"
+    "github": "https://github.com/willypaz243/",
+    "subtitle": "Talk to me about projects or collaboration",
+    "email_label": "Email",
+    "footer_credit": "Built with Astro & AI agents"
+  },
+  "branding": {
+    "logo": "< WillyDev />"
+  },
+  "labels": {
+    "view_project": "Live Demo",
+    "source_code": "Source Code"
+  },
+  "sections": {
+    "experience": "Professional Experience",
+    "projects": "Featured Projects",
+    "skills_title": "Skills",
+    "soft_skills": "Soft Skills",
+    "daily": "Proficient tools and technologies I use daily",
+    "familiar": "Tools and technologies I'm familiar with"
   },
   "skills": {
     "ai_ml_engineering": {

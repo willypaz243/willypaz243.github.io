@@ -26,17 +26,20 @@ import profile from '../data/profile.en.json';
     <div class="order-2 lg:order-1 flex flex-col justify-center text-left lg:text-left" style="gap: 0.75rem;">
       <!-- Headline (hidden on mobile) -->
       <h1
+        id="hero-title"
         data-animate
+        data-i18n="personal.title"
         class="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-miku-text-main dark:text-miku-dark-text"
       >
-        AI & Full Stack Developer
+        {profile.personal.title}
       </h1>
       <!-- Value Proposition (hidden on mobile) -->
       <p
         data-animate
+        data-i18n="personal.tagline"
         class="hidden md:block text-lg sm:text-xl text-miku-text-dim dark:text-miku-dark-dim leading-relaxed"
       >
-        I build production-ready systems for startups and scale-ups.
+        {profile.personal.tagline}
       </p>
 
       <!-- CTA Buttons -->
@@ -44,34 +47,37 @@ import profile from '../data/profile.en.json';
         <a
           id="cta-projects"
           href="#projects"
+          data-i18n="hero.cta_projects"
           class="inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base rounded-xl transition-all duration-300 transform hover:-translate-y-1"
         >
-          View My Work
+          {profile.hero.cta_projects}
         </a>
         <a
           id="cta-contact"
           href="#footer"
+          data-i18n="hero.cta_contact"
           class="inline-block px-6 py-2.5 border border-miku-teal-strong/40 dark:border-miku-cyan/30 text-[#546E7A] dark:text-miku-dark-dim hover:text-miku-cyan hover:border-miku-cyan rounded-xl transition-all duration-300 transform hover:-translate-y-1 dark:hover:text-miku-cyan"
         >
-          Contact
+          {profile.hero.cta_contact}
         </a>
       </div>
 
       <!-- Availability -->
-      <p class="text-sm text-miku-success dark:text-[#00E676] flex items-center gap-2">
+      <p data-i18n="personal.availability" class="text-sm text-miku-success dark:text-[#00E676] flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
-        Open to full-time remote roles and consulting projects
+        {profile.personal.availability}
       </p>
 
       <!-- About Me -->
       <div data-animate class="mt-2">
         <h2
           id="about-title"
+          data-i18n="about.title"
           class="text-lg font-semibold mb-1 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
         >
           {profile.about.title}
         </h2>
-        <p id="about-desc" class="text-sm text-miku-text-dim dark:text-miku-dark-dim leading-relaxed max-w-lg">
+        <p id="about-desc" data-i18n="about.description" class="text-sm text-miku-text-dim dark:text-miku-dark-dim leading-relaxed max-w-lg">
           {profile.about.description}
         </p>
       </div>

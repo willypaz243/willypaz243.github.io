@@ -6,18 +6,43 @@
     "location": "Cochabamba, Bolivia",
     "email": "willypaz243@gmail.com",
     "linkedin": "https://linkedin.com/in/willypaz",
-    "github": "https://github.com/willypaz243/"
+    "github": "https://github.com/willypaz243/",
+    "tagline": "Construyo sistemas listos para producción para startups y scale-ups.",
+    "availability": "Disponible para roles remotos full-time y proyectos de consultoría",
+    "badge": "Disponible"
   },
   "about": {
     "title": "Sobre mí",
     "experience": 4,
     "description": "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras."
   },
+  "hero": {
+    "cta_projects": "Ver mi Trabajo",
+    "cta_contact": "Contacto"
+  },
   "contact": {
     "title": "Contáctame",
     "email": "willypaz243@gmail.com",
     "linkedin": "https://linkedin.com/in/willypaz",
-    "github": "https://github.com/willypaz243/"
+    "github": "https://github.com/willypaz243/",
+    "subtitle": "Hablemos sobre proyectos o colaboración",
+    "email_label": "Correo",
+    "footer_credit": "Construido con Astro y agentes AI"
+  },
+  "branding": {
+    "logo": "< WillyDev />"
+  },
+  "labels": {
+    "view_project": "Demo en Vivo",
+    "source_code": "Código Fuente"
+  },
+  "sections": {
+    "experience": "Experiencia Profesional",
+    "projects": "Proyectos Destacados",
+    "skills_title": "Habilidades",
+    "soft_skills": "Habilidades Blandas",
+    "daily": "Herramientas y tecnologías que uso a diario",
+    "familiar": "Herramientas y tecnologías que conozco"
   },
   "skills": {
     "ai_ml_engineering": {

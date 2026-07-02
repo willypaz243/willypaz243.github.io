@@ -13,33 +13,21 @@
 
 <script is:inline>
   (() => {
-    function getLang() {
-      return localStorage.getItem('lang') || 'en';
-    }
-    function setLang(lang) {
-      localStorage.setItem('lang', lang);
-      document.documentElement.lang = lang;
-    }
-
     const btn = document.getElementById('language-toggle');
     const label = document.getElementById('lang-label');
     if (!btn || !label) return;
 
     function updateLabel() {
-      label.textContent = getLang() === 'en' ? 'ES' : 'EN';
+      const lang = localStorage.getItem('lang') || 'en';
+      label.textContent = lang === 'en' ? 'ES' : 'EN';
     }
 
     btn.addEventListener('click', () => {
-      const current = getLang();
+      const current = localStorage.getItem('lang') || 'en';
       const next = current === 'en' ? 'es' : 'en';
-      setLang(next);
-      updateLabel();
       if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
     });
 
-    // Restore from localStorage
-    const saved = getLang();
-    if (saved !== 'en') setLang(saved);
     updateLabel();
   })();
 </script>

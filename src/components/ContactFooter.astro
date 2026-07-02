@@ -8,11 +8,14 @@ import profile from '../data/profile.en.json';
   <div class="container mx-auto px-4 sm:px-8 lg:px-12">
     <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
       <div class="text-center sm:text-left">
+        <h2 id="ct-title" data-i18n="contact.title" class="text-lg font-semibold mb-1 text-miku-teal-strong dark:text-miku-cyan">
+          {profile.contact.title}
+        </h2>
         <p class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-4">
           {profile.contact.email}
         </p>
-        <p id="ct-sub" class="text-xs text-miku-text-dim dark:text-miku-dark-dim/70">
-          Talk to me about projects or collaboration
+        <p id="ct-sub" data-i18n="contact.subtitle" class="text-xs text-miku-text-dim dark:text-miku-dark-dim/70">
+          {profile.contact.subtitle}
         </p>
       </div>
 
@@ -37,8 +40,9 @@ import profile from '../data/profile.en.json';
           >
           <span
             id="email-label"
+            data-i18n="contact.email_label"
             class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim group-hover:text-miku-text-main dark:group-hover:text-miku-dark-text"
-            >Email</span
+            >{profile.contact.email_label}</span
           >
         </a>
 
@@ -87,8 +91,8 @@ import profile from '../data/profile.en.json';
     </div>
 
     <div class="text-center mt-8 pt-8 border-t border-miku-cyan/10 dark:border-miku-cyan/10">
-      <p class="text-xs text-miku-text-dim dark:text-miku-dark-dim/50">
-        © {new Date().getFullYear()} Willy Samuel Paz Colque. Built with Astro & AI agents.
+      <p data-i18n="contact.footer_credit" class="text-xs text-miku-text-dim dark:text-miku-dark-dim/50">
+        © {new Date().getFullYear()} Willy Samuel Paz Colque. {profile.contact.footer_credit}
       </p>
     </div>
   </div>

@@ -1,189 +1,62 @@
 # AGENTS.md
 
-## Project Overview
+Single-page portfolio built with [Astro 5](https://astro.build/) — static HTML output, no framework.
 
-Astro portfolio website with Miku OS design system and dark/light theme support. Built with Astro, Tailwind CSS, and TypeScript.
-
-## Project Structure
+## Commands
 
 ```sh
-src/
-├── components/           (Reusable UI components)
-│   ├── Hero.astro
-│   ├── Navigation.astro
-│   ├── DesktopNav.astro
-│   ├── Projects.astro
-│   ├── Skills.astro
-│   ├── Experience.astro
-│   └── ThemeToggle.astro
-├── layouts/            (Page layouts)
-│   └── Layout.astro   (Main layout with navigation)
-├── pages/              (Page routes)
-│   └── index.astro    (Home page)
-└── data/              (Static data files)
-    └── profile.json   (User information, projects, skills)
-
-public/              (Static files served directly)
-└── favicon.svg
-astro.config.mjs     (Astro configuration)
-tailwind.config.mjs  (Tailwind CSS configuration)
-tsconfig.json         (TypeScript configuration)
-package.json         (Dependencies and scripts)
-.prettierrc          (Prettier formatting configuration)
-.gitignore           (Git ignore rules)
-dist/               (Production build output - generated)
-node_modules/       (Dependencies - generated)
+pnpm install                              # install / refresh lockfile
+pnpm run dev                              # dev server → http://localhost:4321
+pnpm run build                            # production build → dist/
+pnpm run preview                          # live-preview the build output
+pnpm run astro check                      # type-checking via @astrojs/strict mode
+pnpm run format                           # Prettier — `prettier --write .`
 ```
 
-## Build Commands
+**CI verification (run in order):** `astro check` → `build`
 
-- `npm run dev` - Start local development server at localhost:4321
-- `npm run build` - Build production-ready site to ./dist/
-- `npm run preview` - Preview production build locally
-- `npm run astro check` - Run TypeScript type checking
-- `npm run format` - Format code with Prettier
-- `npm run astro -- --help` - Get Astro CLI help
+## Project structure
 
-## Code Style Guidelines
+```
+src/
+  assets/            Images, fonts, static SVGs
+  components/        Reusable UI blocks (Hero, Projects, Skills, Experience, ThemeToggle, DesktopNav)
+  data/profile.json  Source of truth — bio, skills, projects (imported in page frontmatter)
+  layouts/Layout.astro   head, nav shell, footer
+  pages/index.astro  Only page — composes all sections
+public/              Static assets served as-is (favicon.svg, OG images)
+```
 
-### Component Structure
+- Single `pages/index.astro` — the entire site.
+- Dark/light mode toggled via `class="dark"` on `<html>` in `Layout.astro`.
+- All data flows through `data/profile.json`; change it and all sections update.
 
-- Components must start with frontmatter block using `---`
-- Use `<script>` tags for inline JavaScript with `type="module"`
-- Place `<style>` tags after script tags for proper loading order
-- Use TypeScript for type annotations in Astro variables
+## Code style
 
-### File Organization
+- **TypeScript strict** (via `extends: "astro/tsconfigs/strict"`)
+- **Prettier** — single quotes, no semicolons, 2-space indent.
+- **Component convention:** functional components, explicit prop types, descriptive filenames (`kebab-case`).
+- **CSS:** Tailwind utility-first. Avoid arbitrary values; extract into theme tokens when reused.
+- Do not override Prettier/Tailwind defaults — keep it minimal.
 
-- Source files in `src/components/`, `src/layouts/`, `src/pages/`
-- Component files: `<ComponentName>.astro`
-- Use descriptive names following PascalCase
+## Gotchas
 
-### Import Order
-
-1. Frontmatter imports
-2. Page imports
-3. Component imports
-4. Style imports (if any)
-5. Inline script imports (if any)
-
-### HTML Structure
-
-- Start with `<!doctype html>`
-- Always include `lang` attribute: use `lang="es"` for Spanish
-- Include viewport meta tag: `<meta name="viewport" ...>`
-- Add favicon reference: `<link rel="icon" ...>`
-
-### CSS / Tailwind
-
-- Use Tailwind utility classes exclusively
-- Dark mode support: use `dark:` prefix on colors and classes
-- Responsive design: use `sm:`, `md:`, `lg:` breakpoints
-- Custom classes in `<style>` tags for complex animations
-- Glassmorphism effects with backdrop blur utilities
-
-### JavaScript / Scripts
-
-- Use `type="module"` for all JavaScript code
-- Avoid inline `<script>` in body for production code
-- Use `<script is:inline>` for dynamic client-side scripts
-- Define variables clearly in script tags with descriptive names
-
-### TypeScript
-
-- Add type annotations to Astro frontmatter variables
-- Use proper interface definitions for data types
-- Leverage TypeScript IntelliSense for better autocomplete
-
-### Color Usage (Miku OS Design System)
-
-**Brand Colors:**
-
-- `miku-cyan` (Main signature color) - Active borders, primary buttons, icons
-- `miku-glow` (Electric cyan) - Glow effects, hover states, terminal cursor
-- `miky-magenta` (Complementary accent) - Critical notifications, errors, "Me encanta"
-- `tech-violet` (Tertiary accent) - Secondary gradients, magical elements
-
-**Semantic Colors:**
-
-- `miku-text-main` (Primary text) - Main content in both themes
-- `miku-text-dim` (Secondary text) - Auxiliary content and captions
-- `miku-surface` (Surface layer) - Cards, sidebars, and containers
-- `miku-base` (Background base) - Main page background
-
-**Dark Mode Colors:**
-
-- `miku-dark-base` - Dark background (#0F1419, never use #000000)
-- `miku-dark-surface` - Dark surface layer (#161B22 for cards and sidebars)
-- `miku-dark-text` - Dark mode text variants
-- `miku-dark-border` - Dark mode borders
-
-**Light Mode Colors:**
-
-- Never use text Cyan on white background - use `miku-teal-strong` instead
-- `miku-light-surface` - Light surface layer for containers
-
-**Functional Colors (Semantic States):**
-
-- Success: `miku-success` (#00E676 dark mode) - Completed operations, stable systems
-- Warning: `miku-warning` (#FFD700 dark mode) - Warnings, low battery, high CPU
-- Error: `miku-error` (#FF2E63 dark mode) - Critical failures, disconnections
-- Info: `miku-info` (#29B6F6 dark mode) - Neutral information, available updates
-
-**Design Tokens:**
-
-- Border radius: `rounded-xl` (15px) for standard elements, `rounded-lg` (10px) for small elements
-- Active border: Use `border-miku-cyan` with opacity for subtle effects
-- Opacity values: Use percentages (e.g., `miku-cyan/30`)
-- Glassmorphism: Apply backdrop blur on surfaces with 80-90% opacity
-
-### Responsive Design
-
-- Mobile-first approach: base styles for mobile, add `md:`, `lg:` for larger screens
-- Use Tailwind spacing and typography scales
-- Ensure content scrolls horizontally on small screens when needed
-
-### Accessibility
-
-- Include descriptive `alt` text for all images
-- Use semantic HTML elements: `<section>`, `<article>`, `<header>`, `<footer>`
-- Ensure color contrast meets accessibility standards
-- Use semantic headings in proper hierarchy: `<h1>`, `<h2>`, `<h3>`
-- Add `aria-label` where appropriate for icon-only buttons
-
-### Naming Conventions
-
-- Variables: camelCase (e.g., `profile`, `terminalCode`)
-- Functions: camelCase (e.g., `typeCode`, `highlightCode`)
-- Components: PascalCase (e.g., `Hero`, `Navigation`)
-- Classes: camelCase or dash-separated (Tailwind classes use dash-separated)
-- Constants: UPPER_Snake_CASE (e.g., `MIKU_CYAN`)
-
-### Error Handling
-
-- Always check for null/undefined before accessing data properties
-- Use optional chaining (`?.`) for safe property access
-- Provide fallback values when displaying dynamic content
-- Validate data types when using JSON imports
-
-### Comments
-
-- Add descriptive comments for complex logic
-- Comment on component purpose and usage
-- Document function parameters and return types
-- Use clear, concise language in comments
+- **Always use pnpm.** Never npm — `package-lock.json` is removed. Use `pnpm@10+`.
+- **frozen-lockfile enforced.** Adding/removing deps → run `pnpm install`, commit the updated lockfile, then push. CI fails with `ERR_PNPM_OUTDATED_LOCKFILE` otherwise.
+- **native build approvals:** `pnpm-workspace.yaml` has `allowBuilds` for esbuild and sharp. New native packages may need `pnpm approve-builds`.
 
 ## Testing
 
-- Run type checking: `npm run astro check`
-- Build to verify no compilation errors: `npm run build`
-- Preview build to verify runtime behavior: `npm run preview`
+No test framework configured. CI only runs `astro check` + `build`.
 
-## Development Workflow
+## Git workflow
 
-1. Make changes to Astro components, layouts, or pages
-2. Run `npm run astro check` for TypeScript validation
-3. Run `npm run dev` to see changes in browser
-4. Run `npm run format` to ensure code consistency
-5. Run `npm run build` to verify production build works
-6. Run `npm run preview` to test production build locally
+- Branches: `feature/<description>` or `fix/<description>`
+- Commits: [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `style:`, `refactor:`, `docs:`, `chore:`)
+- PR title format: `[section] <description>` (e.g. `[Hero] add animated entrance`)
+
+## Boundaries
+
+- ✅ **Always:** Run `astro check` + `build` before committing; keep `profile.json` as the single source of truth.
+- ⚠️ **Ask first:** Adding new dependencies, changing the layout skeleton, modifying CI workflow.
+- 🚫 **Never:** Commit secrets/API keys, edit `node_modules/`, or convert to a framework (React/Svelte/etc.) — this is intentionally framework-free.

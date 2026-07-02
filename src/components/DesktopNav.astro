@@ -1,6 +1,7 @@
 ---
-import profile from '../data/profile.json';
+import profile from '../data/profile.en.json';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageToggle from './LanguageToggle.astro';
 ---
 
 <!-- Desktop Navigation Bar -->
@@ -10,35 +11,39 @@ import ThemeToggle from './ThemeToggle.astro';
   <div class="container mx-auto px-4 sm:px-8 lg:px-12">
     <div class="flex justify-between items-center h-[70px]">
       <!-- Logo -->
-      <a href="#" aria-label="Ir al inicio">
-      <div class="flex items-center">
-        <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
-          &lt; WillyDev /&gt;
-        </span>
-      </div>
+      <a href="#" aria-label="Go to home">
+        <div class="flex items-center">
+          <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
+            {profile.branding.logo}
+          </span>
+        </div>
       </a>
 
       <!-- Navigation Links -->
-      <div class="sm:flex gap-8">
-        <div class="hidden sm:flex gap-8 items-center">
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex gap-6 items-center">
           {
             profile.navigation.map(section => (
               <a
                 href={`#${section.id}`}
-                class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
+                data-i18n-nav={section.id}
+                class="text-sm font-medium text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan transition-colors duration-300"
               >
                 {section.label}
               </a>
             ))
           }
-          <a
-            href="#footer"
-            class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors duration-300"
-          >
-            📧 Contact
-          </a>
         </div>
-        <ThemeToggle />
+        <div class="flex items-center gap-2">
+          <span
+            class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-green-600/10 border border-green-600/30 text-green-700 dark:bg-miku-success/10 dark:border-miku-success/30 dark:text-miku-success"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-miku-success animate-pulse"></span>
+            <span data-i18n="personal.badge" class="text-xs font-medium">{profile.personal.badge}</span>
+          </span>
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   </div>

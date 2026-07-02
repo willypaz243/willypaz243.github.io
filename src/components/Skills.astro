@@ -1,58 +1,59 @@
 ---
-import profile from '../data/profile.json';
+import profile from '../data/profile.en.json';
 ---
 
-<section class="mb-16">
+<section id="skills" class="max-w-4xl mx-auto py-8 pb-32 md:pb-16 animate-fade-in">
   <h2
+    id="sk-title"
+    data-i18n="sections.skills_title"
     class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
   >
-    Skills
+    {profile.sections.skills_title}
   </h2>
 
-  <div class="space-y-8">
+  <div class="space-y-12 mt-12">
     {
       Object.entries(profile.skills).map(([category, skills]: [string, any]) => {
         if (typeof skills === 'string') return null;
 
         const categoryTitle = skills.title || '';
         const categoryExpertise = skills.expertise || '';
-        const categoryLevel = skills.expert_level || '';
         const expertTools = skills.proficient_tools || [];
         const workingTools = skills.familiar_tools || [];
 
         return (
-          <div class="skill-category">
-            <div class="flex items-center gap-3 mb-4">
-              <h3 class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan">{categoryTitle}</h3>
-              {categoryExpertise && <span class="text-sm text-gray-500 dark:text-gray-400">· {categoryExpertise}</span>}
-              {categoryLevel && (
-                <span class="px-2 py-1 text-xs bg-miku-teal-strong dark:bg-miku-cyan text-white dark:text-gray-900 rounded">
-                  {categoryLevel}★
-                </span>
+          <div class="skill-category" data-animate>
+            <h3
+              id={`sk-${category}_title`}
+              class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan mb-4"
+            >
+              <span data-i18n={`skills.${category}.title`}>{categoryTitle}</span>
+              {categoryExpertise && (
+                <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">— <span data-i18n={`skills.${category}.expertise`}>{categoryExpertise}</span></span>
               )}
+            </h3>
+
+            <div class="mb-6">
+              <p data-i18n="sections.daily" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
+                {profile.sections.daily}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {expertTools.map((tool: string) => (
+                  <span class="px-3 py-1.5 text-sm rounded-lg bg-miku-cyan/10 dark:bg-miku-cyan/15 text-miku-cyan dark:text-miku-glow border border-miku-cyan/30 dark:border-miku-cyan/25 font-medium hover:border-miku-cyan transition-all">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {expertTools.length > 0 && (
-              <div class="mb-4">
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                  Proficient tools and technologies I use daily
+            {workingTools.length > 0 && (
+              <div class="mb-2">
+                <p data-i18n="sections.familiar" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
+                  {profile.sections.familiar}
                 </p>
                 <div class="flex flex-wrap gap-2">
-                  {expertTools.map((tool: string) => (
-                    <span class="px-3 py-2 bg-gradient-to-r from-miku-teal strong dark:from-miku-cyan-dark to-miku-glow dark:to-miku-purple text-white dark:text-white rounded-lg shadow-sm hover:shadow-md transition-all">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {workingTools.length > 0 && (
-              <div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Tools and technologies I'm familiar with</p>
-                <div class="flex flex-wrap gap-2">
                   {workingTools.map((tool: string) => (
-                    <span class="px-3 py-2 bg-miku-surface dark:bg-miku-dark-surface text-miku-text-main dark:text-miku-dark-text rounded-lg border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-teal strong dark:hover:border-miku-cyan transition-all">
+                    <span class="px-3 py-1.5 text-sm rounded-lg bg-gray-100 dark:bg-white/5 text-miku-text-main dark:text-miku-dark-text border border-gray-500/40 dark:border-gray-600/40 hover:border-miku-cyan transition-all">
                       {tool}
                     </span>
                   ))}
@@ -64,40 +65,22 @@ import profile from '../data/profile.json';
       })
     }
 
-    {
-      profile.skills.soft_skills && profile.skills.soft_skills.length > 0 && (
-        <div class="skill-category">
-          <div class="flex items-center gap-3 mb-4">
-            <h2 class="text-3xl font-semibold text-miku-teal-strong dark:text-miku-cyan">Soft Skills</h2>
-          </div>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Personal competencies and professional traits</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {profile.skills.soft_skills.map(skill => {
-              if (typeof skill === 'string') {
-                return (
-                  <span class="px-4 py-3 bg-miku-surface dark:bg-miku-dark-surface text-miku-text-main dark:text-miku-dark-text rounded-lg border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-purple transition-all flex items-center gap-2">
-                    {skill}
-                  </span>
-                );
-              }
-
-              return (
-                <div class="px-4 py-3 bg-miku-surface dark:bg-miku-dark-surface text-miku-text-main dark:text-miku-dark-text rounded-lg border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-purple transition-all">
-                  <div class="font-medium mb-1">{skill.name}</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    {skill.importance && (
-                      <span class="font-medium">
-                        Importance: {skill.importance === 'very-high' ? '⭐⭐⭐' : '⭐⭐'}
-                      </span>
-                    )}
-                  </div>
-                  <div class="text-xs text-gray-500 dark:text-gray-500">{skill.experience}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )
-    }
+    <div class="skill-category border-t border-gray-500/30 dark:border-miku-dark-border/30 pt-8" data-animate>
+      <h3
+        id="sf-title"
+        data-i18n="sections.soft_skills"
+        class="text-3xl font-bold bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text mb-6"
+      >
+        {profile.sections.soft_skills}
+      </h3>
+      <ul class="space-y-4">
+        {profile.skills.soft_skills.map((skill, j) => (
+          <li class="flex items-start gap-3 text-miku-text-main dark:text-miku-dark-text">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-miku-cyan flex-shrink-0"></span>
+            <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

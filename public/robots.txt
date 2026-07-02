@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://willypaz.dev/sitemap-index.xml

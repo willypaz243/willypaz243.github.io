@@ -1,0 +1,40 @@
+---
+// LanguageToggle — client-side component for ES/EN switching
+---
+
+<!-- Language Toggle Button -->
+<button
+  id="language-toggle"
+  class="text-sm font-medium px-3 py-1.5 rounded-lg border border-miku-cyan/30 text-miku-cyan hover:bg-miku-cyan/10 transition-colors duration-300"
+  aria-label="Switch language"
+>
+  <span id="lang-label">ES</span>
+</button>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('language-toggle');
+    const label = document.getElementById('lang-label');
+    if (!btn || !label) return;
+
+    function updateLabel() {
+      const lang = localStorage.getItem('lang') || 'en';
+      label.textContent = lang === 'en' ? 'ES' : 'EN';
+    }
+
+    btn.addEventListener('click', () => {
+      const current = localStorage.getItem('lang') || 'en';
+      const next = current === 'en' ? 'es' : 'en';
+      if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
+    });
+
+    updateLabel();
+  })();
+</script>
+
+<style>
+  #language-toggle:focus-visible {
+    outline: 2px solid #06b6d4;
+    outline-offset: 2px;
+  }
+</style>

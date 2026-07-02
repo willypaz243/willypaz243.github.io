@@ -7,35 +7,35 @@ export default {
       colors: {
         // Miku Design System Colors - Centralized Configuration
         // Based on MIKU_COLORS.md v3.0
-        
+
         // Brand Core Colors (Constant in both themes)
         miku: {
           // Brand Colors
-          'cyan': '#39C5BB',        // MIKU_CYAN - The signature color
-          'glow': '#48FFF4',        // MIKU_GLOW - Electric cyan
-          'magenta': '#FF0080',     // MAGENTA_POP - Complementary accent
-          'violet': '#7B61FF',      // TECH_VIOLET - Tertiary accent
-          
+          cyan: '#39C5BB', // MIKU_CYAN - The signature color
+          glow: '#48FFF4', // MIKU_GLOW - Electric cyan
+          magenta: '#FF0080', // MAGENTA_POP - Complementary accent
+          violet: '#7B61FF', // TECH_VIOLET - Tertiary accent
+
           // Light Mode Colors (MikuLight)
-          base: '#FAFCFF',           // BG_BASE - Ice White
-          surface: '#E8F1F5',        // BG_SURFACE - Miku Mist
-          'teal-strong': '#00A396',  // TEAL_STRONG - Deep Miku (for colored text in light mode)
-          'text-main': '#1B2631',    // TXT_MAIN - Midnight Blue
-          'text-dim': '#546E7A',     // TXT_DIM - Cool Gray
-          'border-dim': '#B0BEC5',   // BORDER_DIM - With 30% opacity
-          
+          base: '#FAFCFF', // BG_BASE - Ice White
+          surface: '#E8F1F5', // BG_SURFACE - Miku Mist
+          'teal-strong': '#00A396', // TEAL_STRONG - Deep Miku (for colored text in light mode)
+          'text-main': '#1B2631', // TXT_MAIN - Midnight Blue
+          'text-dim': '#546E7A', // TXT_DIM - Cool Gray
+          'border-dim': '#B0BEC5', // BORDER_DIM - With 30% opacity
+
           // Dark Mode Colors (MikuDark)
-          'dark-base': '#0F1419',    // BG_BASE - Black with deep blue tint
+          'dark-base': '#0F1419', // BG_BASE - Black with deep blue tint
           'dark-surface': '#161B22', // BG_SURFACE - For cards, sidebars
-          'dark-border': '#21262D',  // BORDER_DIM - Subtle, barely visible
-          'dark-text': '#F0F6FC',    // TXT_MAIN - White with blue tint
-          'dark-dim': '#8B949E',     // TXT_DIM - Medium gray
-          
+          'dark-border': '#21262D', // BORDER_DIM - Subtle, barely visible
+          'dark-text': '#F0F6FC', // TXT_MAIN - White with blue tint
+          'dark-dim': '#8B949E', // TXT_DIM - Medium gray
+
           // Functional Colors (State semantics)
-          'success': '#00E676',      // FUNC_SUCCESS - Neon Green (dark mode)
-          'warning': '#FFD700',      // FUNC_WARNING - Cyber Gold (dark mode)
-          'error': '#FF2E63',        // FUNC_ERROR - Neon Red (dark mode)
-          'info': '#29B6F6',         // FUNC_INFO - Holo Blue (dark mode)
+          success: '#00E676', // FUNC_SUCCESS - Neon Green (dark mode)
+          warning: '#FFD700', // FUNC_WARNING - Cyber Gold (dark mode)
+          error: '#FF2E63', // FUNC_ERROR - Neon Red (dark mode)
+          info: '#29B6F6', // FUNC_INFO - Holo Blue (dark mode)
         },
       },
       boxShadow: {
@@ -46,6 +46,10 @@ export default {
       },
       borderRadius: {
         miku: '15px',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

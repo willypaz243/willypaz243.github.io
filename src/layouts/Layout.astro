@@ -1,37 +1,125 @@
 ---
 import DesktopNav from '../components/DesktopNav.astro';
 import Navigation from '../components/Navigation.astro';
-import profile from '../data/profile.json';
+import en from '../data/profile.en.json';
+import es from '../data/profile.es.json';
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={en.lang || 'en'} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Willy Samuel Paz Colque - Portfolio</title>
-    <meta name="description" content={profile.about.description} />
+    <title>Willy Samuel Paz Colque - {en.personal.title}</title>
+    <meta name="description" content={en.about.description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://willypaz.dev/" />
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://willypaz.dev/" />
+    <meta property="og:title" content={"Willy Samuel Paz Colque - " + en.personal.title} />
+    <meta property="og:description" content={en.about.description} />
+    <meta property="og:image" content="https://willypaz.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://willypaz.dev/" />
+    <meta name="twitter:title" content={"Willy Samuel Paz Colque - " + en.personal.title} />
+    <meta name="twitter:description" content={en.about.description} />
+    <meta name="twitter:image" content="https://willypaz.dev/og-image.png" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- Google Fonts: Inter (body) + JetBrains Mono (code/terminal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body
-    class="bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
+    class="font-sans bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-[70px]"
   >
+    <script is:inline define:vars={{ en, es }}>
+      (function () {
+        var PROFILES = { en: en, es: es };
+
+        function getNested(obj, path) {
+          return path.split('.').reduce(function (acc, key) {
+            if (acc && typeof acc === 'object' && key in acc) return acc[key];
+            return undefined;
+          }, obj);
+        }
+
+        function switchLang(lang) {
+          var profile = PROFILES[lang];
+          if (!profile) return;
+
+          document.documentElement.lang = lang;
+          localStorage.setItem('lang', lang);
+
+          document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var path = el.getAttribute('data-i18n');
+            var value = getNested(profile, path);
+            if (value !== undefined && value !== null) {
+              if (typeof value === 'string') {
+                el.textContent = value;
+              }
+            }
+          });
+
+          document.querySelectorAll('[data-i18n-nav]').forEach(function (el) {
+            var navId = el.getAttribute('data-i18n-nav');
+            var nav = (profile.navigation || []).find(function (n) { return n.id === navId; });
+            if (nav) {
+              el.title = nav.label;
+              var tooltip = el.querySelector('span');
+              if (tooltip) tooltip.textContent = nav.label;
+            }
+          });
+
+          var lbl = document.getElementById('lang-label');
+          if (lbl) lbl.textContent = lang === 'en' ? 'ES' : 'EN';
+        }
+
+        window.switchLanguage = switchLang;
+        window.__PROFILES = PROFILES;
+
+        var saved = localStorage.getItem('lang');
+        if (saved && saved !== 'en') switchLang(saved);
+      })();
+    </script>
     <div class="relative">
       <DesktopNav />
       <slot />
       <Navigation />
     </div>
+
+    <script is:inline src="/scroll-animations.js" defer></script>
   </body>
 </html>
 
 <style>
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     scroll-padding-top: 2rem;
   }
   body {
     margin: 0;
     min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  code,
+  pre {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>

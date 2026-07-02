@@ -1,0 +1,222 @@
+{
+  "lang": "es",
+  "personal": {
+    "name": "Willy Samuel Paz Colque",
+    "title": "Desarrollador AI & Full Stack",
+    "location": "Bolivia",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/",
+    "tagline": "Construyo sistemas listos para producción para startups y scale-ups.",
+    "availability": "Disponible para roles remotos full-time y proyectos de consultoría",
+    "badge": "Disponible"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "experience": 4,
+    "description": "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras."
+  },
+  "hero": {
+    "cta_projects": "Ver mi Trabajo",
+    "cta_contact": "Contacto"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "email": "willypaz243@gmail.com",
+    "linkedin": "https://linkedin.com/in/willypaz",
+    "github": "https://github.com/willypaz243/",
+    "subtitle": "Hablemos sobre proyectos o colaboración",
+    "email_label": "Correo",
+    "footer_credit": "Construido con Astro y agentes AI"
+  },
+  "branding": {
+    "logo": "< WillyDev />"
+  },
+  "labels": {
+    "view_project": "Demo en Vivo",
+    "source_code": "Código Fuente"
+  },
+  "sections": {
+    "experience": "Experiencia Profesional",
+    "projects": "Proyectos Destacados",
+    "skills_title": "Habilidades",
+    "soft_skills": "Habilidades Blandas",
+    "daily": "Herramientas y tecnologías que uso a diario",
+    "familiar": "Herramientas y tecnologías que conozco"
+  },
+  "skills": {
+    "ai_ml_engineering": {
+      "title": "Ingeniería AI & ML",
+      "expertise": "Chatbots, sistemas RAG, Visión por Computadora",
+      "proficient_tools": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "Sistemas RAG",
+        "Embeddings",
+        "Bases de datos vectoriales"
+      ],
+      "familiar_tools": ["TensorFlow", "PyTorch", "Tesseract", "Visión por Computadora", "OCR"]
+    },
+    "full_stack_development": {
+      "title": "Desarrollo Full Stack",
+      "expertise": "React, Node.js, APIs REST",
+      "proficient_tools": [
+        "ReactJS",
+        "React Native",
+        "Node.js",
+        "ExpressJS",
+        "PostgreSQL",
+        "Bases de datos SQL",
+        "NestJS",
+        "APIs RESTful"
+      ],
+      "familiar_tools": ["Django", "HTML/CSS", "Pruebas frontend"]
+    },
+    "devops_infrastructure": {
+      "title": "DevOps & Cloud",
+      "expertise": "Contenerización, despliegue, cloud",
+      "proficient_tools": ["Docker", "Nginx", "AWS Lambda", "Linux", "Git", "CI/CD"],
+      "familiar_tools": ["Control de Versiones", "Serverless"]
+    },
+    "soft_skills": [
+      "Trabajo en equipo en equipos distribuidos y múltiples proyectos",
+      "Autonomía en el ownership de proyectos desde la concepción hasta la producción",
+      "Aprendizaje rápido de frameworks nuevos y tecnologías AI",
+      "Resolución de problemas cross-funcional y diseño de sistemas",
+      "Comunicación técnica con stakeholders no técnicos",
+      "Atención al detalle en calidad de código, seguridad y precisión de APIs"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Freelancer",
+      "role": "Desarrollador Backend, AI & Chatbots",
+      "period": "sep 2020 - presente",
+      "achievements": [
+        "Construí un sistema RAG en producción con LangChain, OpenAI API y MongoDB Atlas para chequeabolivia.bo, habilitando consultas inteligentes de documentos con memoria semántica persistente.",
+        "Desplegué un servicio de chatbot multi-plataforma (FastAPI) en Telegram, WhatsApp y web con contexto persistente de conversación y gestión de memoria semántica.",
+        "Implementé estrategias de optimización de prompts y caching que redujeron los costos de inferencia LLM manteniendo la calidad de respuesta para flujos RAG complejos.",
+        "Desarrollé un servicio de moderación de contenido con modelos de reconocimiento de imágenes, desplegado vía FastAPI para detección en tiempo real."
+      ]
+    },
+    {
+      "company": "Hospy",
+      "role": "Desarrollador Full Stack (Visión por Computadora & OCR)",
+      "period": "nov 2024 - feb 2025",
+      "achievements": [
+        "Diseñé una API RESTful de OCR con Google Cloud Vision para extraer texto de documentos oficiales (DNI, pasaportes, certificados) con alta precisión en extracción de campos.",
+        "Implementé un pipeline de análisis espacial de texto que detecta tipo de documento y país de origen, habilitando enrutamiento automatizado a plantillas especializadas.",
+        "Construí un sistema de automatización de plantillas para reconocimiento estructural de documentos, reduciendo significativamente el tiempo de integración de nuevos formatos.",
+        "Integré plataformas externas con la infraestructura OCR de Hospy, apoyando la adquisición de clientes y expansión de plataforma."
+      ],
+      "company_info": {
+        "description": "Plataforma de IA para alojamientos de corta estancia y hoteles boutique en Latinoamérica. Nombrada en Hot 25 Travel Startups for 2026 (PhocusWire). Partner del marketplace de Cloudbeds PMS.",
+        "url": "https://hospy.ai",
+        "product": "Empleados de IA — check-in sin contacto, verificación de huéspedes, automatización operativa"
+      }
+    },
+    {
+      "company": "Canned Head",
+      "role": "Desarrollador Full Stack",
+      "period": "nov 2021 - nov 2023",
+      "achievements": [
+        "Reduje los tiempos de carga de la plataforma en un 70% mediante optimización agresiva (capas de caché, lazy-loading, optimización de consultas).",
+        "Construí un pipeline automatizado de datos Typeform que genera dashboards en tiempo real y reportes PDF para uso del equipo interno.",
+        "Automatice pipelines de datos de RRHH para métricas de rendimiento y evaluaciones, acelerando significativamente los procesos de generación de reportes.",
+        "Implementé suites de pruebas unitarias que mejoraron la confiabilidad del código y redujeron bugs en producción."
+      ],
+      "company_info": {
+        "description": "Firma de consultoría tech con oficinas en Bogotá y Montréal. +9 años en tech, +100 clientes, +10 países. Especializada en software custom, cloud infrastructure y AI solutions.",
+        "url": "https://cannedhead.com",
+        "services": "Custom Software Development, Cloud Infrastructure & DevOps, Big Data Analytics & AI"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "title": "ChekiBot",
+      "description": "Sistema RAG en producción para chequeabolivia.bo que procesa consultas de documentos financieros usando LLMs multimodales (Nebius, OpenAI). Entrega respuestas inteligentes vía Telegram, WhatsApp e interfaces web con memoria semántica persistente.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangChain Core",
+        "OpenAI API",
+        "Nebius",
+        "MongoDB Atlas",
+        "Docker",
+        "Nginx"
+      ],
+      "link": "https://chekibot.chequeabolivia.bo/",
+      "metrics": {
+        "platforms": "Telegram, WhatsApp, Web",
+        "models": "Nebius, OpenAI API",
+        "type": "Sistema RAG en Producción",
+        "memory": "Persistencia semántica MongoDB Atlas"
+      }
+    },
+    {
+      "title": "Botcachino",
+      "description": "Chatbot agéntico para la Universidad Mayor de San Simón que gestiona consultas de horarios académicos, fechas de exámenes y cursos usando lenguaje natural. Construido con LangGraph para razonamiento multi-paso y PostgreSQL para persistencia de estado en conversaciones multi-turno.",
+      "technologies": ["Python", "LangGraph", "PostgreSQL", "Docker", "FastAPI", "uv"],
+      "link": "https://github.com/willypaz243/botcachino_monorepo",
+      "metrics": {
+        "framework": "Orquestación de agentes con LangGraph",
+        "state": "Contexto persistente en PostgreSQL",
+        "protocol": "Integración de herramientas MCP"
+      }
+    },
+    {
+      "title": "FaceMasker",
+      "description": "Sistema de detección de mascarillas faciales en tiempo real usando deep learning. Utiliza PyTorch con un modelo CNN pre-entrenado para clasificar si las personas usan mascarillas en imágenes. Incluye modelos entrenados, suite de pruebas y despliegue en Docker.",
+      "technologies": ["Python", "PyTorch", "OpenCV", "Docker", "FastAPI"],
+      "link": "https://github.com/willypaz243/face-masker",
+      "metrics": {
+        "model": "CNN pre-entrenada (PyTorch)",
+        "deployment": "API contenerizada en Docker",
+        "inference": "Clasificación en tiempo real"
+      }
+    },
+    {
+      "title": "Green Recovery (Pix2Pix)",
+      "description": "Modelo de traducción imagen-a-imagen usando Pix2Pix GANs para visualización de recuperación ambiental. Entrena un GAN condicional para transformar imágenes satelitales, con pipeline de dataset personalizado, loop de entrenamiento y optimización de pérdida.",
+      "technologies": ["Python", "PyTorch", "Pix2Pix", "GANs", "NumPy", "Matplotlib"],
+      "link": "https://github.com/willypaz243/green_recovery_pix2pix_project",
+      "metrics": {
+        "architecture": "GAN condicional Pix2Pix",
+        "input": "Imágenes satelitales",
+        "output": "Visualización de recuperación ambiental"
+      }
+    }
+  ],
+  "navigation": [
+    {
+      "id": "about",
+      "label": "Sobre mí",
+      "icon": "👨‍💻"
+    },
+    {
+      "id": "experience",
+      "label": "Experiencia",
+      "icon": "💼"
+    },
+    {
+      "id": "projects",
+      "label": "Proyectos",
+      "icon": "🚀"
+    },
+    {
+      "id": "skills",
+      "label": "Habilidades",
+      "icon": "🛠"
+    },
+    {
+      "id": "footer",
+      "label": "Contacto",
+      "icon": "📧"
+    }
+  ]
+}

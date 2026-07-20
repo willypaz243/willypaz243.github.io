@@ -94,8 +94,10 @@ import es from '../data/profile.es.json';
         window.switchLanguage = switchLang;
         window.__PROFILES = PROFILES;
 
-        var saved = localStorage.getItem('lang');
-        if (saved && saved !== 'en') switchLang(saved);
+        document.addEventListener('DOMContentLoaded', function () {
+          var saved = localStorage.getItem('lang');
+          if (saved && saved !== 'en') switchLang(saved);
+        });
       })();
     </script>
     <div class="relative">

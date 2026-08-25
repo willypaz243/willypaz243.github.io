@@ -34,7 +34,7 @@
 
           // Reveal children with stagger delay
           const children = Array.from(entry.target.children).filter(c => c.nodeType === Node.ELEMENT_NODE);
-          children.forEach((child, i) => {
+          children.forEach((child) => {
             child.style.removeProperty('opacity');
             child.style.removeProperty('transform');
           });

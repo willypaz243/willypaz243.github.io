@@ -14,7 +14,7 @@ import profile from '../data/profile.en.json';
         <p class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-4">
           {profile.contact.email}
         </p>
-        <p id="ct-sub" data-i18n="contact.subtitle" class="text-xs text-miku-text-dim dark:text-miku-dark-dim/70">
+        <p id="ct-sub" data-i18n="contact.subtitle" class="text-xs text-miku-text-dim dark:text-miku-dark-dim">
           {profile.contact.subtitle}
         </p>
       </div>
@@ -23,8 +23,6 @@ import profile from '../data/profile.en.json';
         <a
           href={`mailto:${profile.contact.email}`}
           class="group flex items-center gap-2 px-4 py-2 rounded-xl bg-miku-surface dark:bg-miku-dark-surface hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 transition-all duration-300 border border-transparent hover:border-miku-cyan/30 dark:hover:border-miku-cyan/30"
-          title={`Enviar correo a ${profile.contact.email}`}
-          aria-label={`Enviar correo electrónico a ${profile.contact.email}`}
         >
           <svg
             fill="none"
@@ -91,7 +89,7 @@ import profile from '../data/profile.en.json';
     </div>
 
     <div class="text-center mt-8 pt-8 border-t border-miku-cyan/10 dark:border-miku-cyan/10">
-      <p data-i18n="contact.footer_credit" class="text-xs text-miku-text-dim dark:text-miku-dark-dim/50">
+      <p data-i18n="contact.footer_credit" class="text-xs text-miku-text-dim dark:text-miku-dark-dim">
         © {new Date().getFullYear()} Willy Samuel Paz Colque. {profile.contact.footer_credit}
       </p>
     </div>

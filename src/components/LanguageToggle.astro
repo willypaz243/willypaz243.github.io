@@ -5,9 +5,9 @@
 <!-- Language Toggle Button -->
 <button
   id="language-toggle"
-  class="text-sm font-medium px-3 py-1.5 rounded-lg border border-miku-cyan/30 text-miku-cyan hover:bg-miku-cyan/10 transition-colors duration-300"
-  aria-label="Switch language"
+  class="text-sm font-medium px-3 py-1.5 rounded-lg border border-miku-cyan/30 text-miku-teal-strong dark:text-miku-cyan hover:bg-miku-cyan/10 transition-colors duration-300"
 >
+  <span class="sr-only" data-i18n="labels.switch_language">Switch language:</span>
   <span id="lang-label">ES</span>
 </button>
 
@@ -26,6 +26,7 @@
       const current = localStorage.getItem('lang') || 'en';
       const next = current === 'en' ? 'es' : 'en';
       if (typeof window.switchLanguage === 'function') window.switchLanguage(next);
+      updateLabel();
     });
 
     updateLabel();

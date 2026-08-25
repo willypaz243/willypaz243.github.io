@@ -34,7 +34,8 @@
   },
   "labels": {
     "view_project": "Live Demo",
-    "source_code": "Source Code"
+    "source_code": "Source Code",
+    "switch_language": "Switch language:"
   },
   "sections": {
     "experience": "Professional Experience",

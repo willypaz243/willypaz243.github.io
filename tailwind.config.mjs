@@ -47,6 +47,10 @@ export default {
       borderRadius: {
         miku: '15px',
       },
+      spacing: {
+        // Fixed nav height (replaces arbitrary pt-[70px] / h-[70px])
+        'nav-h': '70px',
+      },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
@@ -62,5 +66,30 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // NERV/EVA-style design primitives (see .plan/eva-redesign-plan.md)
+    function ({ addUtilities }) {
+      addUtilities({
+        // Chamfered corners — the EVA signature shape (replaces rounded-* in Phase 1+)
+        '.clip-chamfer': {
+          clipPath:
+            'polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)',
+        },
+        '.clip-chamfer-sm': {
+          clipPath:
+            'polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)',
+        },
+        // Hazard warning stripes — color via --hazard-color (defaults to miku.warning gold)
+        '.bg-hazard-stripe': {
+          backgroundImage:
+            'repeating-linear-gradient(-45deg, var(--hazard-color, #FFD700) 0, var(--hazard-color, #FFD700) 10px, transparent 10px, transparent 20px)',
+        },
+        // Subtle HUD scanline overlay
+        '.scanlines': {
+          backgroundImage:
+            'repeating-linear-gradient(0deg, rgba(72, 255, 244, 0.04) 0, rgba(72, 255, 244, 0.04) 1px, transparent 1px, transparent 3px)',
+        },
+      });
+    },
+  ],
 };

@@ -56,14 +56,14 @@ import profile from '../data/profile.en.json';
           id="cta-contact"
           href="#footer"
           data-i18n="hero.cta_contact"
-          class="inline-block px-6 py-2.5 border border-miku-teal-strong/40 dark:border-miku-cyan/30 text-[#546E7A] dark:text-miku-dark-dim hover:text-miku-cyan hover:border-miku-cyan rounded-xl transition-all duration-300 transform hover:-translate-y-1 dark:hover:text-miku-cyan"
+          class="inline-block px-6 py-2.5 border border-miku-teal-strong/40 dark:border-miku-cyan/30 text-miku-text-dim dark:text-miku-dark-dim hover:text-miku-cyan hover:border-miku-cyan rounded-xl transition-all duration-300 transform hover:-translate-y-1 dark:hover:text-miku-cyan"
         >
           {profile.hero.cta_contact}
         </a>
       </div>
 
       <!-- Availability -->
-      <p data-i18n="personal.availability" class="text-sm text-miku-success dark:text-[#00E676] flex items-center gap-2">
+      <p data-i18n="personal.availability" class="text-sm text-miku-success flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
         {profile.personal.availability}
       </p>
@@ -122,10 +122,12 @@ class Developer:
     location: str = "${profile.personal.location}"
     experience_years: int = ${profile.about.experience}
     
-    stack: List[str] = field(default_factory=lambda [
-        "Python", "FastAPI", "LangChain",
-        "React", "Docker", "AWS"
-    ])
+    stack: List[str] = field(
+        default_factory=lambda: [
+            "Python", "FastAPI", "LangChain",
+            "React", "Docker", "AWS"
+        ]
+    )
     focus: str = "RAG Systems • Scalable APIs • Cloud Infra"
     
     @property

@@ -12,76 +12,108 @@ import SectionHeading from './SectionHeading.astro';
     id="sk-title"
   />
 
-  <div class="space-y-12 mt-12">
+  <div class="space-y-8 mt-4">
     {
-      Object.entries(profile.skills).map(([category, skills]: [string, any]) => {
-        if (typeof skills === 'string') return null;
+      Object.entries(profile.skills)
+        .filter(([, v]) => v && typeof v === 'object' && !Array.isArray(v))
+        .map(([category, skills]: [string, any], idx) => {
+          if (typeof skills !== 'object') return null;
 
         const categoryTitle = skills.title || '';
         const categoryExpertise = skills.expertise || '';
-        const expertTools = skills.proficient_tools || [];
-        const workingTools = skills.familiar_tools || [];
+        const expertTools: string[] = skills.proficient_tools || [];
+        const workingTools: string[] = skills.familiar_tools || [];
+        const total = expertTools.length + workingTools.length;
+        const coverage = total > 0 ? Math.round((expertTools.length / total) * 100) : 0;
+        const mod = String(idx + 1).padStart(2, '0');
 
         return (
-          <div class="skill-category" data-animate>
-            <h3
-              id={`sk-${category}_title`}
-              class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan mb-4"
-            >
-              <span data-i18n={`skills.${category}.title`}>{categoryTitle}</span>
-              {categoryExpertise && (
-                <span class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">— <span data-i18n={`skills.${category}.expertise`}>{categoryExpertise}</span></span>
-              )}
-            </h3>
+          <div data-animate class="skill-module clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
+            {/* HUD grid backdrop */}
+            <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
 
-            <div class="mb-6">
-              <p data-i18n="sections.daily" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
-                {profile.sections.daily}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {expertTools.map((tool: string) => (
-                  <span class="px-3 py-1.5 text-sm rounded-lg bg-miku-cyan/10 dark:bg-miku-cyan/15 text-miku-cyan dark:text-miku-glow border border-miku-cyan/30 dark:border-miku-cyan/25 font-medium hover:border-miku-cyan transition-all">
-                    {tool}
-                  </span>
-                ))}
+            <div class="relative p-5 sm:p-6">
+              {/* Module header */}
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-glow">MOD-{mod}</span>
+                <h3 id={`sk-${category}_title`} class="text-lg sm:text-xl font-semibold text-miku-text-main dark:text-miku-dark-text">
+                  <span data-i18n={`skills.${category}.title`}>{categoryTitle}</span>
+                </h3>
               </div>
-            </div>
 
-            {workingTools.length > 0 && (
-              <div class="mb-2">
-                <p data-i18n="sections.familiar" class="text-sm text-miku-text-dim dark:text-miku-dark-dim mb-2 font-medium">
-                  {profile.sections.familiar}
+              {categoryExpertise && (
+                <p class="font-mono text-xs mb-4 text-miku-text-dim dark:text-miku-dark-dim">
+                  // <span data-i18n={`skills.${category}.expertise`}>{categoryExpertise}</span>
+                </p>
+              )}
+
+              {/* Coverage bar — share of tools in daily use (data-driven width) */}
+              <div class="flex items-center gap-3 mb-5" aria-hidden="true">
+                <div class="flex-1 h-1.5 bg-miku-cyan/10 dark:bg-miku-cyan/10 overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-miku-cyan to-miku-glow" style={`width: ${coverage}%`}></div>
+                </div>
+                <span class="font-mono text-xs select-none text-miku-teal-strong dark:text-miku-glow">{coverage}%</span>
+              </div>
+
+              {/* Proficient tools */}
+              <div class="mb-5">
+                <p data-i18n="sections.daily" class="text-sm mb-2 font-medium text-miku-text-dim dark:text-miku-dark-dim">
+                  {profile.sections.daily}
                 </p>
                 <div class="flex flex-wrap gap-2">
-                  {workingTools.map((tool: string) => (
-                    <span class="px-3 py-1.5 text-sm rounded-lg bg-gray-100 dark:bg-white/5 text-miku-text-main dark:text-miku-dark-text border border-gray-500/40 dark:border-gray-600/40 hover:border-miku-cyan transition-all">
+                  {expertTools.map((tool: string) => (
+                    <span class="clip-chamfer-sm px-3 py-1.5 text-xs sm:text-sm font-mono bg-miku-cyan/10 dark:bg-miku-cyan/15 text-miku-teal-strong dark:text-miku-glow border border-miku-teal-strong/40 dark:border-miku-cyan/25 hover:border-miku-cyan transition-all">
                       {tool}
                     </span>
                   ))}
                 </div>
               </div>
-            )}
+
+              {/* Familiar tools */}
+              {workingTools.length > 0 && (
+                <div>
+                  <p data-i18n="sections.familiar" class="text-sm mb-2 font-medium text-miku-text-dim dark:text-miku-dark-dim">
+                    {profile.sections.familiar}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {workingTools.map((tool: string) => (
+                      <span class="clip-chamfer-sm px-3 py-1.5 text-xs sm:text-sm font-mono bg-miku-base dark:bg-miku-dark-base text-miku-text-dim dark:text-miku-dark-dim border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan/50 transition-all">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         );
       })
     }
 
-    <div class="skill-category border-t border-gray-500/30 dark:border-miku-dark-border/30 pt-8" data-animate>
-      <h3
-        id="sf-title"
-        data-i18n="sections.soft_skills"
-        class="text-3xl font-bold bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text mb-6"
-      >
-        {profile.sections.soft_skills}
-      </h3>
-      <ul class="space-y-4">
-        {profile.skills.soft_skills.map((skill, j) => (
-          <li class="flex items-start gap-3 text-miku-text-main dark:text-miku-dark-text">
-            <span class="mt-1.5 w-2 h-2 rounded-full bg-miku-cyan flex-shrink-0"></span>
-            <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
-          </li>
-        ))}
-      </ul>
+    {/* Soft skills — NEURAL LINK */}
+    <div data-animate class="clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
+      <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
+
+      <div class="relative p-5 sm:p-6">
+        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-5">
+          <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-glow">NEURAL</span>
+          <h3 id="sf-title" data-i18n="sections.soft_skills" class="text-lg sm:text-xl font-semibold text-miku-text-main dark:text-miku-dark-text">
+            {profile.sections.soft_skills}
+          </h3>
+        </div>
+
+        <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+          {profile.skills.soft_skills.map((skill, j) => (
+            <li class="flex items-center gap-3 text-sm text-miku-text-main dark:text-miku-dark-text">
+              <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 text-miku-teal-strong dark:text-miku-glow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="6" cy="6" r="2.5"></circle>
+                <path d="M6 0v3M6 9v3M0 6h3M9 6h3"></path>
+              </svg>
+              <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </div>
 </section>

@@ -95,6 +95,12 @@ export default {
           backgroundImage:
             'repeating-linear-gradient(0deg, rgba(72, 255, 244, 0.04) 0, rgba(72, 255, 244, 0.04) 1px, transparent 1px, transparent 3px)',
         },
+        // Faint HUD grid for dossier cards
+        '.hud-grid': {
+          backgroundImage:
+            'linear-gradient(rgba(72, 255, 244, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 255, 244, 0.03) 1px, transparent 1px)',
+          backgroundSize: '22px 22px',
+        },
       });
     },
   ],

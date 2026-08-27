@@ -1,5 +1,6 @@
 ---
 import profile from '../data/profile.en.json';
+import SectionHeading from './SectionHeading.astro';
 
 // Determine if a link is a live demo (not GitHub)
 function isLiveDemo(link: string): boolean {
@@ -8,14 +9,13 @@ function isLiveDemo(link: string): boolean {
 ---
 
 <section class="mb-16">
-  <h2
+  <SectionHeading
+    num="02"
+    title={profile.sections.projects}
+    i18n="sections.projects"
+    tag="DOSSIERS"
     id="proj-title"
-    data-animate
-    data-i18n="sections.projects"
-    class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
-  >
-    {profile.sections.projects}
-  </h2>
+  />
   <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-8">
     {
       profile.projects

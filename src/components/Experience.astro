@@ -1,16 +1,16 @@
 ---
 import profile from '../data/profile.en.json';
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section class="w-full max-w-4xl mx-auto animate-fade-in">
-  <h2
+  <SectionHeading
+    num="01"
+    title={profile.sections.experience}
+    i18n="sections.experience"
+    tag="MISSION LOG"
     id="exp-title"
-    data-animate
-    data-i18n="sections.experience"
-    class="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
-  >
-    {profile.sections.experience}
-  </h2>
+  />
   <div class="space-y-12">
     {
       profile.experience.map((exp, i) => (

@@ -1,15 +1,16 @@
 ---
 import profile from '../data/profile.en.json';
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section id="skills" class="max-w-4xl mx-auto py-8 pb-32 md:pb-16 animate-fade-in">
-  <h2
+  <SectionHeading
+    num="03"
+    title={profile.sections.skills_title}
+    i18n="sections.skills_title"
+    tag="SYSTEM MODULES"
     id="sk-title"
-    data-i18n="sections.skills_title"
-    class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
-  >
-    {profile.sections.skills_title}
-  </h2>
+  />
 
   <div class="space-y-12 mt-12">
     {

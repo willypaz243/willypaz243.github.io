@@ -10,30 +10,18 @@ type MissionEntry = {
   roleI18n: string;
   companyI18n: string;
   achI18n: string[];
-  ci: Record<string, string> | null;
-  ciDescI18n: string | null;
-  ciExtraKey: 'product' | 'services' | null;
-  ciExtraI18n: string | null;
 };
 
 // Pre-compute mission data (keeps inline JSX expressions shallow)
-const missions: MissionEntry[] = profile.experience.map((exp, idx) => {
-  const ci: Record<string, string> | null = (exp as { company_info?: Record<string, string> }).company_info || null;
-  const extraKey = ci && (ci.product ? 'product' : ci.services ? 'services' : null);
-  return {
-    idx,
-    op: String(idx + 1).padStart(2, '0'),
-    exp,
-    periodI18n: `experience.${idx}.period`,
-    roleI18n: `experience.${idx}.role`,
-    companyI18n: `experience.${idx}.company`,
-    achI18n: (exp.achievements || []).map((_, ai) => `experience.${idx}.achievements.${ai}`),
-    ci,
-    ciDescI18n: ci ? `experience.${idx}.company_info.description` : null,
-    ciExtraKey: extraKey,
-    ciExtraI18n: ci && extraKey ? `experience.${idx}.company_info.${extraKey}` : null,
-  };
-});
+const missions: MissionEntry[] = profile.experience.map((exp, idx) => ({
+  idx,
+  op: String(idx + 1).padStart(2, '0'),
+  exp,
+  periodI18n: `experience.${idx}.period`,
+  roleI18n: `experience.${idx}.role`,
+  companyI18n: `experience.${idx}.company`,
+  achI18n: (exp.achievements || []).map((_, ai) => `experience.${idx}.achievements.${ai}`),
+}));
 ---
 
 <section class="w-full max-w-4xl mx-auto animate-fade-in">
@@ -82,33 +70,6 @@ const missions: MissionEntry[] = profile.experience.map((exp, idx) => {
               ))}
             </ul>
 
-            {/* Employer dossier — experience[].company_info (previously unused) */}
-            {mission.ci && (
-              <div class="clip-chamfer-sm mt-5 border border-miku-teal-strong/30 dark:border-miku-cyan/25 bg-miku-base/60 dark:bg-miku-dark-base/60 p-4">
-                <p class="font-mono text-xs tracking-widest mb-2 select-none text-miku-teal-strong dark:text-miku-glow">
-                  DOSSIER // {mission.exp.company.toUpperCase()}
-                </p>
-                <p data-i18n={mission.ciDescI18n || ''} class="text-xs sm:text-sm leading-relaxed text-miku-text-dim dark:text-miku-dark-dim mb-2">
-                  {mission.ci.description}
-                </p>
-                {mission.ciExtraKey && mission.ciExtraI18n && (
-                  <p data-i18n={mission.ciExtraI18n} class="text-xs sm:text-sm leading-relaxed text-miku-text-main dark:text-miku-dark-text mb-3">
-                    {mission.ci[mission.ciExtraKey]}
-                  </p>
-                )}
-                {mission.ci.url && (
-                  <a
-                    href={mission.ci.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 font-mono text-xs text-miku-teal-strong dark:text-miku-cyan hover:underline transition-colors"
-                  >
-                    <span data-i18n="labels.visit_site">{profile.labels.visit_site}</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                )}
-              </div>
-            )}
           </div>
         </div>
       ))

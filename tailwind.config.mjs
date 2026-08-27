@@ -43,6 +43,12 @@ export default {
         'miku-light': '0 4px 12px rgba(57, 197, 187, 0.2)',
         'miku-neon': '0 0 15px rgba(72, 255, 244, 0.7)',
         'miku-magenta': '0 0 15px rgba(255, 0, 128, 0.5)',
+        'glow-cyan': '0 0 24px rgba(69, 230, 217, 0.35)',
+      },
+      minHeight: {
+        // NERV terminal frame (hero)
+        terminal: '380px',
+        'terminal-lg': '490px',
       },
       borderRadius: {
         miku: '15px',

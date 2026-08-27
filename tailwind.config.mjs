@@ -19,7 +19,7 @@ export default {
           // Light Mode Colors (MikuLight)
           base: '#FAFCFF', // BG_BASE - Ice White
           surface: '#E8F1F5', // BG_SURFACE - Miku Mist
-          'teal-strong': '#00A396', // TEAL_STRONG - Deep Miku (for colored text in light mode)
+          'teal-strong': '#007A70', // TEAL_STRONG - Deep Miku (light-mode text; AA 5.1:1 on base)
           'text-main': '#1B2631', // TXT_MAIN - Midnight Blue
           'text-dim': '#546E7A', // TXT_DIM - Cool Gray
           'border-dim': '#B0BEC5', // BORDER_DIM - With 30% opacity

@@ -34,9 +34,18 @@ import es from '../data/profile.es.json';
     <meta name="twitter:description" content={en.about.description} />
     <meta name="twitter:image" content="https://willypaz.dev/og-image.png" />
 
-    <!-- Theme color -->
-    <meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <!-- Theme color — follows the manual toggle (updated by ThemeToggle script) -->
+    <meta name="theme-color" id="theme-color-meta" content="#0F1419" />
+    <script is:inline>
+      // Set the correct theme-color before first paint (same logic as ThemeToggle)
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const dark = saved
+          ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.getElementById('theme-color-meta')?.setAttribute('content', dark ? '#0F1419' : '#FAFCFF');
+      })();
+    </script>
 
     <!-- Google Fonts: Inter (body) + JetBrains Mono (code/terminal) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

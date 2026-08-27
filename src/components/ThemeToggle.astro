@@ -1,6 +1,7 @@
 <script>
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
+  const themeColorMeta = document.getElementById('theme-color-meta');
 
   // Check for saved theme preference, otherwise use system preference
   const theme =
@@ -8,9 +9,21 @@
 
   html.classList.toggle('dark', theme === 'dark');
 
+  function syncThemeColor() {
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute(
+        'content',
+        html.classList.contains('dark') ? '#0F1419' : '#FAFCFF'
+      );
+    }
+  }
+
+  syncThemeColor();
+
   themeToggle?.addEventListener('click', () => {
     html.classList.toggle('dark');
     localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    syncThemeColor();
   });
 </script>
 

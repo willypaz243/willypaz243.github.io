@@ -1,283 +1,104 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Willy Samuel Paz Colque — AI &amp; Full Stack Developer</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap');</style>
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0A0E14" />
-      <stop offset="100%" stop-color="#111821" />
+    <linearGradient id="border-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#39C5BB"/>
+      <stop offset="100%" stop-color="#48FFF4"/>
     </linearGradient>
-    <linearGradient id="glowCyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.12" />
-      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0" />
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00d4ff" />
-      <stop offset="50%" stop-color="#00d4ff" />
-      <stop offset="100%" stop-color="#7c3aed" />
-    </linearGradient>
-    <linearGradient id="tagBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.10" />
-      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.04" />
-    </linearGradient>
-
+    <radialGradient id="glow-left" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39C5BB" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#39C5BB" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="hud-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#48FFF4" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <pattern id="hazard" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="10" height="20" fill="#FFD700" opacity="0.28"/>
+    </pattern>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="#0F1419"/>
+  <rect width="1200" height="630" fill="url(#hud-grid)"/>
+  <ellipse cx="380" cy="300" rx="470" ry="350" fill="url(#glow-left)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="url(#border-grad)" opacity="0.65"/>
 
-  <!-- Grid pattern -->
-  <g opacity="0.025" stroke="#ffffff" stroke-width="0.5">
-    <line x1="0" y1="0" x2="1200" y2="0" />
-    <line x1="0" y1="35" x2="1200" y2="35" />
-    <line x1="0" y1="70" x2="1200" y2="70" />
-    <line x1="0" y1="105" x2="1200" y2="105" />
-    <line x1="0" y1="140" x2="1200" y2="140" />
-    <line x1="0" y1="175" x2="1200" y2="175" />
-    <line x1="0" y1="210" x2="1200" y2="210" />
-    <line x1="0" y1="245" x2="1200" y2="245" />
-    <line x1="0" y1="280" x2="1200" y2="280" />
-    <line x1="0" y1="315" x2="1200" y2="315" />
-    <line x1="0" y1="350" x2="1200" y2="350" />
-    <line x1="0" y1="385" x2="1200" y2="385" />
-    <line x1="0" y1="420" x2="1200" y2="420" />
-    <line x1="0" y1="455" x2="1200" y2="455" />
-    <line x1="0" y1="490" x2="1200" y2="490" />
-    <line x1="0" y1="525" x2="1200" y2="525" />
-    <line x1="0" y1="560" x2="1200" y2="560" />
-    <line x1="0" y1="595" x2="1200" y2="595" />
+  <!-- ============ LEFT: IDENTITY MODULE ============ -->
+  <!-- System line -->
+  <circle cx="71" cy="90" r="5" fill="#48FFF4"/>
+  <text x="88" y="96" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="500" letter-spacing="3" fill="#48FFF4">WPC-04 // IDENTITY MODULE</text>
+
+  <!-- Name -->
+  <text x="64" y="185" font-family="'Inter', sans-serif" font-size="62" font-weight="700" letter-spacing="-1.5" fill="#F0F6FC">Willy Samuel</text>
+  <text x="64" y="255" font-family="'Inter', sans-serif" font-size="62" font-weight="700" letter-spacing="-1.5" fill="#F0F6FC">Paz Colque</text>
+
+  <!-- Role plate (chamfered) -->
+  <path d="M74 290h458l10 10v26l-10 10H74l-10-10v-26Z" fill="#39C5BB" fill-opacity="0.10" stroke="#39C5BB" stroke-width="1.5"/>
+  <text x="86" y="319" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="2.5" fill="#48FFF4">AI &amp; FULL STACK DEVELOPER</text>
+
+  <!-- Availability -->
+  <circle cx="71" cy="379" r="5" fill="#00E676"/>
+  <text x="88" y="384" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="500" letter-spacing="2" fill="#00E676">OPEN TO REMOTE WORK</text>
+
+  <!-- Tech chips (chamfered-sm) -->
+  <g font-family="'JetBrains Mono', monospace" font-size="14" font-weight="500" text-anchor="middle" fill="#F0F6FC">
+    <path d="M72 412h76l8 8v20l-8 8H72l-8-8v-20Z" fill="#161B22" stroke="#39C5BB" stroke-opacity="0.35"/>
+    <text x="110" y="435">Python</text>
+    <path d="M178 412h88l8 8v20l-8 8h-88l-8-8v-20Z" fill="#161B22" stroke="#39C5BB" stroke-opacity="0.35"/>
+    <text x="222" y="435">FastAPI</text>
+    <path d="M296 412h120l8 8v20l-8 8H296l-8-8v-20Z" fill="#161B22" stroke="#39C5BB" stroke-opacity="0.35"/>
+    <text x="356" y="435">LangChain</text>
+    <path d="M446 412h76l8 8v20l-8 8H446l-8-8v-20Z" fill="#161B22" stroke="#39C5BB" stroke-opacity="0.35"/>
+    <text x="484" y="435">React</text>
+    <path d="M552 412h88l8 8v20l-8 8h-88l-8-8v-20Z" fill="#161B22" stroke="#39C5BB" stroke-opacity="0.35"/>
+    <text x="596" y="435">Docker</text>
   </g>
 
-  <!-- Cyan radial glow -->
-  <ellipse cx="200" cy="315" rx="420" ry="350" fill="url(#glowCyan)" />
+  <!-- Bottom line -->
+  <text x="64" y="560" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="500" letter-spacing="2" fill="#48FFF4">willypaz.dev<tspan fill="#8B949E">// PORTFOLIO SYSTEMS</tspan></text>
+  <rect x="64" y="584" width="150" height="8" fill="url(#hazard)"/>
 
-  <!-- Decorative corner gradient in top-right -->
-  <path d="M1200 0 L1200 315 L900 0 Z" fill="#7c3aed" opacity="0.04" />
+  <!-- ============ RIGHT: NERV TERMINAL ============ -->
+  <!-- Frame (chamfered 14) -->
+  <path d="M686 70h436l14 14v462l-14 14H686l-14-14V84Z" fill="#161B22" stroke="url(#border-grad)" stroke-width="2"/>
 
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)" />
+  <!-- Header bar -->
+  <path d="M686 70h436l14 14v42H672V84Z" fill="#39C5BB" fill-opacity="0.08"/>
+  <line x1="672" y1="126" x2="1136" y2="126" stroke="#39C5BB" stroke-opacity="0.35"/>
+  <circle cx="694" cy="98" r="8" fill="#48FFF4" opacity="0.25"/>
+  <circle cx="694" cy="98" r="5" fill="#48FFF4"/>
+  <text x="710" y="103" font-family="'JetBrains Mono', monospace" font-size="13" letter-spacing="1.5"><tspan fill="#F0F6FC" font-weight="600">WPC-04</tspan><tspan fill="#8B949E"> // SYSTEMS ONLINE</tspan></text>
+  <text x="1120" y="103" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="12" fill="#FF0080">v2.0.4</text>
 
-  <!-- Right side: Terminal window (Python code from Hero) -->
-  <g transform="translate(640, 25)">
-    <!-- Window background -->
-    <rect x="0" y="0" width="530" height="470" rx="12" fill="#161B22" stroke="#1f2a37"
-      stroke-width="1" />
+  <!-- Screen -->
+  <rect x="688" y="142" width="432" height="348" fill="#0F1419"/>
 
-    <!-- Header -->
-    <path d="M0 12 Q0 0 12 0 L518 0 Q530 0 530 12 L530 40 L0 40 Z" fill="#1a2332" />
-
-    <!-- Traffic lights -->
-    <circle cx="18" cy="20" r="5" fill="#ff5f56" />
-    <circle cx="34" cy="20" r="5" fill="#ffbd2e" />
-    <circle cx="50" cy="20" r="5" fill="#27c93f" />
-
-    <!-- Title -->
-    <text x="265" y="25" text-anchor="middle" fill="#8b949e"
-      font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500">willypaz.dev —
-      developer.py</text>
-
-    <!-- DIVIDER -->
-
-    <!-- Code content: Python dataclass (matching Hero.astro) -->
-
-    <!-- Line 1: from dataclasses import dataclass, field -->
-    <text x="25" y="75" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#FF0080">from </tspan>
-      <tspan fill="#F0F6FC">dataclasses </tspan>
-      <tspan fill="#FF0080">import </tspan>
-      <tspan fill="#FF0080">dataclass</tspan>
-      <tspan fill="#F0F6FC">, </tspan>
-      <tspan fill="#FF0080">field</tspan>
-    </text>
-
-    <!-- Line 2: from typing import List -->
-    <text x="25" y="94" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#FF0080">from </tspan>
-      <tspan fill="#F0F6FC">typing </tspan>
-      <tspan fill="#FF0080">import </tspan>
-      <tspan fill="#39C5BB">List</tspan>
-    </text>
-
-    <!-- Line 3: blank -->
-
-    <!-- Line 4: @dataclass -->
-    <text x="25" y="132" font-family="'JetBrains Mono', monospace" font-size="12" fill="#FF0080">
-      @dataclass</text>
-
-    <!-- Line 5: class Developer: -->
-    <text x="25" y="151" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#FF0080">class </tspan>
-      <tspan fill="#39C5BB">Developer</tspan>
-      <tspan fill="#F0F6FC">:</tspan>
-    </text>
-
-    <!-- Line 6:     name: str = "Willy Samuel Paz Colque" -->
-    <text x="55" y="170" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">name: </tspan>
-      <tspan fill="#FF0080">str</tspan>
-      <tspan fill="#F0F6FC"> = </tspan>
-      <tspan fill="#00E676">"Willy Samuel Paz Colque"</tspan>
-    </text>
-
-    <!-- Line 7:     role: str = "AI & Full Stack Developer" -->
-    <text x="55" y="189" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">role: </tspan>
-      <tspan fill="#FF0080">str</tspan>
-      <tspan fill="#F0F6FC"> = </tspan>
-      <tspan fill="#00E676">"AI &amp; Full Stack Developer"</tspan>
-    </text>
-
-    <!-- Line 8:     location: str = "Bolivia" -->
-    <text x="55" y="208" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">location: </tspan>
-      <tspan fill="#FF0080">str</tspan>
-      <tspan fill="#F0F6FC"> = </tspan>
-      <tspan fill="#00E676">"Bolivia"</tspan>
-    </text>
-
-    <!-- Line 9:     experience_years: int = 4 -->
-    <text x="55" y="227" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">experience_years: </tspan>
-      <tspan fill="#FF0080">int</tspan>
-      <tspan fill="#F0F6FC"> = </tspan>
-      <tspan fill="#48FFF4">4</tspan>
-    </text>
-
-    <!-- Line 10: blank -->
-
-    <!-- Line 11:     stack: List[str] = field(default_factory=lambda [ -->
-    <text x="55" y="265" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">stack: </tspan>
-      <tspan fill="#39C5BB">List</tspan>
-      <tspan fill="#F0F6FC">[</tspan>
-      <tspan fill="#FF0080">str</tspan>
-      <tspan fill="#F0F6FC">] = </tspan>
-      <tspan fill="#FF0080">field</tspan>
-      <tspan fill="#F0F6FC">(default_factory=</tspan>
-      <tspan fill="#F0F6FC">lambda [</tspan>
-    </text>
-
-    <!-- Line 12:         "Python", "FastAPI", "LangChain", -->
-    <text x="85" y="284" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#00E676">"Python"</tspan>
-      <tspan fill="#F0F6FC">, </tspan>
-      <tspan fill="#00E676">"FastAPI"</tspan>
-      <tspan fill="#F0F6FC">, </tspan>
-      <tspan fill="#00E676">"LangChain"</tspan>
-      <tspan fill="#F0F6FC">,</tspan>
-    </text>
-
-    <!-- Line 13:         "React", "Docker", "AWS" -->
-    <text x="85" y="303" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#00E676">"React"</tspan>
-      <tspan fill="#F0F6FC">, </tspan>
-      <tspan fill="#00E676">"Docker"</tspan>
-      <tspan fill="#F0F6FC">, </tspan>
-      <tspan fill="#00E676">"AWS"</tspan>
-    </text>
-
-    <!-- Line 14:     ]) -->
-    <text x="55" y="322" font-family="'JetBrains Mono', monospace" font-size="12" fill="#F0F6FC">])</text>
-
-    <!-- Line 15:     focus: str = "RAG Systems • Scalable APIs • Cloud Infra" -->
-    <text x="55" y="341" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#F0F6FC">focus: </tspan>
-      <tspan fill="#FF0080">str</tspan>
-      <tspan fill="#F0F6FC"> = </tspan>
-      <tspan fill="#00E676">"RAG Systems • Scalable APIs • Cloud Infra"</tspan>
-    </text>
-
-    <!-- Line 16: blank -->
-
-    <!-- Line 17:     @property -->
-    <text x="55" y="379" font-family="'JetBrains Mono', monospace" font-size="12" fill="#FF0080">
-      @property</text>
-
-    <!-- Line 18:     def available(self) -> bool: -->
-    <text x="55" y="398" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#FF0080">def </tspan>
-      <tspan fill="#F0F6FC">available(</tspan>
-      <tspan fill="#F0F6FC">self</tspan>
-      <tspan fill="#F0F6FC">) -&gt; </tspan>
-      <tspan fill="#F0F6FC">bool</tspan>
-      <tspan fill="#F0F6FC">:</tspan>
-    </text>
-
-    <!-- Line 19:         return True  # Open to remote work -->
-    <text x="85" y="417" font-family="'JetBrains Mono', monospace" font-size="12">
-      <tspan fill="#FF0080">return</tspan>
-      <tspan fill="#F0F6FC"> </tspan>
-      <tspan fill="#FF0080">True</tspan>
-      <tspan fill="#F0F6FC"> </tspan>
-      <tspan fill="#8B949E"># Open to remote work</tspan>
-    </text>
-
-    <!-- Blinking cursor -->
-    <rect x="325" y="404" width="10" height="16" rx="2" fill="#00d4ff" opacity="0.8">
-      <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite" />
-    </rect>
+  <!-- Code: Python dataclass (mirrors the hero terminal) -->
+  <g font-family="'JetBrains Mono', monospace" font-size="12.5">
+    <text x="706" y="166"><tspan fill="#FF0080">from </tspan><tspan fill="#F0F6FC">dataclasses </tspan><tspan fill="#FF0080">import </tspan><tspan fill="#FF0080">dataclass</tspan><tspan fill="#F0F6FC">, </tspan><tspan fill="#FF0080">field</tspan></text>
+    <text x="706" y="183"><tspan fill="#FF0080">from </tspan><tspan fill="#F0F6FC">typing </tspan><tspan fill="#FF0080">import </tspan><tspan fill="#39C5BB">List</tspan></text>
+    <text x="706" y="217" fill="#FF0080">@dataclass</text>
+    <text x="706" y="234"><tspan fill="#FF0080">class </tspan><tspan fill="#39C5BB">Developer</tspan><tspan fill="#F0F6FC">:</tspan></text>
+    <text x="706" y="251"><tspan fill="#F0F6FC">    name: </tspan><tspan fill="#FF0080">str</tspan><tspan fill="#F0F6FC"> = </tspan><tspan fill="#00E676">"Willy Samuel Paz Colque"</tspan></text>
+    <text x="706" y="268"><tspan fill="#F0F6FC">    role: </tspan><tspan fill="#FF0080">str</tspan><tspan fill="#F0F6FC"> = </tspan><tspan fill="#00E676">"AI &amp; Full Stack Developer"</tspan></text>
+    <text x="706" y="285"><tspan fill="#F0F6FC">    location: </tspan><tspan fill="#FF0080">str</tspan><tspan fill="#F0F6FC"> = </tspan><tspan fill="#00E676">"Bolivia"</tspan></text>
+    <text x="706" y="302"><tspan fill="#F0F6FC">    experience_years: </tspan><tspan fill="#FF0080">int</tspan><tspan fill="#F0F6FC"> = </tspan><tspan fill="#48FFF4">4</tspan></text>
+    <text x="706" y="336"><tspan fill="#F0F6FC">    stack: </tspan><tspan fill="#39C5BB">List</tspan><tspan fill="#F0F6FC">[</tspan><tspan fill="#FF0080">str</tspan><tspan fill="#F0F6FC">] = </tspan><tspan fill="#FF0080">field</tspan><tspan fill="#F0F6FC">(default_factory=</tspan><tspan fill="#F0F6FC">lambda [</tspan></text>
+    <text x="706" y="353"><tspan fill="#F0F6FC">        </tspan><tspan fill="#00E676">"Python"</tspan><tspan fill="#F0F6FC">, </tspan><tspan fill="#00E676">"FastAPI"</tspan><tspan fill="#F0F6FC">, </tspan><tspan fill="#00E676">"LangChain"</tspan><tspan fill="#F0F6FC">,</tspan></text>
+    <text x="706" y="370"><tspan fill="#F0F6FC">        </tspan><tspan fill="#00E676">"React"</tspan><tspan fill="#F0F6FC">, </tspan><tspan fill="#00E676">"Docker"</tspan><tspan fill="#F0F6FC">, </tspan><tspan fill="#00E676">"AWS"</tspan></text>
+    <text x="706" y="387" fill="#F0F6FC">    ])</text>
+    <text x="706" y="404"><tspan fill="#F0F6FC">    focus: </tspan><tspan fill="#FF0080">str</tspan><tspan fill="#F0F6FC"> = </tspan><tspan fill="#00E676">"RAG Systems • Scalable APIs • Cloud Infra"</tspan></text>
+    <text x="706" y="438" fill="#FF0080">    @property</text>
+    <text x="706" y="455"><tspan fill="#FF0080">def </tspan><tspan fill="#F0F6FC">available(</tspan><tspan fill="#F0F6FC">self</tspan><tspan fill="#F0F6FC">) -&gt; </tspan><tspan fill="#F0F6FC">bool</tspan><tspan fill="#F0F6FC">:</tspan></text>
+    <text x="706" y="472"><tspan fill="#FF0080">        return</tspan><tspan fill="#F0F6FC"> </tspan><tspan fill="#FF0080">True</tspan><tspan fill="#F0F6FC">  </tspan><tspan fill="#8B949E"># Open to remote work</tspan></text>
+    <rect x="852" y="461" width="9" height="14" fill="#48FFF4" opacity="0.85"/>
   </g>
 
-  <!-- Welcome badge -->
-  <g transform="translate(40, 95)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="url(#tagBg)" stroke="#00d4ff"
-      stroke-opacity="0.25" stroke-width="1" />
-    <text x="45" y="17" text-anchor="middle" fill="#00d4ff"
-      font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Hello world</text>
-  </g>
-
-  <!-- Main hero: Name -->
-  <text x="40" y="195" font-family="'Inter', sans-serif" font-size="64" font-weight="700"
-    fill="#ffffff" letter-spacing="-1.5">
-    Willy Samuel
-  </text>
-  <text x="40" y="268" font-family="'Inter', sans-serif" font-size="64" font-weight="700"
-    fill="#ffffff" letter-spacing="-1.5">
-    Paz Colque
-  </text>
-
-  <!-- Cyan underline accent -->
-  <rect x="40" y="290" width="80" height="4" rx="2" fill="#00d4ff" />
-
-  <!-- Subtitle -->
-  <text x="40" y="345" font-family="'Inter', sans-serif" font-size="26" font-weight="500"
-    fill="#94a3b8">
-    AI &amp; Full Stack Developer
-  </text>
-
-  <!-- Tech tags -->
-  <g transform="translate(40, 380)">
-    <rect x="0" y="0" width="78" height="28" rx="14" fill="#1a2332" stroke="#1f2a37"
-      stroke-width="1" />
-    <text x="39" y="18" text-anchor="middle" fill="#00d4ff" font-family="'Inter', sans-serif"
-      font-size="13" font-weight="500">Python</text>
-
-    <rect x="90" y="0" width="88" height="28" rx="14" fill="#1a2332" stroke="#1f2a37"
-      stroke-width="1" />
-    <text x="134" y="18" text-anchor="middle" fill="#00d4ff" font-family="'Inter', sans-serif"
-      font-size="13" font-weight="500">FastAPI</text>
-
-    <rect x="190" y="0" width="98" height="28" rx="14" fill="#1a2332" stroke="#1f2a37"
-      stroke-width="1" />
-    <text x="239" y="18" text-anchor="middle" fill="#00d4ff" font-family="'Inter', sans-serif"
-      font-size="13" font-weight="500">LangChain</text>
-
-    <rect x="300" y="0" width="78" height="28" rx="14" fill="#1a2332" stroke="#1f2a37"
-      stroke-width="1" />
-    <text x="339" y="18" text-anchor="middle" fill="#00d4ff" font-family="'Inter', sans-serif"
-      font-size="13" font-weight="500">React</text>
-
-    <rect x="390" y="0" width="80" height="28" rx="14" fill="#1a2332" stroke="#1f2a37"
-      stroke-width="1" />
-    <text x="430" y="18" text-anchor="middle" fill="#00d4ff" font-family="'Inter', sans-serif"
-      font-size="13" font-weight="500">Docker</text>
-  </g>
-
-
-  <!-- Bottom bar -->
-  <g transform="translate(40, 555)">
-    <text font-family="'Inter', sans-serif" font-size="14" fill="#4a5568">
-      <tspan fill="#00d4ff" font-weight="600">willypaz.dev</tspan>
-    </text>
-  </g>
-
-  <!-- Bottom accent line -->
-  <rect x="40" y="610" width="1120" height="2" rx="1" fill="#00d4ff" opacity="0.15" />
+  <!-- SYNC RATE gauge -->
+  <line x1="672" y1="502" x2="1136" y2="502" stroke="#21262D"/>
+  <text x="694" y="536" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#8B949E">SYNC RATE</text>
+  <rect x="790" y="526" width="250" height="10" fill="#21262D"/>
+  <rect x="790" y="526" width="240" height="10" fill="url(#border-grad)"/>
+  <text x="1122" y="536" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" fill="#48FFF4">100%</text>
 </svg>

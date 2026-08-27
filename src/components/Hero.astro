@@ -19,7 +19,19 @@ import profile from '../data/profile.en.json';
     }
   }
 
-  /* Boot sequence — lines appear before the code starts typing */
+  /* Boot sequence — lines appear, then the block clears so only the
+     Python code remains on screen ("how the code gets generated") */
+  #boot-sequence {
+    overflow: hidden;
+    transition:
+      opacity 0.3s ease,
+      max-height 0.3s ease,
+      margin-bottom 0.3s ease;
+  }
+  #boot-sequence:not(.boot-done) {
+    max-height: 5rem;
+  }
+
   .boot-line {
     opacity: 0;
     animation: boot-in 0.35s ease-out forwards;
@@ -40,6 +52,12 @@ import profile from '../data/profile.en.json';
     }
   }
 
+  .boot-done {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+  }
+
   /* SYNC RATE gauge — fills from the left once on load */
   .sync-fill {
     transform-origin: left;
@@ -56,6 +74,10 @@ import profile from '../data/profile.en.json';
   }
 
   @media (prefers-reduced-motion: reduce) {
+    /* Final state = code only, no boot text */
+    #boot-sequence {
+      display: none;
+    }
     .boot-line,
     .sync-fill {
       animation: none;
@@ -103,7 +125,7 @@ import profile from '../data/profile.en.json';
           id="cta-projects"
           href="#projects"
           data-i18n="hero.cta_projects"
-          class="clip-chamfer-sm inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-base dark:text-miku-dark-base transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow-cyan"
+          class="clip-chamfer-sm inline-block px-6 py-2.5 bg-miku-cyan hover:bg-miku-glow text-miku-dark-base transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow-cyan"
         >
           {profile.hero.cta_projects}
         </a>
@@ -118,7 +140,7 @@ import profile from '../data/profile.en.json';
       </div>
 
       <!-- Availability -->
-      <p data-i18n="personal.availability" class="text-sm text-miku-success flex items-center gap-2">
+      <p data-i18n="personal.availability" class="text-sm text-green-700 dark:text-miku-success flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
         {profile.personal.availability}
       </p>
@@ -325,13 +347,18 @@ class Developer:
     }, 2000);
   }
 
-  // Start: wait for the boot sequence to finish, then type the code.
-  // With reduced motion, render the final code immediately.
+  // Start: boot lines fade in, then the block clears and the code types out,
+  // so the finished screen shows Python only. With reduced motion, render
+  // the final code immediately (boot block is hidden via CSS).
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) {
     const terminal = document.getElementById('terminal-code');
     if (terminal) terminal.innerHTML = highlightCode(code);
   } else {
-    setTimeout(typeCode, 2100);
+    setTimeout(() => {
+      const boot = document.getElementById('boot-sequence');
+      if (boot) boot.classList.add('boot-done');
+      setTimeout(typeCode, 350);
+    }, 2100);
   }
 </script>

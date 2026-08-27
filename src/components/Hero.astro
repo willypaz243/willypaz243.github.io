@@ -258,8 +258,10 @@ class Developer:
       {
         type: 'keyword',
         pattern:
-          /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None|@property|dataclass|field)\b/g,
+          /\b(from|import|class|def|str|int|list|return|if|else|for|while|True|False|None|dataclass|field)\b/g,
       },
+      { type: 'keyword', pattern: /@property/g }, // decorator (no \b works before @)
+      { type: 'comment', pattern: /#.*/g }, // runs before class_name so comment words don't match
       { type: 'class_name', pattern: /\b([A-Z][a-zA-Z0-9_]*)\b/g },
       { type: 'number', pattern: /\b(\d+)\b/g },
     ];

@@ -62,7 +62,7 @@ const GLYPHS: Record<string, string> = {
     const links = document.querySelectorAll('[data-nav-section]');
     if (!links.length) return;
 
-    const ids = ['about', 'experience', 'projects', 'skills', 'footer'];
+    const ids = ['about', 'projects', 'experience', 'skills', 'footer'];
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
     if (!sections.length) return;
 

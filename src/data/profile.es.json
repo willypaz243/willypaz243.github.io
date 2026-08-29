@@ -200,14 +200,14 @@
       "icon": "👨‍💻"
     },
     {
-      "id": "experience",
-      "label": "Experiencia",
-      "icon": "💼"
-    },
-    {
       "id": "projects",
       "label": "Proyectos",
       "icon": "🚀"
+    },
+    {
+      "id": "experience",
+      "label": "Experiencia",
+      "icon": "💼"
     },
     {
       "id": "skills",

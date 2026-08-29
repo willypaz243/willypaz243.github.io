@@ -35,7 +35,8 @@
   "labels": {
     "view_project": "Demo en Vivo",
     "source_code": "Código Fuente",
-    "switch_language": "Cambiar idioma:"
+    "switch_language": "Cambiar idioma:",
+    "skip_to_content": "Saltar al contenido"
   },
   "sections": {
     "experience": "Experiencia Profesional",

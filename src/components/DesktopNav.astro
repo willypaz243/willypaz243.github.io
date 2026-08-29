@@ -25,9 +25,15 @@ import LanguageToggle from './LanguageToggle.astro';
               <a
                 href={`#${section.id}`}
                 data-i18n-nav={section.id}
-                class="text-sm font-medium text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan transition-colors duration-300"
+                data-nav-section={section.id}
+                class:list={[
+                  'nav-link text-sm font-medium transition-colors duration-300',
+                  section.id === 'footer'
+                    ? 'clip-chamfer-sm border border-miku-cyan/50 dark:border-miku-glow/40 px-3 py-1.5 text-miku-teal-strong dark:text-miku-glow hover:bg-miku-cyan/10 dark:hover:bg-miku-glow/10'
+                    : 'text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan',
+                ]}
               >
-                {section.label}
+                <span>{section.label}</span>
               </a>
             ))
           }

@@ -11,15 +11,29 @@ const GLYPHS: Record<string, string> = {
 };
 ---
 
-<style>
+<style is:global>
+  /* Scrollspy active state — shared by desktop links (.nav-link) and mobile glyph bar */
   a.nav-active {
-    color: #00a396; /* miku.teal-strong */
+    color: #007a70; /* miku.teal-strong */
   }
   .dark a.nav-active {
     color: #48fff4; /* miku.glow */
   }
   .dark a.nav-active svg {
     filter: drop-shadow(0 0 5px rgba(72, 255, 244, 0.55));
+  }
+  /* Desktop: underline indicator under the active section link */
+  a.nav-link {
+    position: relative;
+  }
+  a.nav-link.nav-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: currentColor;
   }
 </style>
 
@@ -33,7 +47,7 @@ const GLYPHS: Record<string, string> = {
               href={`#${section.id}`}
               data-i18n-nav={section.id}
               data-nav-section={section.id}
-              class="w-10 h-10 flex items-center justify-center text-miku-text-main dark:text-miku-dark-text transition-colors hover:text-miku-teal-strong dark:hover:text-miku-glow group relative"
+              class="w-11 h-11 flex items-center justify-center text-miku-text-main dark:text-miku-dark-text transition-colors hover:text-miku-teal-strong dark:hover:text-miku-glow group relative"
               title={section.label}
             >
               <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

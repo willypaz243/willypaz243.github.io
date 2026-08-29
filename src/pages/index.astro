@@ -12,7 +12,7 @@ import ContactFooter from '../components/ContactFooter.astro';
   <div id="about" class="scroll-mt-16 animate-fade-in">
     <Hero />
   </div>
-  <main class="max-w-4xl mx-auto px-4 py-12 space-y-24">
+  <main id="main" tabindex="-1" class="max-w-4xl mx-auto px-4 py-12 space-y-24">
     <div id="projects" class="scroll-mt-16 animate-fade-in" data-scan>
       <Projects />
     </div>
@@ -29,6 +29,11 @@ import ContactFooter from '../components/ContactFooter.astro';
 </Layout>
 
 <style is:global>
+  /* Skip-link target: receive focus without a full-width outline */
+  #main:focus {
+    outline: none;
+  }
+
   /* Phase 3 — one-shot scanline sweep when a section enters the viewport.
      .scan-on is added by /scroll-animations.js; the band ends fully outside
      the box (backgrounds clip to the element), so no cleanup is needed. */

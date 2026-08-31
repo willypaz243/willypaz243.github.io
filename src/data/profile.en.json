@@ -14,7 +14,10 @@
   "about": {
     "title": "About me",
     "experience": 4,
-    "description": "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions."
+    "description": "I build LLM-powered systems that ship to production — RAG chatbots serving real users across Telegram, WhatsApp and web, plus computer-vision OCR pipelines for official documents. Over 4 years across startups, owning features from first commit to deployment."
+  },
+  "meta": {
+    "description": "AI & Full Stack Developer (4+ yrs) building production RAG/LLM systems, computer-vision OCR and scalable APIs for startups. Open to remote roles."
   },
   "hero": {
     "cta_projects": "View My Work",

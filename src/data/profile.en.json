@@ -14,7 +14,7 @@
   "about": {
     "title": "About me",
     "experience": 4,
-    "description": "I build LLM-powered systems that ship to production — RAG chatbots serving real users across Telegram, WhatsApp and web, plus computer-vision OCR pipelines for official documents. Over 4 years across startups, owning features from first commit to deployment."
+    "description": "I build LLM-powered systems that ship to production: RAG chatbots serving real users across Telegram, WhatsApp and web, plus computer-vision OCR pipelines for official documents. Over 4 years across startups, owning features from first commit to deployment."
   },
   "meta": {
     "description": "AI & Full Stack Developer (4+ yrs) building production RAG/LLM systems, computer-vision OCR and scalable APIs for startups. Open to remote roles."
@@ -121,7 +121,7 @@
       "company_info": {
         "description": "AI-powered platform for short-term rentals and boutique hotels in Latin America. Named in Hot 25 Travel Startups for 2026 (PhocusWire). Partner of Cloudbeds PMS marketplace.",
         "url": "https://hospy.ai",
-        "product": "Empleados de IA — contactless check-in, guest verification, operations automation"
+        "product": "Empleados de IA: contactless check-in, guest verification, operations automation"
       }
     },
     {

@@ -13,6 +13,32 @@ import SectionHeading from './SectionHeading.astro';
   />
 
   <div class="space-y-8 mt-4">
+    {/* Soft skills — NEURAL LINK */}
+    <div data-animate class="clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
+      <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
+
+      <div class="relative p-5 sm:p-6">
+        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-5">
+          <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-glow">NEURAL</span>
+          <h3 id="sf-title" data-i18n="sections.soft_skills" class="text-lg sm:text-xl font-semibold text-miku-text-main dark:text-miku-dark-text">
+            {profile.sections.soft_skills}
+          </h3>
+        </div>
+
+        <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+          {profile.skills.soft_skills.map((skill, j) => (
+            <li class="flex items-center gap-3 text-sm text-miku-text-main dark:text-miku-dark-text">
+              <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 text-miku-teal-strong dark:text-miku-glow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="6" cy="6" r="2.5"></circle>
+                <path d="M6 0v3M6 9v3M0 6h3M9 6h3"></path>
+              </svg>
+              <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
     {
       Object.entries(profile.skills)
         .filter(([, v]) => v && typeof v === 'object' && !Array.isArray(v))
@@ -79,31 +105,5 @@ import SectionHeading from './SectionHeading.astro';
         );
       })
     }
-
-    {/* Soft skills — NEURAL LINK */}
-    <div data-animate class="clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
-      <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
-
-      <div class="relative p-5 sm:p-6">
-        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-5">
-          <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-glow">NEURAL</span>
-          <h3 id="sf-title" data-i18n="sections.soft_skills" class="text-lg sm:text-xl font-semibold text-miku-text-main dark:text-miku-dark-text">
-            {profile.sections.soft_skills}
-          </h3>
-        </div>
-
-        <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-          {profile.skills.soft_skills.map((skill, j) => (
-            <li class="flex items-center gap-3 text-sm text-miku-text-main dark:text-miku-dark-text">
-              <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 text-miku-teal-strong dark:text-miku-glow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="6" cy="6" r="2.5"></circle>
-                <path d="M6 0v3M6 9v3M0 6h3M9 6h3"></path>
-              </svg>
-              <span data-i18n={`skills.soft_skills.${j}`}>{skill}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
   </div>
 </section>

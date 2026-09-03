@@ -1,0 +1,77 @@
+---
+// SectionHeading — NERV-style section header:
+// big mono number + chamfered title plate + system tag + thin rule line.
+// Part of the EVA redesign plan (.plan/eva-redesign-plan.md), Phase 1.
+
+interface Props {
+  num: string; // "01"
+  title: string; // visible heading text (server-rendered default)
+  tag?: string; // optional system tag, e.g. "MISSION LOG"
+  i18n?: string; // optional data-i18n key for the h2
+  id?: string; // optional element id
+}
+
+const { num, title, tag, i18n, id } = Astro.props;
+---
+
+<style>
+  /* Lock-on reticle — one-shot sweep across the title plate when the heading
+     enters the viewport (.is-locked is added by /scroll-animations.js) */
+  .plate-lock {
+    position: relative;
+    overflow: hidden;
+  }
+  .plate-lock::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -45%;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, rgba(72, 255, 244, 0.3), transparent);
+    transform: skewX(-14deg);
+  }
+  .heading-lock.is-locked .plate-lock::after {
+    animation: reticle-sweep 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes reticle-sweep {
+    to {
+      left: 115%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plate-lock::after {
+      display: none;
+    }
+  }
+</style>
+
+<div class="heading-lock flex items-center gap-3 sm:gap-4 mb-10" data-animate>
+  <span
+    aria-hidden="true"
+    class="font-mono text-4xl sm:text-5xl font-bold leading-none select-none text-miku-teal-strong/40 dark:text-miku-glow/25"
+  >
+    {num}
+  </span>
+
+  <h2
+    {...(id ? { id } : {})}
+    {...(i18n ? { 'data-i18n': i18n } : {})}
+    class="plate-lock clip-chamfer-sm border border-miku-teal-strong/40 dark:border-miku-cyan/30 bg-miku-surface dark:bg-miku-dark-surface px-3 sm:px-5 py-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap text-miku-text-main dark:text-miku-dark-text"
+  >
+    {title}
+  </h2>
+
+  {
+    tag && (
+      <span class="hidden md:inline font-mono text-xs text-miku-text-dim dark:text-miku-dark-dim select-none">
+        // {tag}
+      </span>
+    )
+  }
+
+  <div
+    aria-hidden="true"
+    class="flex-1 h-px bg-gradient-to-r from-miku-teal-strong/50 dark:from-miku-cyan/40 to-transparent"
+  ></div>
+</div>

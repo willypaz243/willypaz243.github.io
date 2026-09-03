@@ -1,57 +1,115 @@
 ---
 import profile from '../data/profile.en.json';
+import SectionHeading from './SectionHeading.astro';
 
 // Determine if a link is a live demo (not GitHub)
 function isLiveDemo(link: string): boolean {
   return link !== '#' && !link.includes('github.com');
 }
+
+type MetricRow = { key: string; value: string; i18n: string };
+
+type ProjectCard = {
+  project: (typeof profile.projects)[number];
+  origIndex: number;
+  unit: string;
+  titleI18n: string;
+  descI18n: string;
+  metrics: MetricRow[];
+};
+
+// Pre-compute card data (keeps inline JSX expressions shallow)
+const cards: ProjectCard[] = profile.projects
+  .map((project, idx) => ({ project, idx }))
+  .filter(({ project }) => project.link !== '#')
+  .map(({ project, idx }) => {
+    const rawMetrics = Object.entries(
+      ((project as { metrics?: unknown }).metrics || {}) as Record<string, string>
+    );
+    return {
+      project,
+      origIndex: idx,
+      unit: String(idx + 1).padStart(2, '0'),
+      titleI18n: `projects.${idx}.title`,
+      descI18n: `projects.${idx}.description`,
+      metrics: rawMetrics.map(([key, value]) => ({
+        key,
+        value,
+        i18n: `projects.${idx}.metrics.${key}`,
+      })),
+    };
+  });
 ---
 
 <section class="mb-16">
-  <h2
+  <SectionHeading
+    num="01"
+    title={profile.sections.projects}
+    i18n="sections.projects"
+    tag="DOSSIERS"
     id="proj-title"
-    data-animate
-    data-i18n="sections.projects"
-    class="text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
-  >
-    {profile.sections.projects}
-  </h2>
-  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  />
+  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
     {
-      profile.projects
-        .filter(p => p.link !== '#')
-        .map((project) => {
-          const origIndex = profile.projects.indexOf(project);
-          return (
-          <article
-            data-animate
-            class="group relative p-6 rounded-miku bg-miku-surface dark:bg-miku-dark-surface shadow-miku-light dark:shadow-none transition-all duration-300 transform hover:-translate-y-1 border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan/50"
-          >
+      cards.map(card => (
+        <article
+          data-animate
+          class="group clip-chamfer-sm relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface dark:bg-miku-dark-surface transition-all duration-300 hover:-translate-y-1 hover:border-miku-teal-strong/60 dark:hover:border-miku-cyan/50 hover:shadow-glow-cyan"
+        >
+          {/* HUD grid backdrop */}
+          <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
+
+          <div class="relative p-5 sm:p-6">
+            {/* Dossier header: unit tag + status LED */}
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-dark-dim">
+                UNIT-{card.unit}
+              </span>
+              <span
+                aria-hidden="true"
+                class="w-2 h-2 rounded-full bg-miku-glow animate-pulse transition-colors duration-300 group-hover:bg-miku-magenta"
+              ></span>
+            </div>
+
             {/* Project Title */}
-            <h3 data-i18n={`projects.${origIndex}.title`} class="text-2xl font-semibold mb-2 text-miku-teal-strong dark:text-miku-cyan">
-              {project.title}
+            <h3 data-i18n={card.titleI18n} class="text-xl sm:text-2xl font-semibold mb-2 text-miku-text-main dark:text-miku-dark-text">
+              {card.project.title}
             </h3>
 
             {/* Description */}
-            <p data-i18n={`projects.${origIndex}.description`} class="text-miku-text-dim dark:text-miku-dark-dim mb-4 leading-relaxed text-sm">
-              {project.description}
+            <p data-i18n={card.descI18n} class="text-sm leading-relaxed mb-4 text-miku-text-dim dark:text-miku-dark-dim">
+              {card.project.description}
             </p>
 
-            {/* Tech Stack Badges */}
+            {/* Spec table — projects[].metrics (previously unused) */}
+            {card.metrics.length > 0 && (
+              <dl class="mb-5 border-l-2 border-miku-teal-strong/40 dark:border-miku-cyan/30 pl-3 space-y-1.5">
+                {card.metrics.map(row => (
+                  <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-4">
+                    <dt class="font-mono text-xs uppercase tracking-wider shrink-0 text-miku-teal-strong dark:text-miku-dark-dim">{row.key}</dt>
+                    <dd data-i18n={row.i18n} class="text-xs sm:text-sm text-miku-text-main dark:text-miku-dark-text sm:text-right">
+                      {row.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
+            {/* Tech Stack Badges (chamfered chips) */}
             <div class="flex flex-wrap gap-1.5 mb-5">
-              {project.technologies.map(tech => (
-                <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-dim dark:text-miku-dark-dim group-hover:border-miku-cyan/30 transition-colors duration-300">
+              {card.project.technologies.map(tech => (
+                <span class="clip-chamfer-sm px-2.5 py-1 text-xs font-mono bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-dim dark:text-miku-dark-dim group-hover:border-miku-cyan/40 transition-colors duration-300">
                   {tech}
                 </span>
               ))}
             </div>
 
             {/* CTA Button */}
-            {isLiveDemo(project.link) ? (
+            {isLiveDemo(card.project.link) ? (
               /* Live Demo — primary style */
               <a
-                href={project.link}
-                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-miku-cyan/10 dark:bg-miku-cyan/15 border border-miku-cyan/30 text-miku-cyan hover:bg-miku-cyan/20 transition-all duration-300"
+                href={card.project.link}
+                class="clip-chamfer-sm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-miku-cyan/10 dark:bg-miku-cyan/15 border border-miku-cyan/30 text-miku-teal-strong dark:text-miku-cyan hover:bg-miku-cyan/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-i18n="labels.view_project"
@@ -64,8 +122,8 @@ function isLiveDemo(link: string): boolean {
             ) : (
               /* Source Code — secondary style */
               <a
-                href={project.link}
-                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-main dark:text-miku-dark-text hover:border-miku-cyan/50 transition-all duration-300"
+                href={card.project.link}
+                class="clip-chamfer-sm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-main dark:text-miku-dark-text hover:border-miku-cyan/50 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-i18n="labels.source_code"
@@ -76,9 +134,9 @@ function isLiveDemo(link: string): boolean {
                 </svg>
               </a>
             )}
-          </article>
-          );
-        })
+          </div>
+        </article>
+      ))
     }
   </div>
 </section>

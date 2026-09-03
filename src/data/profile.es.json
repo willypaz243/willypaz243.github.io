@@ -14,7 +14,10 @@
   "about": {
     "title": "Sobre mí",
     "experience": 4,
-    "description": "Desarrollador Web Full Stack con más de 4 años de experiencia. He contribuido al desarrollo de software e implementado nuevas características en diversos proyectos, optimizando el rendimiento y mejorando la experiencia del usuario. Soy apasionado por crear soluciones eficientes e innovadoras."
+    "description": "Construyo sistemas con LLM listos para producción: chatbots RAG que atienden a usuarios reales en Telegram, WhatsApp y web, y pipelines de OCR con visión por computadora para documentos oficiales. Más de 4 años en startups, con ownership de funciones desde el primer commit hasta el deployment."
+  },
+  "meta": {
+    "description": "Desarrollador AI & Full Stack (4+ años) creando sistemas RAG/LLM, OCR con visión por computadora y APIs escalables en producción. Disponible para remoto."
   },
   "hero": {
     "cta_projects": "Ver mi Trabajo",
@@ -34,7 +37,9 @@
   },
   "labels": {
     "view_project": "Demo en Vivo",
-    "source_code": "Código Fuente"
+    "source_code": "Código Fuente",
+    "switch_language": "Cambiar idioma:",
+    "skip_to_content": "Saltar al contenido"
   },
   "sections": {
     "experience": "Experiencia Profesional",
@@ -116,7 +121,7 @@
       "company_info": {
         "description": "Plataforma de IA para alojamientos de corta estancia y hoteles boutique en Latinoamérica. Nombrada en Hot 25 Travel Startups for 2026 (PhocusWire). Partner del marketplace de Cloudbeds PMS.",
         "url": "https://hospy.ai",
-        "product": "Empleados de IA — check-in sin contacto, verificación de huéspedes, automatización operativa"
+        "product": "Empleados de IA: check-in sin contacto, verificación de huéspedes, automatización operativa"
       }
     },
     {
@@ -199,14 +204,14 @@
       "icon": "👨‍💻"
     },
     {
-      "id": "experience",
-      "label": "Experiencia",
-      "icon": "💼"
-    },
-    {
       "id": "projects",
       "label": "Proyectos",
       "icon": "🚀"
+    },
+    {
+      "id": "experience",
+      "label": "Experiencia",
+      "icon": "💼"
     },
     {
       "id": "skills",

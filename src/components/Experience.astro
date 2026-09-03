@@ -1,31 +1,76 @@
 ---
 import profile from '../data/profile.en.json';
+import SectionHeading from './SectionHeading.astro';
+
+type MissionEntry = {
+  idx: number;
+  op: string;
+  exp: (typeof profile.experience)[number];
+  periodI18n: string;
+  roleI18n: string;
+  companyI18n: string;
+  achI18n: string[];
+};
+
+// Pre-compute mission data (keeps inline JSX expressions shallow)
+const missions: MissionEntry[] = profile.experience.map((exp, idx) => ({
+  idx,
+  op: String(idx + 1).padStart(2, '0'),
+  exp,
+  periodI18n: `experience.${idx}.period`,
+  roleI18n: `experience.${idx}.role`,
+  companyI18n: `experience.${idx}.company`,
+  achI18n: (exp.achievements || []).map((_, ai) => `experience.${idx}.achievements.${ai}`),
+}));
 ---
 
 <section class="w-full max-w-4xl mx-auto animate-fade-in">
-  <h2
+  <SectionHeading
+    num="02"
+    title={profile.sections.experience}
+    i18n="sections.experience"
+    tag="MISSION LOG"
     id="exp-title"
-    data-animate
-    data-i18n="sections.experience"
-    class="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-miku-teal-strong dark:from-miku-cyan to-miku-glow dark:to-miku-magenta text-transparent bg-clip-text"
-  >
-    {profile.sections.experience}
-  </h2>
-  <div class="space-y-12">
-    <div class="absolute left-0 top-0 h-full w-0.5 bg-miku-cyan/20 dark:bg-miku-cyan/10"></div>
+  />
+
+  <!-- Mission log timeline (relative parent + vertical rule) -->
+  <div class="relative space-y-10 before:absolute before:left-1.5 before:top-2 before:bottom-2 before:w-px before:bg-miku-teal-strong/30 dark:before:bg-miku-cyan/20">
     {
-      profile.experience.map((exp, i) => (
-        <div data-animate class="border-l-4 border-miku-cyan dark:border-miku-glow pl-6 py-2 hover:border-miku-magenta dark:hover:border-miku-magenta transition-colors">
-          <h3 data-i18n={`experience.${i}.role`} class="text-2xl font-semibold text-miku-teal-strong dark:text-miku-cyan">{exp.role}</h3>
-          <p data-i18n={`experience.${i}.company`} class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim mb-2">{exp.company}</p>
-          <p data-i18n={`experience.${i}.period`} class="text-xs font-mono text-miku-cyan mb-6 inline-block bg-miku-cyan/10 px-2 py-1 rounded">
-            {exp.period}
-          </p>
-          <ul class="list-disc list-inside space-y-2 text-miku-text-dim dark:text-miku-dark-dim">
-            {exp.achievements.map((achievement, ai) => (
-              <li data-i18n={`experience.${i}.achievements.${ai}`} class="hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors">{achievement}</li>
-            ))}
-          </ul>
+      missions.map(mission => (
+        <div data-animate class="op-entry group relative pl-8 sm:pl-10">
+          {/* Timeline node (diamond) */}
+          <span
+            aria-hidden="true"
+            class="absolute left-0 top-2 w-3 h-3 rotate-45 border-2 border-miku-teal-strong dark:border-miku-cyan bg-miku-base dark:bg-miku-dark-base transition-colors duration-300 group-hover:border-miku-magenta group-hover:bg-miku-magenta"
+          ></span>
+
+          <div class="pt-1">
+            {/* Operation header: op tag + period */}
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+              <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-dark-dim">OP-{mission.op}</span>
+              <p data-i18n={mission.periodI18n} class="text-xs font-mono text-miku-teal-strong dark:text-miku-cyan inline-block bg-miku-cyan/10 px-2 py-1">
+                {mission.exp.period}
+              </p>
+            </div>
+
+            <h3 data-i18n={mission.roleI18n} class="text-xl sm:text-2xl font-semibold mb-1 text-miku-text-main dark:text-miku-dark-text">
+              {mission.exp.role}
+            </h3>
+            <p class="text-sm font-medium text-miku-text-dim dark:text-miku-dark-dim mb-4">
+              <span aria-hidden="true">@ </span><span data-i18n={mission.companyI18n}>{mission.exp.company}</span>
+            </p>
+
+            {/* Achievements */}
+            <ul class="space-y-2 text-miku-text-dim dark:text-miku-dark-dim">
+              {mission.exp.achievements.map((achievement, ai) => (
+                <li data-i18n={mission.achI18n[ai]} class="flex gap-2 leading-relaxed hover:text-miku-text-main dark:hover:text-miku-dark-text transition-colors">
+                  <span aria-hidden="true" class="font-mono text-miku-teal-strong dark:text-miku-glow select-none shrink-0">▸</span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
+
+          </div>
         </div>
       ))
     }

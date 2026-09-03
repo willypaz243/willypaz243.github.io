@@ -12,39 +12,64 @@ import ContactFooter from '../components/ContactFooter.astro';
   <div id="about" class="scroll-mt-16 animate-fade-in">
     <Hero />
   </div>
-  <main class="max-w-4xl mx-auto px-4 py-12 space-y-24">
-    <div id="experience" class="scroll-mt-16 animate-fade-in">
-      <Experience />
-    </div>
-    <div id="projects" class="scroll-mt-16 animate-fade-in">
+  <main id="main" tabindex="-1" class="max-w-4xl mx-auto px-4 py-12 space-y-24">
+    <div id="projects" class="scroll-mt-16 animate-fade-in" data-scan>
       <Projects />
     </div>
-    <div id="skills" class="scroll-mt-16 animate-fade-in">
+    <div id="experience" class="scroll-mt-16 animate-fade-in" data-scan>
+      <Experience />
+    </div>
+    <div id="skills" class="scroll-mt-16 animate-fade-in" data-scan>
       <Skills />
     </div>
-    <div id="footer" class="scroll-mt-16 animate-fade-in">
+    <div id="footer" class="scroll-mt-16 animate-fade-in" data-scan>
       <ContactFooter />
     </div>
   </main>
 </Layout>
 
-<style>
-  html {
-    scroll-behavior: smooth;
+<style is:global>
+  /* Skip-link target: receive focus without a full-width outline */
+  #main:focus {
+    outline: none;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out;
+  /* Phase 3 — one-shot scanline sweep when a section enters the viewport.
+     .scan-on is added by /scroll-animations.js; the band ends fully outside
+     the box (backgrounds clip to the element), so no cleanup is needed. */
+  [data-scan] {
+    position: relative;
   }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
+  [data-scan]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(72, 255, 244, 0.13) 45%,
+      rgba(72, 255, 244, 0.26) 50%,
+      rgba(72, 255, 244, 0.13) 55%,
+      transparent 100%
+    );
+    background-size: 100% 300px;
+    background-repeat: no-repeat;
+    background-position: 0 calc(0% - 320px);
+  }
+  [data-scan].scan-on::after {
+    opacity: 1;
+    animation: section-sweep 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes section-sweep {
+    to {
+      background-position: 0 calc(100% + 320px);
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-scan]::after {
+      display: none;
     }
   }
 </style>

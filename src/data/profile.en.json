@@ -14,7 +14,10 @@
   "about": {
     "title": "About me",
     "experience": 4,
-    "description": "Full Stack Web Developer with more than 4 years of experience. I have contributed to software development and implemented new features across various projects, optimizing performance and enhancing user experience. I am passionate about creating efficient and innovative solutions."
+    "description": "I build LLM-powered systems that ship to production: RAG chatbots serving real users across Telegram, WhatsApp and web, plus computer-vision OCR pipelines for official documents. Over 4 years across startups, owning features from first commit to deployment."
+  },
+  "meta": {
+    "description": "AI & Full Stack Developer (4+ yrs) building production RAG/LLM systems, computer-vision OCR and scalable APIs for startups. Open to remote roles."
   },
   "hero": {
     "cta_projects": "View My Work",
@@ -34,7 +37,9 @@
   },
   "labels": {
     "view_project": "Live Demo",
-    "source_code": "Source Code"
+    "source_code": "Source Code",
+    "switch_language": "Switch language:",
+    "skip_to_content": "Skip to content"
   },
   "sections": {
     "experience": "Professional Experience",
@@ -116,7 +121,7 @@
       "company_info": {
         "description": "AI-powered platform for short-term rentals and boutique hotels in Latin America. Named in Hot 25 Travel Startups for 2026 (PhocusWire). Partner of Cloudbeds PMS marketplace.",
         "url": "https://hospy.ai",
-        "product": "Empleados de IA — contactless check-in, guest verification, operations automation"
+        "product": "Empleados de IA: contactless check-in, guest verification, operations automation"
       }
     },
     {
@@ -199,14 +204,14 @@
       "icon": "👨‍💻"
     },
     {
-      "id": "experience",
-      "label": "Experience",
-      "icon": "💼"
-    },
-    {
       "id": "projects",
       "label": "Projects",
       "icon": "🚀"
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "icon": "💼"
     },
     {
       "id": "skills",

@@ -9,14 +9,12 @@ import LanguageToggle from './LanguageToggle.astro';
   class="fixed top-0 left-0 right-0 z-50 bg-miku-surface/80 dark:bg-miku-dark-surface/80 backdrop-blur-md border-b border-miku-cyan/20 dark:border-miku-cyan/20"
 >
   <div class="container mx-auto px-4 sm:px-8 lg:px-12">
-    <div class="flex justify-between items-center h-[70px]">
-      <!-- Logo -->
-      <a href="#" aria-label="Go to home">
-        <div class="flex items-center">
-          <span class="font-mono text-xl font-bold tracking-tighter text-miku-cyan dark:text-miku-cyan">
-            {profile.branding.logo}
-          </span>
-        </div>
+    <div class="flex justify-between items-center h-nav-h">
+      <!-- Logo (accessible name = visible text; no conflicting aria-label) -->
+      <a href="/" title="WillyDev - home">
+        <span class="font-mono text-xl font-bold tracking-tighter text-miku-teal-strong dark:text-miku-cyan select-none">
+          {profile.branding.logo}
+        </span>
       </a>
 
       <!-- Navigation Links -->
@@ -27,16 +25,22 @@ import LanguageToggle from './LanguageToggle.astro';
               <a
                 href={`#${section.id}`}
                 data-i18n-nav={section.id}
-                class="text-sm font-medium text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan transition-colors duration-300"
+                data-nav-section={section.id}
+                class:list={[
+                  'nav-link text-sm font-medium transition-colors duration-300',
+                  section.id === 'footer'
+                    ? 'clip-chamfer-sm border border-miku-cyan/50 dark:border-miku-glow/40 px-3 py-1.5 text-miku-teal-strong dark:text-miku-glow hover:bg-miku-cyan/10 dark:hover:bg-miku-glow/10'
+                    : 'text-[#374151] dark:text-miku-dark-dim hover:text-miku-cyan',
+                ]}
               >
-                {section.label}
+                <span>{section.label}</span>
               </a>
             ))
           }
         </div>
         <div class="flex items-center gap-2">
           <span
-            class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-green-600/10 border border-green-600/30 text-green-700 dark:bg-miku-success/10 dark:border-miku-success/30 dark:text-miku-success"
+            class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-green-600/10 border border-green-600/30 text-green-800 dark:bg-miku-success/10 dark:border-miku-success/30 dark:text-miku-success"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-miku-success animate-pulse"></span>
             <span data-i18n="personal.badge" class="text-xs font-medium">{profile.personal.badge}</span>

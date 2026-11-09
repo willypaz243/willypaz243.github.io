@@ -93,7 +93,8 @@ import es from '../data/profile.es.json';
             var navId = el.getAttribute('data-i18n-nav');
             var nav = (profile.navigation || []).find(function (n) { return n.id === navId; });
             if (nav) {
-              el.title = nav.label;
+              el.setAttribute('aria-label', nav.label);
+              el.removeAttribute('title');
               var tooltip = el.querySelector('span');
               if (tooltip) tooltip.textContent = nav.label;
             }

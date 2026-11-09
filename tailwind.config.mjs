@@ -59,8 +59,10 @@ export default {
         // Nav controls: 44px touch target on mobile, 36px on desktop
         'nav-ctl-sm': '44px',
         'nav-ctl': '36px',
-        // Floating mobile bar: 44px item + padding + 16px offset from the viewport edge
-        'nav-bar-h': '76px',
+        // Floating mobile bar: 44px item + padding + 16px offset, plus the home indicator
+        // pb-nav-bar reserves its height; bottom-nav-bar-inset positions the bar itself
+        'nav-bar': 'calc(76px + env(safe-area-inset-bottom, 0px))',
+        'nav-bar-inset': 'calc(1rem + env(safe-area-inset-bottom, 0px))',
       },
       scrollMargin: {
         // Nav height incl. its 1px bottom border — single source for anchor offsets

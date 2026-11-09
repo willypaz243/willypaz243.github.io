@@ -77,6 +77,18 @@ const navIds: string[] = profile.navigation.map(section => section.id);
           </li>
         ))
       }
+      <!-- Status state (dot only): lives here on mobile; the desktop nav shows dot + label -->
+      <li>
+        <span
+          role="status"
+          aria-label="Open to Work"
+          data-i18n-aria="personal.badge"
+          class="w-11 h-11 flex items-center justify-center text-miku-teal-strong dark:text-miku-success"
+        >
+          <span aria-hidden="true" class="w-2 h-2 rounded-full bg-miku-teal-strong dark:bg-miku-success animate-pulse motion-reduce:animate-none"></span>
+          <span class="sr-only" data-i18n="personal.badge">Open to Work</span>
+        </span>
+      </li>
     </ul>
   </nav>
 

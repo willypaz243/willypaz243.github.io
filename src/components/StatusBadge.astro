@@ -11,22 +11,22 @@ interface Props {
 const { compact = false, class: className = '' } = Astro.props;
 ---
 
-<!-- Status state — single source for the nav bar (desktop only; mobile shows it in the Hero) -->
+<!-- Status state, not a control: pulsing dot + short label, no box (desktop nav; mobile uses the dot in the bottom bar) -->
 <span
+  role="status"
+  aria-label={profile.personal.badge}
+  data-i18n-aria="personal.badge"
   class:list={[
-    'nav-control text-miku-teal-strong dark:text-miku-success bg-miku-teal-strong/10 dark:bg-miku-success/10 border-miku-teal-strong/40 dark:border-miku-success/30',
-    compact && 'px-0',
+    'inline-flex items-center gap-2 px-1 text-sm font-medium leading-none text-miku-teal-strong dark:text-miku-success',
+    compact && 'justify-center px-0 min-w-nav-ctl min-h-nav-ctl',
     className,
   ]}
 >
   <span
     aria-hidden="true"
-    class="w-1.5 h-1.5 rounded-full bg-miku-teal-strong dark:bg-miku-success animate-pulse"
+    class="w-2 h-2 shrink-0 rounded-full bg-miku-teal-strong dark:bg-miku-success animate-pulse motion-reduce:animate-none"
   ></span>
-  <span
-    data-i18n="personal.badge"
-    class:list={['font-medium', compact && 'sr-only']}
-  >
+  <span data-i18n="personal.badge" class:list={[compact && 'sr-only']}>
     {profile.personal.badge}
   </span>
 </span>

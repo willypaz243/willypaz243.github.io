@@ -141,9 +141,9 @@ import profile from '../data/profile.en.json';
         </a>
       </div>
 
-      <!-- Availability -->
-      <p data-i18n="personal.availability" class="text-sm text-green-700 dark:text-miku-success flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-miku-success animate-pulse"></span>
+      <!-- Availability: the full-status sentence; the nav indicator keeps only the short label -->
+      <p data-i18n="personal.availability" class="text-sm text-miku-teal-strong dark:text-miku-success flex items-center gap-2">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-miku-teal-strong dark:bg-miku-success animate-pulse motion-reduce:animate-none"></span>
         {profile.personal.availability}
       </p>
 

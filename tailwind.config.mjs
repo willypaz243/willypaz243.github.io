@@ -40,7 +40,7 @@ export default {
       },
       boxShadow: {
         'miku-dark': '0 0 10px rgba(57, 197, 187, 0.5)',
-        'miku-light': '0 4px 12px rgba(57, 197, 187, 0.2)',
+        'miku-light': '0 4px 12px rgba(57, 197, 187, 0.12)',
         'miku-neon': '0 0 15px rgba(72, 255, 244, 0.7)',
         'miku-magenta': '0 0 15px rgba(255, 0, 128, 0.5)',
         'glow-cyan': '0 0 24px rgba(69, 230, 217, 0.35)',
@@ -165,13 +165,19 @@ export default {
         },
         // Shape-following shadow for rimmed elements: box-shadow is clipped away by
         // clip-path, so the light goes on the parent as a drop-shadow of the shape.
-        '.shape-shadow': { filter: 'drop-shadow(0 4px 12px rgba(57, 197, 187, 0.2))' },
-        '.shape-shadow-glow': { filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))' },
-        '.shape-shadow-glow-dark': { '.dark &': { filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))' } },
-        // Parent of project cards: glows when a card (any .group descendant) is hovered.
-        // box-shadow on the card itself is clipped by its chamfer, so the glow lives on the grid.
+        // Kept at low alpha: a slight halo, not a neon bloom.
+        '.shape-shadow': { filter: 'drop-shadow(0 4px 12px rgba(57, 197, 187, 0.12))' },
+        '.shape-shadow-glow': { filter: 'drop-shadow(0 0 18px rgba(69, 230, 217, 0.14))' },
+        '.shape-shadow-glow-dark': { '.dark &': { filter: 'drop-shadow(0 0 18px rgba(69, 230, 217, 0.14))' } },
+        // Wrapper of each project card: glows only the hovered card (its own drop-shadow,
+        // following the chamfered shape). box-shadow on the card itself is clipped away.
+        '.shape-shadow-glow-hover': {
+          transitionProperty: 'filter',
+          transitionDuration: '300ms',
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        },
         '.shape-shadow-glow-hover:has(.group:hover)': {
-          filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))',
+          filter: 'drop-shadow(0 0 16px rgba(69, 230, 217, 0.18))',
         },
       });
       addComponents({

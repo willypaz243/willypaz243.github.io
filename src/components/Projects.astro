@@ -49,11 +49,14 @@ const cards: ProjectCard[] = profile.projects
     tag="DOSSIERS"
     id="proj-title"
   />
-  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 shape-shadow-glow-hover">
+  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
     {
       cards.map(card => (
-        <article
+        <div
           data-animate
+          class="shape-shadow-glow-hover"
+        >
+        <article
           class="group chamfer-rim rim-card fill-surface-solid rim-hover-teal-60-cyan-50 relative transition-all duration-300 hover:-translate-y-1"
         >
           {/* HUD grid backdrop */}
@@ -136,6 +139,7 @@ const cards: ProjectCard[] = profile.projects
             )}
           </div>
         </article>
+        </div>
       ))
     }
   </div>

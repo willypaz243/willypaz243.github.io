@@ -56,7 +56,7 @@ import es from '../data/profile.es.json';
     />
   </head>
   <body
-    class="font-sans bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-nav-h"
+    class="font-sans bg-miku-base dark:bg-miku-dark-base text-miku-text-main dark:text-miku-dark-text transition-colors duration-300 pt-nav-offset"
   >
     <!-- Skip link: first focusable element (WCAG 2.4.1 Bypass Blocks). Hidden until focused. -->
     <a href="#main" class="skip-link" data-i18n="labels.skip_to_content">Skip to content</a>
@@ -87,6 +87,11 @@ import es from '../data/profile.es.json';
                 el.textContent = value;
               }
             }
+          });
+
+          document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+            var value = getNested(profile, el.getAttribute('data-i18n-aria'));
+            if (typeof value === 'string') el.setAttribute('aria-label', value);
           });
 
           document.querySelectorAll('[data-i18n-nav]').forEach(function (el) {
@@ -126,7 +131,8 @@ import es from '../data/profile.es.json';
 <style>
   html {
     font-family: 'Inter', system-ui, sans-serif;
-    scroll-padding-top: 2rem;
+    /* Same clearance as the scroll-mt-nav utility (nav height incl. its 1px border) */
+    scroll-padding-top: 71px;
     /* Single source for colors referenced from plain CSS (nav styles, focus ring) */
     --miku-teal-strong: #007a70;
     --miku-glow: #48fff4;

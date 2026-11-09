@@ -39,7 +39,8 @@
     "view_project": "Demo en Vivo",
     "source_code": "Código Fuente",
     "switch_language": "Cambiar idioma:",
-    "skip_to_content": "Saltar al contenido"
+    "skip_to_content": "Saltar al contenido",
+    "nav_sections": "Secciones"
   },
   "sections": {
     "experience": "Experiencia Profesional",
@@ -200,28 +201,23 @@
   "navigation": [
     {
       "id": "about",
-      "label": "Sobre mí",
-      "icon": "👨‍💻"
+      "label": "Sobre mí"
     },
     {
       "id": "projects",
-      "label": "Proyectos",
-      "icon": "🚀"
+      "label": "Proyectos"
     },
     {
       "id": "experience",
-      "label": "Experiencia",
-      "icon": "💼"
+      "label": "Experiencia"
     },
     {
       "id": "skills",
-      "label": "Habilidades",
-      "icon": "🛠"
+      "label": "Habilidades"
     },
     {
       "id": "footer",
-      "label": "Contacto",
-      "icon": "📧"
+      "label": "Contacto"
     }
   ]
 }

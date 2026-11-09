@@ -56,6 +56,8 @@ export default {
       spacing: {
         // Fixed nav height (replaces arbitrary pt-[70px] / h-[70px])
         'nav-h': '70px',
+        // Nav height incl. its 1px bottom border: body offset and anchor offsets
+        'nav-offset': '71px',
         // Nav controls: 44px touch target on mobile, 36px on desktop
         'nav-ctl-sm': '44px',
         'nav-ctl': '36px',

@@ -14,10 +14,10 @@ const GLYPHS: Record<string, string> = {
 <style is:global>
   /* Scrollspy active state — shared by desktop links (.nav-link) and mobile glyph bar */
   a.nav-active {
-    color: #007a70; /* miku.teal-strong */
+    color: var(--miku-teal-strong);
   }
   .dark a.nav-active {
-    color: #48fff4; /* miku.glow */
+    color: var(--miku-glow);
   }
   .dark a.nav-active svg {
     filter: drop-shadow(0 0 5px rgba(72, 255, 244, 0.55));
@@ -39,7 +39,7 @@ const GLYPHS: Record<string, string> = {
 
 <!-- Mobile Navigation Bar -->
 <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-    <ul class="flex items-center gap-1 p-1.5 clip-chamfer-sm border border-miku-teal-strong/40 dark:border-miku-cyan/25 bg-miku-surface dark:bg-miku-dark-surface shadow-miku-light">
+    <ul class="flex items-center gap-1 p-1.5 clip-chamfer-sm border border-miku-teal-strong/40 dark:border-miku-cyan/25 bg-miku-surface/80 dark:bg-miku-dark-surface/80 backdrop-blur-md shadow-miku-light">
       {
         profile.navigation.map(section => (
           <li>

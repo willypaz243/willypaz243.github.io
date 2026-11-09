@@ -56,6 +56,15 @@ export default {
       spacing: {
         // Fixed nav height (replaces arbitrary pt-[70px] / h-[70px])
         'nav-h': '70px',
+        // Nav controls: 44px touch target on mobile, 36px on desktop
+        'nav-ctl-sm': '44px',
+        'nav-ctl': '36px',
+        // Floating mobile bar: 44px item + padding + 16px offset from the viewport edge
+        'nav-bar-h': '76px',
+      },
+      scrollMargin: {
+        // Nav height incl. its 1px bottom border — single source for anchor offsets
+        nav: '71px',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -74,16 +83,14 @@ export default {
   },
   plugins: [
     // NERV/EVA-style design primitives (see .plan/eva-redesign-plan.md)
-    function ({ addUtilities }) {
+    function ({ addUtilities, addComponents }) {
       addUtilities({
         // Chamfered corners — the EVA signature shape (replaces rounded-* in Phase 1+)
         '.clip-chamfer': {
-          clipPath:
-            'polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)',
+          clipPath: 'polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)',
         },
         '.clip-chamfer-sm': {
-          clipPath:
-            'polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)',
+          clipPath: 'polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)',
         },
         // Hazard warning stripes — color via --hazard-color (defaults to miku.warning gold)
         '.bg-hazard-stripe': {
@@ -100,6 +107,18 @@ export default {
           backgroundImage:
             'linear-gradient(rgba(72, 255, 244, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 255, 244, 0.03) 1px, transparent 1px)',
           backgroundSize: '22px 22px',
+        },
+        // Icon glow (nav toggles) — replaces inline drop-shadow styles
+        '.glow-cyan': { filter: 'drop-shadow(0 0 8px rgba(57, 197, 187, 0.6))' },
+        '.glow-cyan-strong': { filter: 'drop-shadow(0 0 10px rgba(57, 197, 187, 0.8))' },
+        '.glow-teal': { filter: 'drop-shadow(0 2px 6px rgba(0, 163, 150, 0.4))' },
+      });
+      addComponents({
+        // Shared nav control: chamfered shape + 44px touch target / 36px desktop + surface
+        // Colors come from the miku tokens; components override with utilities (utility layer wins)
+        '.nav-control': {
+          '@apply inline-flex items-center justify-center gap-1.5 min-h-nav-ctl-sm md:min-h-nav-ctl min-w-nav-ctl-sm md:min-w-nav-ctl px-3 text-sm font-medium leading-none text-miku-teal-strong dark:text-miku-cyan bg-miku-surface/80 dark:bg-miku-dark-surface/80 border border-miku-teal-strong/40 dark:border-miku-cyan/25 hover:bg-miku-cyan/10 transition-colors duration-300 select-none clip-chamfer-sm':
+            {},
         },
       });
     },

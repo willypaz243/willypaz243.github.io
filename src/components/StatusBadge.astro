@@ -1,0 +1,32 @@
+---
+import profile from '../data/profile.en.json';
+
+interface Props {
+  /** Dot only (label kept for screen readers) — used between md and xl */
+  compact?: boolean;
+  /** Extra utilities, e.g. breakpoint visibility */
+  class?: string;
+}
+
+const { compact = false, class: className = '' } = Astro.props;
+---
+
+<!-- Status state — single source for the nav bar (desktop only; mobile shows it in the Hero) -->
+<span
+  class:list={[
+    'nav-control text-miku-teal-strong dark:text-miku-success bg-miku-teal-strong/10 dark:bg-miku-success/10 border-miku-teal-strong/40 dark:border-miku-success/30',
+    compact && 'px-0',
+    className,
+  ]}
+>
+  <span
+    aria-hidden="true"
+    class="w-1.5 h-1.5 rounded-full bg-miku-teal-strong dark:bg-miku-success animate-pulse"
+  ></span>
+  <span
+    data-i18n="personal.badge"
+    class:list={['font-medium', compact && 'sr-only']}
+  >
+    {profile.personal.badge}
+  </span>
+</span>

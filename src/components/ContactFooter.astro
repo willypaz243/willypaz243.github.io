@@ -11,7 +11,8 @@ import profile from '../data/profile.en.json';
   .cta-hazard::after {
     content: '';
     position: absolute;
-    inset: 0;
+    /* inside the 1px chamfer rim (see .chamfer-rim) */
+    inset: 1px;
     background-image: repeating-linear-gradient(
       -45deg,
       rgba(255, 215, 0, 0.16) 0,
@@ -41,7 +42,7 @@ import profile from '../data/profile.en.json';
     <!-- DIRECT LINE header -->
     <div class="flex items-center gap-3 sm:gap-4 mb-8">
       <span class="font-mono text-xs tracking-widest select-none text-miku-teal-strong dark:text-miku-glow">// DIRECT LINE</span>
-      <h2 id="ct-title" data-i18n="contact.title" class="clip-chamfer-sm border border-miku-teal-strong/40 dark:border-miku-cyan/30 bg-miku-surface dark:bg-miku-dark-surface px-3 py-1.5 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap text-miku-text-main dark:text-miku-dark-text">
+      <h2 id="ct-title" data-i18n="contact.title" class="chamfer-rim rim-plate fill-surface-solid px-3 py-1.5 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap text-miku-text-main dark:text-miku-dark-text">
         {profile.contact.title}
       </h2>
       <div aria-hidden="true" class="flex-1 h-px bg-gradient-to-r from-miku-teal-strong/50 dark:from-miku-cyan/40 to-transparent"></div>
@@ -53,7 +54,7 @@ import profile from '../data/profile.en.json';
         <a
           data-magnetic
           href={`mailto:${profile.contact.email}`}
-          class="cta-hazard clip-chamfer-sm inline-block px-5 py-3 border border-miku-teal-strong/40 dark:border-miku-cyan/30 hover:border-miku-teal-strong dark:hover:border-miku-glow transition-colors duration-300"
+          class="cta-hazard chamfer-rim rim-plate rim-hover-teal-glow fill-surface-solid inline-block px-5 py-3 transition-colors duration-300"
         >
           <span class="font-mono text-lg sm:text-2xl font-bold break-all text-miku-text-main dark:text-miku-dark-text">
             {profile.contact.email}
@@ -70,7 +71,7 @@ import profile from '../data/profile.en.json';
           href={profile.contact.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="group clip-chamfer-sm flex items-center gap-2 px-4 py-2.5 bg-miku-surface dark:bg-miku-dark-surface hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 transition-all duration-300 border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan/50"
+          class="group chamfer-rim rim-card fill-surface-solid rim-hover-cyan fill-hover-cyan-10-20 flex items-center gap-2 px-4 py-2.5 transition-all duration-300"
           title="LinkedIn"
         >
           <svg
@@ -88,7 +89,7 @@ import profile from '../data/profile.en.json';
           href={profile.contact.github}
           target="_blank"
           rel="noopener noreferrer"
-          class="group clip-chamfer-sm flex items-center gap-2 px-4 py-2.5 bg-miku-surface dark:bg-miku-dark-surface hover:bg-miku-cyan/10 dark:hover:bg-miku-cyan/20 transition-all duration-300 border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan/50"
+          class="group chamfer-rim rim-card fill-surface-solid rim-hover-cyan fill-hover-cyan-10-20 flex items-center gap-2 px-4 py-2.5 transition-all duration-300"
           title="GitHub"
         >
           <svg

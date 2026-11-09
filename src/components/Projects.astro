@@ -49,12 +49,12 @@ const cards: ProjectCard[] = profile.projects
     tag="DOSSIERS"
     id="proj-title"
   />
-  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+  <div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 shape-shadow-glow-hover">
     {
       cards.map(card => (
         <article
           data-animate
-          class="group clip-chamfer-sm relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface dark:bg-miku-dark-surface transition-all duration-300 hover:-translate-y-1 hover:border-miku-teal-strong/60 dark:hover:border-miku-cyan/50 hover:shadow-glow-cyan"
+          class="group chamfer-rim rim-card fill-surface-solid rim-hover-teal-60-cyan-50 relative transition-all duration-300 hover:-translate-y-1"
         >
           {/* HUD grid backdrop */}
           <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
@@ -98,7 +98,7 @@ const cards: ProjectCard[] = profile.projects
             {/* Tech Stack Badges (chamfered chips) */}
             <div class="flex flex-wrap gap-1.5 mb-5">
               {card.project.technologies.map(tech => (
-                <span class="clip-chamfer-sm px-2.5 py-1 text-xs font-mono bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-dim dark:text-miku-dark-dim group-hover:border-miku-cyan/40 transition-colors duration-300">
+                <span class="chamfer-rim rim-card fill-base rim-hover-cyan-40-group px-2.5 py-1 text-xs font-mono text-miku-text-dim dark:text-miku-dark-dim transition-colors duration-300">
                   {tech}
                 </span>
               ))}
@@ -109,7 +109,7 @@ const cards: ProjectCard[] = profile.projects
               /* Live Demo — primary style */
               <a
                 href={card.project.link}
-                class="clip-chamfer-sm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-miku-cyan/10 dark:bg-miku-cyan/15 border border-miku-cyan/30 text-miku-teal-strong dark:text-miku-cyan hover:bg-miku-cyan/20 transition-all duration-300"
+                class="chamfer-rim rim-cyan fill-cyan-10-15 fill-hover-cyan-20 inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-miku-teal-strong dark:text-miku-cyan transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-i18n="labels.view_project"
@@ -123,7 +123,7 @@ const cards: ProjectCard[] = profile.projects
               /* Source Code — secondary style */
               <a
                 href={card.project.link}
-                class="clip-chamfer-sm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-miku-base dark:bg-miku-dark-base border border-miku-border-dim dark:border-miku-dark-border text-miku-text-main dark:text-miku-dark-text hover:border-miku-cyan/50 transition-all duration-300"
+                class="chamfer-rim rim-card fill-base rim-hover-cyan inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-miku-text-main dark:text-miku-dark-text transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-i18n="labels.source_code"

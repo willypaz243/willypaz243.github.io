@@ -48,7 +48,7 @@ export default {
       minHeight: {
         // NERV terminal frame (hero)
         terminal: '380px',
-        'terminal-lg': '490px',
+        'terminal-lg': '600px',
       },
       borderRadius: {
         miku: '15px',
@@ -116,13 +116,106 @@ export default {
         '.glow-cyan': { filter: 'drop-shadow(0 0 8px rgba(57, 197, 187, 0.6))' },
         '.glow-cyan-strong': { filter: 'drop-shadow(0 0 10px rgba(57, 197, 187, 0.8))' },
         '.glow-teal': { filter: 'drop-shadow(0 2px 6px rgba(0, 163, 150, 0.4))' },
+        // --- Chamfer rim system (pairs with .chamfer-rim; theme values live in
+        // Layout.astro as --rim-*/--fill-* vars). The build minifier mangles nested
+        // `.dark &` inside pseudo-classes, so every rule here is a flat selector.
+        '.rim-nav': { '--rim': 'var(--rim-nav)' },
+        '.rim-plate': { '--rim': 'var(--rim-plate)' },
+        '.rim-card': { '--rim': 'var(--rim-card)' },
+        '.rim-cyan': { '--rim': 'var(--rim-cyan)' },
+        '.rim-cta': { '--rim': 'var(--rim-cta)' },
+        '.rim-hero': { '--rim': 'var(--rim-hero)' },
+        // Hover rims (set --rim-hover; .chamfer-rim swaps gradients on :hover/:focus-visible)
+        '.rim-hover-cyan': {
+          '--rim-hover': 'color-mix(in srgb, var(--miku-cyan) 50%, transparent)',
+        },
+        '.rim-hover-cyan-full': { '--rim-hover': 'var(--miku-cyan)' },
+        '.rim-hover-teal-glow': {
+          '--rim-hover': 'var(--miku-teal-strong)',
+          '.dark &': { '--rim-hover': 'var(--miku-glow)' },
+        },
+        '.rim-hover-teal-60-cyan-50': {
+          '--rim-hover': 'color-mix(in srgb, var(--miku-teal-strong) 60%, transparent)',
+          '.dark &': { '--rim-hover': 'color-mix(in srgb, var(--miku-cyan) 50%, transparent)' },
+        },
+        '.rim-hover-teal70-magenta60': {
+          '--rim-hover': 'color-mix(in srgb, var(--miku-teal-strong) 70%, transparent)',
+          '.dark &': { '--rim-hover': 'color-mix(in srgb, var(--miku-magenta) 60%, transparent)' },
+        },
+        '.group:hover .rim-hover-cyan-40-group': {
+          '--rim-hover': 'color-mix(in srgb, var(--miku-cyan) 40%, transparent)',
+        },
+        // Fills (replace bg-* on rimmed elements; the ::before paints them inside the ring)
+        '.fill-surface-80': { '--fill': 'var(--fill-surface-80)' },
+        '.fill-surface-60-40': { '--fill': 'var(--fill-surface-60-40)' },
+        '.fill-surface-solid': { '--fill': 'var(--fill-surface-solid)' },
+        '.fill-base': { '--fill': 'var(--fill-base)' },
+        '.fill-base-surface': { '--fill': 'var(--fill-base-surface)' },
+        '.fill-cyan-10-15': { '--fill': 'var(--fill-cyan-10-15)' },
+        // Hover fills (replace hover:bg-*)
+        '.fill-hover-cyan-10': {
+          '--fill-hover': 'color-mix(in srgb, var(--miku-cyan) 10%, transparent)',
+        },
+        '.fill-hover-cyan-10-20': {
+          '--fill-hover': 'color-mix(in srgb, var(--miku-cyan) 10%, transparent)',
+          '.dark &': { '--fill-hover': 'color-mix(in srgb, var(--miku-cyan) 20%, transparent)' },
+        },
+        '.fill-hover-cyan-20': {
+          '--fill-hover': 'color-mix(in srgb, var(--miku-cyan) 20%, transparent)',
+        },
+        // Shape-following shadow for rimmed elements: box-shadow is clipped away by
+        // clip-path, so the light goes on the parent as a drop-shadow of the shape.
+        '.shape-shadow': { filter: 'drop-shadow(0 4px 12px rgba(57, 197, 187, 0.2))' },
+        '.shape-shadow-glow': { filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))' },
+        '.shape-shadow-glow-dark': { '.dark &': { filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))' } },
+        // Parent of project cards: glows when a card (any .group descendant) is hovered.
+        // box-shadow on the card itself is clipped by its chamfer, so the glow lives on the grid.
+        '.shape-shadow-glow-hover:has(.group:hover)': {
+          filter: 'drop-shadow(0 0 24px rgba(69, 230, 217, 0.35))',
+        },
       });
       addComponents({
-        // Shared nav control: chamfered shape + 44px touch target / 36px desktop + surface
+        // Chamfered rim: a 1px border that follows the diagonal cut.
+        // The element paints the rim color across the whole chamfered box; a ::before
+        // inset 1px paints the fill, so the only visible rim paint is the 1px ring
+        // (clip-path alone clips the border away on the diagonal, T16).
+        // Fill and rim colors arrive through --rim / --fill (utilities below).
+        '.chamfer-rim': {
+          position: 'relative',
+          backgroundColor: 'transparent',
+          backgroundImage: 'linear-gradient(var(--rim, transparent))',
+          clipPath: 'polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)',
+          // Hover swaps in --rim-hover/--fill-hover (set by the rim-hover-*/fill-hover-* utilities);
+          // they fall back to the base vars when absent.
+          '&:hover, &:focus-visible': {
+            backgroundImage: 'linear-gradient(var(--rim-hover, var(--rim, transparent)))',
+          },
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: '1px',
+            zIndex: '-1',
+            backgroundImage: 'linear-gradient(var(--fill, transparent))',
+            clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)',
+          },
+          '&:hover::before, &:focus-visible::before': {
+            backgroundImage: 'linear-gradient(var(--fill-hover, var(--fill, transparent)))',
+          },
+        },
+        '.chamfer-rim-lg': {
+          clipPath: 'polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)',
+          '&::before': {
+            clipPath: 'polygon(13px 0, 100% 0, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%, 0 13px)',
+          },
+        },
+        // Shared nav control: chamfered shape + 44px touch target / 36px desktop + surface.
         // Colors come from the miku tokens; components override with utilities (utility layer wins)
         '.nav-control': {
-          '@apply inline-flex items-center justify-center gap-1.5 min-h-nav-ctl-sm md:min-h-nav-ctl min-w-nav-ctl-sm md:min-w-nav-ctl px-3 text-sm font-medium leading-none text-miku-teal-strong dark:text-miku-cyan bg-miku-surface/80 dark:bg-miku-dark-surface/80 border border-miku-teal-strong/40 dark:border-miku-cyan/25 hover:bg-miku-cyan/10 transition-colors duration-300 select-none clip-chamfer-sm':
+          '@apply inline-flex items-center justify-center gap-1.5 min-h-nav-ctl-sm md:min-h-nav-ctl min-w-nav-ctl-sm md:min-w-nav-ctl px-3 text-sm font-medium leading-none select-none':
             {},
+          transitionProperty: 'color, background-color, --rim, --fill',
+          transitionDuration: '300ms',
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
         },
       });
     },

@@ -129,14 +129,63 @@ import es from '../data/profile.es.json';
 </html>
 
 <style>
+  /* Rim/fill channels of the chamfer system (see tailwind.config.mjs .chamfer-rim).
+     Registered so hover color changes animate; unregistered browsers snap instantly. */
+  @property --rim {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+  }
+  @property --fill {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+  }
   html {
     font-family: 'Inter', system-ui, sans-serif;
     /* Same clearance as the scroll-mt-nav utility (nav height incl. its 1px border) */
     scroll-padding-top: 71px;
-    /* Single source for colors referenced from plain CSS (nav styles, focus ring) */
+    /* Single source for colors referenced from plain CSS (nav styles, focus ring, rim utilities) */
     --miku-teal-strong: #007a70;
     --miku-glow: #48fff4;
     --miku-focus: #39c5bb;
+    /* Tokens used from plain CSS by the rim/fill utilities below */
+    --miku-cyan: #39c5bb;
+    --miku-magenta: #ff0080;
+    --miku-base: #fafcff;
+    --miku-surface: #e8f1f5;
+    --miku-border-dim: #b0bec5;
+    --miku-dark-base: #0f1419;
+    --miku-dark-surface: #161b22;
+    --miku-dark-border: #21262d;
+    /* Chamfer rim colors (the 1px ring) by context; .dark overrides.
+       Values mirror the border tokens each site had before the rim system. */
+    --rim-nav: color-mix(in srgb, var(--miku-teal-strong) 40%, transparent);
+    --rim-plate: color-mix(in srgb, var(--miku-teal-strong) 40%, transparent);
+    --rim-card: var(--miku-border-dim);
+    --rim-cyan: color-mix(in srgb, var(--miku-cyan) 30%, transparent);
+    --rim-cta: color-mix(in srgb, var(--miku-cyan) 50%, transparent);
+    --rim-hero: color-mix(in srgb, var(--miku-teal-strong) 50%, transparent);
+    /* Chamfer fills (painted by the ::before inside the ring); mirror the bg-* tokens */
+    --fill-surface-80: color-mix(in srgb, var(--miku-surface) 80%, transparent);
+    --fill-surface-60-40: color-mix(in srgb, var(--miku-surface) 60%, transparent);
+    --fill-surface-solid: var(--miku-surface);
+    --fill-base: var(--miku-base);
+    --fill-base-surface: var(--miku-base);
+    --fill-cyan-10-15: color-mix(in srgb, var(--miku-cyan) 10%, transparent);
+  }
+  .dark {
+    --rim-nav: color-mix(in srgb, var(--miku-cyan) 25%, transparent);
+    --rim-plate: color-mix(in srgb, var(--miku-cyan) 30%, transparent);
+    --rim-card: var(--miku-dark-border);
+    --rim-cta: color-mix(in srgb, var(--miku-glow) 40%, transparent);
+    --rim-hero: color-mix(in srgb, var(--miku-cyan) 30%, transparent);
+    --fill-surface-80: color-mix(in srgb, var(--miku-dark-surface) 80%, transparent);
+    --fill-surface-60-40: color-mix(in srgb, var(--miku-dark-surface) 40%, transparent);
+    --fill-surface-solid: var(--miku-dark-surface);
+    --fill-base: var(--miku-dark-base);
+    --fill-base-surface: var(--miku-dark-surface);
+    --fill-cyan-10-15: color-mix(in srgb, var(--miku-cyan) 15%, transparent);
   }
   body {
     margin: 0;

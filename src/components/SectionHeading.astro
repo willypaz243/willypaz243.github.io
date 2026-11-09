@@ -57,7 +57,7 @@ const { num, title, tag, i18n, id } = Astro.props;
   <h2
     {...(id ? { id } : {})}
     {...(i18n ? { 'data-i18n': i18n } : {})}
-    class="plate-lock clip-chamfer-sm border border-miku-teal-strong/40 dark:border-miku-cyan/30 bg-miku-surface dark:bg-miku-dark-surface px-3 sm:px-5 py-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap text-miku-text-main dark:text-miku-dark-text"
+    class="plate-lock chamfer-rim rim-plate fill-surface-solid px-3 sm:px-5 py-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap text-miku-text-main dark:text-miku-dark-text"
   >
     {title}
   </h2>

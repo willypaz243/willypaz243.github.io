@@ -14,7 +14,7 @@ import SectionHeading from './SectionHeading.astro';
 
   <div class="space-y-8 mt-4">
     {/* Soft skills — NEURAL LINK */}
-    <div data-animate class="clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
+    <div data-animate class="chamfer-rim chamfer-rim-lg rim-card fill-surface-60-40 relative">
       <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
 
       <div class="relative p-5 sm:p-6">
@@ -52,7 +52,7 @@ import SectionHeading from './SectionHeading.astro';
         const mod = String(idx + 1).padStart(2, '0');
 
         return (
-          <div data-animate class="skill-module clip-chamfer relative border border-miku-border-dim dark:border-miku-dark-border bg-miku-surface/60 dark:bg-miku-dark-surface/40">
+          <div data-animate class="skill-module chamfer-rim chamfer-rim-lg rim-card fill-surface-60-40 relative">
             {/* HUD grid backdrop */}
             <div aria-hidden="true" class="hud-grid absolute inset-0 pointer-events-none"></div>
 
@@ -78,7 +78,7 @@ import SectionHeading from './SectionHeading.astro';
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {expertTools.map((tool: string) => (
-                    <span class="clip-chamfer-sm px-3 py-1.5 text-xs sm:text-sm font-mono bg-miku-cyan/10 dark:bg-miku-cyan/15 text-miku-teal-strong dark:text-miku-glow border border-miku-teal-strong/40 dark:border-miku-cyan/25 hover:border-miku-cyan transition-all">
+                    <span class="chamfer-rim rim-nav fill-cyan-10-15 rim-hover-cyan-full px-3 py-1.5 text-xs sm:text-sm font-mono text-miku-teal-strong dark:text-miku-glow transition-all">
                       {tool}
                     </span>
                   ))}
@@ -93,7 +93,7 @@ import SectionHeading from './SectionHeading.astro';
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {workingTools.map((tool: string) => (
-                      <span class="clip-chamfer-sm px-3 py-1.5 text-xs sm:text-sm font-mono bg-miku-base dark:bg-miku-dark-base text-miku-text-dim dark:text-miku-dark-dim border border-miku-border-dim dark:border-miku-dark-border hover:border-miku-cyan/50 transition-all">
+                      <span class="chamfer-rim rim-card fill-base rim-hover-cyan px-3 py-1.5 text-xs sm:text-sm font-mono text-miku-text-dim dark:text-miku-dark-dim transition-all">
                         {tool}
                       </span>
                     ))}
